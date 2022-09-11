@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: com.BugTrackerApp.BugTracker.BugTrackerApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.752 s - in com.BugTrackerApp.BugTracker.BugTrackerApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.782 s <<< FAILURE! - in com.BugTrackerApp.BugTracker.BugTrackerApplicationTests
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/C:/Users/Vasil/Documents/GitHub/BugProjectManagement/target/classes/data.sql]: INSERT INTO User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO [*]User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5)"; expected "identifier"; SQL statement:
+INSERT INTO User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5) [42001-214]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of URL [file:/C:/Users/Vasil/Documents/GitHub/BugProjectManagement/target/classes/data.sql]: INSERT INTO User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO [*]User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5)"; expected "identifier"; SQL statement:
+INSERT INTO User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5) [42001-214]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Syntax error in SQL statement "INSERT INTO [*]User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5)"; expected "identifier"; SQL statement:
+INSERT INTO User (id, first_name, last_name, email, phoneNumber) VALUES ('1', 'v', 'd', 'v', 5) [42001-214]
+
