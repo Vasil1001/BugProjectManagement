@@ -1,94 +1,55 @@
 package com.BugTrackerApp.BugTracker.model;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
+@Builder
+@Getter
+@Setter
+@ToString
+@Entity
 public class Project {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private String id;
     private String name;
     private String description;
-    private Date startDate;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+
+    private Instant createdOn; //Project.setCreatedOn(Instant.now());
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+
     private Date finishDate;
 
     // * Project will show assigned team manager
     // * Project will show assigned team members
     // * Project will show assigned tickets
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user; // ? FOREIGN KEY
     private ArrayList<User> members;
     private ArrayList<Ticket> projectTickets;
 
-    public Project(String id, String name, String description, Date startDate, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
+    public Project() {
+    }
+
+    public Project(String id, String name, String description, Instant createdOn, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.startDate = startDate;
+        this.createdOn = createdOn;
         this.finishDate = finishDate;
         this.user = user;
         this.members = members;
-        this.projectTickets = projectTickets;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getFinishDate() {
-        return finishDate;
-    }
-
-    public void setFinishDate(Date finishDate) {
-        this.finishDate = finishDate;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public ArrayList<User> getMembers() {
-        return members;
-    }
-
-    public void setMembers(ArrayList<User> members) {
-        this.members = members;
-    }
-
-    public ArrayList<Ticket> getProjectTickets() {
-        return projectTickets;
-    }
-
-    public void setProjectTickets(ArrayList<Ticket> projectTickets) {
         this.projectTickets = projectTickets;
     }
 
@@ -98,7 +59,7 @@ public class Project {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", startDate=" + startDate +
+                ", createdOn =" + createdOn +
                 ", finishDate=" + finishDate +
                 ", user=" + user +
                 ", members=" + members +

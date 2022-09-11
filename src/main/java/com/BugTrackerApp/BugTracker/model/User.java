@@ -1,11 +1,25 @@
 package com.BugTrackerApp.BugTracker.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@ToString
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private String id;
+    @Column(name = "first_name")
     private String firstname;
+    @Column(name = "last_name")
     private String lastname;
     private String email;
     private int phoneNumber;
