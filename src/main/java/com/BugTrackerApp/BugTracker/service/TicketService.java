@@ -1,6 +1,8 @@
 package com.BugTrackerApp.BugTracker.service;
 
-import com.BugTrackerApp.BugTracker.model.Project;
+import com.BugTrackerApp.BugTracker.model.Ticket;
+import com.BugTrackerApp.BugTracker.repository.TicketRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,25 +10,28 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProjectService {
+public class TicketService {
 
-    public List<Project> getAllLocations() {
-        List<Project> locations = new ArrayList<>();
-        projectRepository.findAll().forEach(locations::add);
-        return locations;
+    @Autowired
+    private TicketRepository ticketRepository;
+
+    public List<Ticket> getAllTickets() {
+        List<Ticket> tickets = new ArrayList<>();
+        ticketRepository.findAll().forEach(tickets::add);
+        return tickets;
     }
 
-    public Optional<Project> getLocation(String id) {
-        return projectRepository.findById(id);
+    public Optional<Ticket> getTicket(String id) {
+        return ticketRepository.findById(id);
     }
 
-    public void addLocation(Project project) {
-        projectRepository.save(project);
+    public void addTicket(Ticket ticket) {
+        ticketRepository.save(ticket);
     }
-    public void updateLocation(String id, Project project) {
-        projectRepository.save(project);
+    public void updateTicket(String id, Ticket ticket) {
+        ticketRepository.save(ticket);
     }
-    public void deleteLocation(String id) {
-        projectRepository.deleteById(id);
+    public void deleteTicket(String id) {
+        ticketRepository.deleteById(id);
     }
 }
