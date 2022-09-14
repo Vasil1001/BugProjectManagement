@@ -18,7 +18,7 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @RequestMapping("/getAllProjects") //RETURN TO HTML
+    @RequestMapping("/getAll") //RETURN TO HTML
     public String getAllModel(Model model) {
         List<Project> projects = projectService.getAll();
         model.addAttribute("projects", projects);
@@ -26,7 +26,7 @@ public class ProjectController {
     }
 
     
-    @RequestMapping(value = "/getAll")
+    @RequestMapping(value = "/getAllProjects")
     public List<Project> getAllProjects() {
         return projectService.getAllProjects();
     }

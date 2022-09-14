@@ -17,7 +17,7 @@ public class TicketController {
     @Autowired
     private TicketService ticketService;
 
-    @RequestMapping("/getAllTickets") //RETURN TO HTML
+    @RequestMapping("/getAll") //RETURN TO HTML
     public String getAllModel(Model model) {
         List<Ticket> tickets = ticketService.getAll();
         model.addAttribute("Tickets", tickets);
