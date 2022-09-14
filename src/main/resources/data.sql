@@ -1,4 +1,2 @@
-insert into student values(4, 'Kindson Munonye', 'Computer Science', 'The Tech Pro', '2019-06-27');
-insert into student values(5, 'Kate Winston', 'Managment', 'The Tech Pro', '2019-06-27');
-insert into student values(6, 'Solace Okeke', 'Data Science', 'The Tech Pro', '2019-06-27');
-COMMIT;
+insert into ticket values(2, 'Fix db', 'description', 'Open', 'Urgent', 'IT', '2', NULL, NULL, NULL, NULL, NULL, NULL);
+insert into ticket values(3, 'Fix db', 'description', 'Open', 'Urgent', 'IT', '2', NULL, NULL, NULL, NULL, NULL, NULL);

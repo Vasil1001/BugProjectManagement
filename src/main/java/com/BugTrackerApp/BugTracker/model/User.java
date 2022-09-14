@@ -22,7 +22,7 @@ public class User {
     @Column(name = "last_name")
     private String lastname;
     private String email;
-    private int phoneNumber;
+    private Long phoneNumber;
 
     private ArrayList<Ticket> assignedTickets;
 
@@ -62,11 +62,11 @@ public class User {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -25,9 +25,9 @@ public class Project {
     private String description;
     @DateTimeFormat(pattern="yyyy-MM-dd")
 
-    private Instant createdOn; //Project.setCreatedOn(Instant.now());
+    private Date createdOn; //Project.setCreatedOn(Instant.now());
     @DateTimeFormat(pattern="yyyy-MM-dd")
-
+     
     private Date finishDate;
 
     // * Project will show assigned team manager
@@ -38,11 +38,11 @@ public class Project {
     private User user; // ? FOREIGN KEY
     private ArrayList<User> members;
     private ArrayList<Ticket> projectTickets;
-
+    
     public Project() {
     }
 
-    public Project(String id, String name, String description, Instant createdOn, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
+    public Project(String id, String name, String description, Date createdOn, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
         this.id = id;
         this.name = name;
         this.description = description;
