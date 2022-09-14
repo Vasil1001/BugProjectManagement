@@ -1,2 +1,0 @@
-insert into ticket values(2, 'Fix db', 'description', 'Open', 'Urgent', 'IT', '2', NULL, NULL, NULL, NULL, NULL, NULL);
-insert into ticket values(3, 'Fix db', 'description', 'Open', 'Urgent', 'IT', '2', NULL, NULL, NULL, NULL, NULL, NULL);

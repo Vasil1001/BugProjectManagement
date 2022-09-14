@@ -15,6 +15,10 @@ public class TicketService {
     @Autowired
     private TicketRepository ticketRepository;
 
+    public List<Ticket> getAll() {
+        return (List<Ticket>) ticketRepository.findAll();
+    }
+    
     public List<Ticket> getAllTickets() {
         List<Ticket> tickets = new ArrayList<>();
         ticketRepository.findAll().forEach(tickets::add);

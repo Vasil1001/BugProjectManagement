@@ -322,13 +322,12 @@
                 </th>
 
                 <th>Id</th>
-                <th>Name</th>
+                <th>Title</th>
                 <th>Description</th>
-                <th>Options</th>
               </tr>
             </thead>
             <tbody>
-            <tr th:each="project:${projects}">
+            <tr th:each="ticket:${tickets}">
               <td>
                 <span class="custom-checkbox">
                   <input
@@ -341,9 +340,9 @@
                 </span>
               </td>
 
-              <td th:text="${project.id}">Id</td>
-              <td th:text="${project.name}">Name</td>
-              <td th:text="${project.description}">Description</td>
+              <td th:text="${ticket.id}">Id</td>
+              <td th:text="${ticket.title}">Name</td>
+              <td th:text="${ticket.description}">Description</td>
 
               <td>
                 <a href="#editEmployeeModal" class="edit" data-toggle="modal"
@@ -375,7 +374,7 @@
         <div class="modal-content">
           <form>
             <div class="modal-header">
-              <h4 class="modal-title">Add Employee</h4>
+              <h4 class="modal-title">Add Ticket</h4>
               <button
                 type="button"
                 class="close"
@@ -420,7 +419,7 @@
         <div class="modal-content">
           <form>
             <div class="modal-header">
-              <h4 class="modal-title">Edit Employee</h4>
+              <h4 class="modal-title">Edit Ticket</h4>
               <button
                 type="button"
                 class="close"
@@ -467,7 +466,7 @@
         <div class="modal-content">
           <form>
             <div class="modal-header">
-              <h4 class="modal-title">Delete Employee</h4>
+              <h4 class="modal-title">Delete Ticket</h4>
               <button
                 type="button"
                 class="close"

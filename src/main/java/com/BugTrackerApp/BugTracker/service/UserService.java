@@ -19,6 +19,7 @@ public class UserService {
     public List<User> getAll() {
         return (List<User>) userRepository.findAll();
     }
+    
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         userRepository.findAll().forEach(users::add);
@@ -37,7 +38,7 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    /////////////////////////
+    //////////////////////////////////////////////
 //    public Optional<User> getUser(String id) {
 //        return userRepository.findById(id);
 //    }

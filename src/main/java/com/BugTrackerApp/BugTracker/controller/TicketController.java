@@ -4,6 +4,7 @@ import com.BugTrackerApp.BugTracker.model.Ticket;
 import com.BugTrackerApp.BugTracker.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,14 @@ public class TicketController {
 
     @Autowired
     private TicketService ticketService;
+
+    @RequestMapping("/getAllTickets") //RETURN TO HTML
+    public String getAllModel(Model model) {
+        List<Ticket> tickets = ticketService.getAll();
+        model.addAttribute("Tickets", tickets);
+        return "tickets"; //NAME OF HTML TO RETURN
+    }
+
 
     @RequestMapping(value = "/Tickets")
     public List<Ticket> getAllTickets() {

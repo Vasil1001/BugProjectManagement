@@ -16,16 +16,22 @@ import java.util.Optional;
 public class ProjectController {
 
     @Autowired
-    ProjectService projectService;
+    private ProjectService projectService;
 
-    @RequestMapping(value = "/projects/getAllProjects")
+    @RequestMapping("/getAllProjects") //RETURN TO HTML
+    public String getAllModel(Model model) {
+        List<Project> projects = projectService.getAll();
+        model.addAttribute("projects", projects);
+        return "projects"; //NAME OF HTML TO RETURN
+    }
+
+    
+    @RequestMapping(value = "/getAll")
     public List<Project> getAllProjects() {
         return projectService.getAllProjects();
     }
-//    @RequestMapping("/getAll")
-//    public String getAll() {
-//        return projectService.getAll();
-//    }
+    
+
     @RequestMapping(value = "/Projects/{id}")
     public Optional<Project> getProject(@PathVariable String id) {
         return projectService.getProject(id);

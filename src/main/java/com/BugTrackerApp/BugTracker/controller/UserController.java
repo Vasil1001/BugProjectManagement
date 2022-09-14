@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/users")
 public class UserController {
 
@@ -19,9 +19,15 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/getAll") //RETURN TO HTML
-    public String getAll(Model model) {
+    public String getAllModel(Model model) {
         List<User> users = userService.getAll();
         model.addAttribute("users", users);
+        return "users"; //NAME OF HTML TO RETURN
+    }
+    
+    @RequestMapping("/getAPI") //RETURN TO HTML
+    public String getAll() {
+        List<User> users = userService.getAll();
         return "users"; //NAME OF HTML TO RETURN
     }
     

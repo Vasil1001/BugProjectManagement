@@ -18,11 +18,11 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-//    public String getAll(Model model) {
-//        List<Project> projects = (List<Project>) projectRepository.findAll();
-//        model.addAttribute("projects", projects);
-//        return "projects";
-//    }
+    public List<Project> getAll() {
+        return (List<Project>) projectRepository.findAll();
+    }
+
+
     public List<Project> getAllProjects() {
         List<Project> projects = new ArrayList<>();
         projectRepository.findAll().forEach(projects::add);
