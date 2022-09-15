@@ -23,14 +23,13 @@
     />
     <link href="/webjars/bootstrap/5.2.0/css/bootstrap.css" rel="stylesheet" />
     <script
-    type="text/javascript"
-    src="/webjars/jquery/3.6.1/jquery.min.js"
-  ></script>
-    <script
       type="text/javascript"
       src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"
     ></script>
-   
+    <script
+      type="text/javascript"
+      src="/webjars/jquery/3.6.1/jquery.min.js"
+    ></script>
     <style>
       body {
         color: #566787;
@@ -292,7 +291,7 @@
           <div class="table-title">
             <div class="row">
               <div class="col-xs-6">
-                <h2>Manage <b>Tickets</b></h2>
+                <h2>Manage <b>Projects</b></h2>
               </div>
               <div class="col-xs-6">
                 <a
@@ -300,7 +299,7 @@
                   class="btn btn-success"
                   data-toggle="modal"
                   ><i class="material-icons">&#xE147;</i>
-                  <span>Add New Ticket</span></a
+                  <span>Add New Project</span></a
                 >
                 <a
                   href="#deleteEmployeeModal"
@@ -325,6 +324,8 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Options</th>
+
               </tr>
             </thead>
             <tbody>
@@ -342,7 +343,7 @@
               </td>
 
               <td th:text="${ticket.id}">Id</td>
-              <td th:text="${ticket.title}">Title</td>
+              <td th:text="${ticket.title}">Name</td>
               <td th:text="${ticket.description}">Description</td>
 
               <td>

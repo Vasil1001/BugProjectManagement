@@ -20,7 +20,7 @@ public class TicketController {
     @RequestMapping("/getAll") //RETURN TO HTML
     public String getAllModel(Model model) {
         List<Ticket> tickets = ticketService.getAll();
-        model.addAttribute("Tickets", tickets);
+        model.addAttribute("tickets", tickets);
         return "tickets"; //NAME OF HTML TO RETURN
     }
 
