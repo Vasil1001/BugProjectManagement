@@ -58,7 +58,7 @@
         </tr>
         </thead>
         <tr th:each="student:${students}">
-            <td th:text="${student.Id}">Id</td>
+            <td th:text="${student.Id}">#</td>
             <td th:text="${student.name}">name</td>
             <td th:text="${student.department}">department</td>
             <td th:text="${student.updatedBy}">updatedBy</td>
@@ -83,31 +83,24 @@
                     <div class="modal-body">
                         <p>Fill in the details to add a new student.</p>
 
-                        <form th:action = "@{/students/addNew}" method = "post">
-
                             <div class="mb-3">
-                                <label for="id" class="col-form-label">Id:</label>
-                                <input type="text" class="form-control" id="id" name="id">
+                                <label for="name" class="col-form-label">First name:</label>
+                                <input type="text" class="form-control" id="name" name="name">
                             </div>
 
                             <div class="mb-3">
-                                <label for="first-name" class="col-form-label">First name:</label>
-                                <input type="text" class="form-control" id="first-name" name="name">
+                                <label for="department" class="col-form-label">Last name:</label>
+                                <input type="text" class="form-control" id="department" name="department">
                             </div>
 
                             <div class="mb-3">
-                                <label for="last-name" class="col-form-label">Last name:</label>
-                                <input type="text" class="form-control" id="last-name" name="department">
+                                <label for="updatedBy" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="updatedBy" name="updatedBy">
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" id="email" name="updatedBy">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="phone" class="col-form-label">Phone:</label>
-                                <input type="text" class="form-control" id="phone" name="updatedOn">
+                                <label for="updatedOn" class="col-form-label">Phone:</label>
+                                <input type="text" class="form-control" id="updatedOn" name="updatedOn">
                             </div>
 
 
