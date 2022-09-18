@@ -82,32 +82,45 @@
                         <div class="modal-body">
                             <p>Fill in the details to add a new user.</p>
 
-                            <form>
+                            <form th:action = "@{/users/addNew}" method = "post">
 
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">First name:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="id" class="col-form-label">Id:</label>
+                                    <input type="text" class="form-control" id="id" name="id">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Last name:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="first-name" class="col-form-label">First name:</label>
+                                    <input type="text" class="form-control" id="first-name" name="firstname">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Email:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="last-name" class="col-form-label">Last name:</label>
+                                    <input type="text" class="form-control" id="last-name" name="lastname">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Phone:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <input type="text" class="form-control" id="email" name="email">
                                 </div>
+
+                                <div class="mb-3">
+                                    <label for="phone" class="col-form-label">Phone:</label>
+                                    <input type="text" class="form-control" id="phone" name="phoneNumber">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="assignedTickets" class="col-form-label">Assigned Tickets:</label>
+                                    <input type="text" class="form-control" id="assignedTickets" name="assignedTickets">
+                                </div>
+
                             </form>
+
+
                             <p class="text-secondary"><small>Press add user to save changes.</small></p>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary">Add user</button>
+                                <button type="submit" class="btn btn-primary">Add user</button>
                             </div>
 
 
@@ -117,6 +130,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>

@@ -1,7 +1,6 @@
 package com.BugTrackerApp.BugTracker.controller;
 
 import com.BugTrackerApp.BugTracker.model.Project;
-import com.BugTrackerApp.BugTracker.model.Student;
 import com.BugTrackerApp.BugTracker.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
