@@ -22,7 +22,6 @@ public class ProjectService {
         return (List<Project>) projectRepository.findAll();
     }
 
-
     public List<Project> getAllProjects() {
         List<Project> projects = new ArrayList<>();
         projectRepository.findAll().forEach(projects::add);

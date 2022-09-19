@@ -33,13 +33,13 @@ public class Ticket {
     private String[] statusOptions = {"Issue", "Bug", "Feature request"};
     private String[] priorityOptions = {"Immediate", "High", "Medium", "Low"};
     private String[] typeOptions = {"New", "Unassigned", "In progress", "Resolved"};
-
+    
 
     // * Ticket will show assigned user
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user; // ? FOREIGN KEY
-
+    
     public Ticket(String id, String title, String description, int estimatedTime, String status, String priority, String type, User user) {
         this.id = id;
         this.title = title;

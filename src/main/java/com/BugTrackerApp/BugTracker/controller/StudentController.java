@@ -32,6 +32,7 @@ public class StudentController {
         return "students"; //NAME OF HTML TO RETURN
     }
 
+    
     @PostMapping(value="/addNew")
     public String addNew(Student student) {
         studentService.addNew(student);

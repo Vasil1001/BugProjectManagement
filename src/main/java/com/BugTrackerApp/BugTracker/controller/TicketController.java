@@ -23,8 +23,7 @@ public class TicketController {
         model.addAttribute("tickets", tickets);
         return "tickets"; //NAME OF HTML TO RETURN
     }
-
-
+    
     @RequestMapping(value = "/Tickets")
     public List<Ticket> getAllTickets() {
         return ticketService.getAllTickets();

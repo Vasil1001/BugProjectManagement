@@ -23,6 +23,7 @@ public class UserController {
         List<User> users = userService.getAll();
         model.addAttribute("users", users);
         return "users"; //NAME OF HTML TO RETURN
+    
     }
     
     @RequestMapping("/getAPI") //RETURN TO HTML
