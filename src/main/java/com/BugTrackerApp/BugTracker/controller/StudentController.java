@@ -33,8 +33,8 @@ public class StudentController {
         return "students"; //NAME OF HTML TO RETURN
     }
 
-    
-    @PostMapping(value="/addNew")
+
+    @PostMapping(value = "/addNew")
     public String addNew(Student student) {
         studentService.addNew(student);
         return "redirect:/students/getAll";
@@ -42,8 +42,7 @@ public class StudentController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<Student> getOne(Integer Id)
-    {
+    public Optional<Student> getOne(Integer Id) {
         return studentService.getOne(Id);
     }
 

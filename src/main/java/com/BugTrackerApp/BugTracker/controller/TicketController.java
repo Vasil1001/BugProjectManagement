@@ -1,6 +1,7 @@
 package com.BugTrackerApp.BugTracker.controller;
 
 import com.BugTrackerApp.BugTracker.model.Ticket;
+import com.BugTrackerApp.BugTracker.model.User;
 import com.BugTrackerApp.BugTracker.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,25 +24,35 @@ public class TicketController {
         model.addAttribute("tickets", tickets);
         return "tickets"; //NAME OF HTML TO RETURN
     }
-    
+
+    @PostMapping(value = "/addNew")
+    public String addNew(Ticket ticket) {
+        ticketService.addNew(ticket);
+        return "redirect:/tickets/getAll";
+    }
+
     @RequestMapping(value = "/Tickets")
     public List<Ticket> getAllTickets() {
         return ticketService.getAllTickets();
     }
+
     @RequestMapping(value = "/Tickets/{id}")
-    public Optional<Ticket> getTicket(@PathVariable String id) {
+    public Optional<Ticket> getTicket(@PathVariable Integer id) {
         return ticketService.getTicket(id);
     }
+
     @RequestMapping(value = "/Tickets", method = RequestMethod.POST)
     public void addTicket(@RequestBody Ticket Ticket) {
         ticketService.addTicket(Ticket);
     }
+
     @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.PUT)
-    public void updateTicket(@PathVariable String id, @RequestBody Ticket Ticket) {
+    public void updateTicket(@PathVariable Integer id, @RequestBody Ticket Ticket) {
         ticketService.updateTicket(id, Ticket);
     }
+
     @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.DELETE)
-    public void deleteTicket(@PathVariable String id) {
+    public void deleteTicket(@PathVariable Integer id) {
         ticketService.deleteTicket(id);
     }
 }

@@ -17,14 +17,15 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private String id;
+    private Integer id;
+
     private String title;
     private String description;
     private int estimatedTime;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 
     private Date createdDate;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 
     private Date closedDate;
     private String status;
@@ -39,8 +40,8 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user; // ? FOREIGN KEY
-    
-    public Ticket(String id, String title, String description, int estimatedTime, String status, String priority, String type, User user) {
+
+    public Ticket(Integer id, String title, String description, int estimatedTime, String status, String priority, String type, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -50,6 +51,7 @@ public class Ticket {
         this.type = type;
         this.user = user;
     }
+
     public Ticket() {
 
     }

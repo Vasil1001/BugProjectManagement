@@ -5,15 +5,16 @@
     <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-    <link href="/webjars/bootstrap/5.2.0/css/bootstrap.css" rel="stylesheet" />
+    <link href="/webjars/bootstrap/5.2.0/css/bootstrap.css" rel="stylesheet"/>
 
     <script type="text/javascript" src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>
 
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Users page</title>
 </head>
 
 <body>
+
 <div class="container" style="margin: 16px">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -61,6 +62,7 @@
             <td>updatedOn</td>
         </tr>
         </thead>
+
         <tr th:each="student:${students}">
             <td th:text="${student.Id}">#</td>
             <td th:text="${student.name}">name</td>
