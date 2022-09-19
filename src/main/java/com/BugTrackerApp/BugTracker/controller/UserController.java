@@ -23,16 +23,17 @@ public class UserController {
         List<User> users = userService.getAll();
         model.addAttribute("users", users);
         return "users"; //NAME OF HTML TO RETURN
-    
+
     }
-    
+
+
     @RequestMapping("/getAPI") //RETURN TO HTML
     public String getAll() {
         List<User> users = userService.getAll();
         return "users"; //NAME OF HTML TO RETURN
     }
-    
-    @PostMapping(value="/addNew")
+
+    @PostMapping(value = "/addNew")
     public String addNew(User user) {
         userService.addNew(user);
         return "redirect:/users/getAll";
@@ -40,13 +41,9 @@ public class UserController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<User> getOne(String Id)
-    {
+    public Optional<User> getOne(Integer Id) {
         return userService.getOne(Id);
     }
-
-
-
 
 
     ///

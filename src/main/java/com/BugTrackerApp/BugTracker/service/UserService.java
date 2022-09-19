@@ -19,7 +19,7 @@ public class UserService {
     public List<User> getAll() {
         return (List<User>) userRepository.findAll();
     }
-    
+
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         userRepository.findAll().forEach(users::add);
@@ -30,11 +30,11 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(String id) {
+    public void deleteUser(Integer id) {
         userRepository.deleteById(id);
     }
 
-    public Optional<User> getOne(String id) {
+    public Optional<User> getOne(Integer id) {
         return userRepository.findById(id);
     }
 

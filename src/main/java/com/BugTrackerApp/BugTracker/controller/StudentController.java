@@ -26,6 +26,7 @@ public class StudentController {
         return "students"; //NAME OF HTML TO RETURN
     }
 
+
     @RequestMapping("/getAPI") //RETURN TO HTML
     public String getAll() {
         List<Student> students = studentService.getAll();

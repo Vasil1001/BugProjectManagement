@@ -19,9 +19,8 @@ public class Student {
     private String name;
     private String department;
     private String updatedBy;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String updatedOn;
-    
 
     @Override
     public String toString() {
