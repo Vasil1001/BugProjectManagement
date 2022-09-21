@@ -6,7 +6,6 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.Date;
 
 @Getter
@@ -56,24 +55,6 @@ public class Ticket {
 
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", estimatedTime=" + estimatedTime +
-                ", createdDate=" + createdDate +
-                ", closedDate=" + closedDate +
-                ", status='" + status + '\'' +
-                ", priority='" + priority + '\'' +
-                ", type='" + type + '\'' +
-                ", statusOptions=" + Arrays.toString(statusOptions) +
-                ", priorityOptions=" + Arrays.toString(priorityOptions) +
-                ", typeOptions=" + Arrays.toString(typeOptions) +
-                ", user=" + user +
-                '}';
-    }
 }
 
 

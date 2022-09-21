@@ -1,8 +1,6 @@
 package com.BugTrackerApp.BugTracker.controller;
 
 import com.BugTrackerApp.BugTracker.model.Student;
-import com.BugTrackerApp.BugTracker.model.Student;
-import com.BugTrackerApp.BugTracker.service.StudentService;
 import com.BugTrackerApp.BugTracker.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,14 +23,6 @@ public class StudentController {
         model.addAttribute("students", students);
         return "students"; //NAME OF HTML TO RETURN
     }
-
-
-    @RequestMapping("/getAPI") //RETURN TO HTML
-    public String getAll() {
-        List<Student> students = studentService.getAll();
-        return "students"; //NAME OF HTML TO RETURN
-    }
-
 
     @PostMapping(value = "/addNew")
     public String addNew(Student student) {

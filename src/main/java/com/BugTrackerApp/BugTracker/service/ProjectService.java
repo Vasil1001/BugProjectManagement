@@ -1,12 +1,11 @@
 package com.BugTrackerApp.BugTracker.service;
 
 import com.BugTrackerApp.BugTracker.model.Project;
-import com.BugTrackerApp.BugTracker.model.Student;
+
 import com.BugTrackerApp.BugTracker.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.ArrayList;
 import java.util.List;

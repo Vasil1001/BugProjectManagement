@@ -1,6 +1,5 @@
 package com.BugTrackerApp.BugTracker.controller;
 
-import com.BugTrackerApp.BugTracker.model.Student;
 import com.BugTrackerApp.BugTracker.model.User;
 import com.BugTrackerApp.BugTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +26,6 @@ public class UserController {
     }
 
 
-    @RequestMapping("/getAPI") //RETURN TO HTML
-    public String getAll() {
-        List<User> users = userService.getAll();
-        return "users"; //NAME OF HTML TO RETURN
-    }
 
     @PostMapping(value = "/addNew")
     public String addNew(User user) {

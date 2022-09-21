@@ -7,7 +7,6 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,17 +52,5 @@ public class Project {
         this.projectTickets = projectTickets;
     }
 
-    @Override
-    public String toString() {
-        return "Project{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", createdOn =" + createdOn +
-                ", finishDate=" + finishDate +
-                ", user=" + user +
-                ", members=" + members +
-                ", projectTickets=" + projectTickets +
-                '}';
-    }
+   
 }

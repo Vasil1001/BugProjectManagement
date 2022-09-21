@@ -80,16 +80,4 @@ public class User {
     public void setAssignedTickets(ArrayList<Ticket> assignedTickets) {
         this.assignedTickets = assignedTickets;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", assignedTickets=" + assignedTickets +
-                '}';
-    }
 }
