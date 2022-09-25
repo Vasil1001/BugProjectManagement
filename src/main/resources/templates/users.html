@@ -3,12 +3,9 @@
 
 <head>
 
-    <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
-    <link href="/webjars/bootstrap/5.2.0/css/bootstrap.css" rel="stylesheet"/>
-
-    <script type="text/javascript" src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <meta charset="UTF-8"/>
     <title>Users page</title>
@@ -61,12 +58,17 @@
             <td>Phone</td>
         </tr>
         </thead>
+
         <tr th:each="user:${users}">
             <td th:text="${user.Id}">Id</td>
             <td th:text="${user.firstname}">First Name</td>
             <td th:text="${user.lastname}">Last Name</td>
             <td th:text="${user.email}">Email</td>
             <td th:text="${user.phoneNumber}">Phone</td>
+            <td><a class="btn btn-primary eBtn" th:href="@{/users/getOne/(id=${user.id})}">Edit</a></td>
+
+            <!--<a class="btn btn-primary eBtn" th:href="@{getOne/(id=${ticket.id})}">Edit</a> -->
+
         </tr>
     </table>
 
@@ -131,6 +133,46 @@
             </form>
         </div>
     </div>
+
+    <!-- Edit Modal HTML -->
+    <div id="userEditModal" class="modal fade" tabindex="-1">
+        <form th:action="@{/users/update}" method="put">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit selected ticket</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Set new details and apply changes.</p>
+
+                        <div class="mb-3">
+                            <label for="edit-id" class="col-form-label">id:</label>
+                            <input type="text" class="form-control" id="edit-id" name="id"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="edit-fn" class="col-form-label">firstname:</label>
+                            <input type="text" class="form-control" id="edit-fn" name="firstname"/>
+                        </div>
+
+                        <p class="text-secondary">
+                            <small>Press add ticket to save changes.</small>
+                        </p>
+                        <div class="modal-footer col-xs-6">
+                            <button type="button" class="btn btn-md btn-secondary" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-md btn-primary">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 
 

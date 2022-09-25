@@ -14,27 +14,28 @@ import java.util.Optional;
 public class StudentService {
 
     @Autowired
-    public StudentRepository studentRepository;
+    private StudentRepository studentRepository;
+
 
     public List<Student> getAll() {
         return (List<Student>) studentRepository.findAll();
     }
 
-    public List<Student> getAllStudents() {
-        List<Student> students = new ArrayList<>();
-        studentRepository.findAll().forEach(students::add);
-        return students;
+
+    public Optional<Student> getOne(Integer Id) {
+        return studentRepository.findById(Id);
     }
 
     public void addNew(Student student) {
         studentRepository.save(student);
     }
 
-    public void deleteStudent(Integer id) {
-        studentRepository.deleteById(id);
+    public void update(Student student) {
+        studentRepository.save(student);
     }
 
-    public Optional<Student> getOne(Integer id) {
-        return studentRepository.findById(id);
+    public void delete(Integer Id) {
+        studentRepository.deleteById(Id);
     }
+
 }

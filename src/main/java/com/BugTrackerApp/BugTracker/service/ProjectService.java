@@ -27,19 +27,32 @@ public class ProjectService {
         return projects;
     }
 
-    public Optional<Project> getProject(String id) {
+    public Optional<Project> getProject(Integer id) {
         return projectRepository.findById(id);
     }
 
     public void addProject(Project project) {
         projectRepository.save(project);
     }
-    public void updateProject(String id, Project project) {
+
+    public void updateProject(Integer id, Project project) {
         projectRepository.save(project);
     }
-    public void deleteProject(String id) {
+
+    public void deleteProject(Integer id) {
         projectRepository.deleteById(id);
     }
 
 
+    public void update(Project project) {
+        projectRepository.save(project);
+    }
+
+    public void addNew(Project project) {
+        projectRepository.save(project);
+    }
+
+    public Optional<Project> getOne(Integer id) {
+        return projectRepository.findById(id);
+    }
 }

@@ -1,6 +1,7 @@
 package com.BugTrackerApp.BugTracker.controller;
 
 import com.BugTrackerApp.BugTracker.model.Project;
+import com.BugTrackerApp.BugTracker.model.Project;
 import com.BugTrackerApp.BugTracker.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,27 +25,45 @@ public class ProjectController {
         return "projects"; //NAME OF HTML TO RETURN
     }
 
-    
-    @RequestMapping(value = "/getAllProjects")
-    public List<Project> getAllProjects() {
-        return projectService.getAllProjects();
+    @RequestMapping("/getOne")
+    @ResponseBody
+    public Optional<Project> getOne(Integer id) {
+        return projectService.getOne(id);
     }
-    
 
-    @RequestMapping(value = "/Projects/{id}")
-    public Optional<Project> getProject(@PathVariable String id) {
-        return projectService.getProject(id);
+    @PostMapping(value = "/addNew")
+    public String addNew(Project project) {
+        projectService.addNew(project);
+        return "redirect:/projects/getAll";
     }
-    @RequestMapping(value = "/Projects", method = RequestMethod.POST)
-    public void addProject(@RequestBody Project Project) {
-        projectService.addProject(Project);
-    }
-    @RequestMapping(value = "/Projects/{id}", method = RequestMethod.PUT)
-    public void updateProject(@PathVariable String id, @RequestBody Project Project) {
-        projectService.updateProject(id, Project);
-    }
-    @RequestMapping(value = "/Projects/{id}", method = RequestMethod.DELETE)
-    public void deleteProject(@PathVariable String id) {
-        projectService.deleteProject(id);
+
+    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Project project) {
+        projectService.update(project);
+        return "redirect:/projects/getAll";
     }
 }
+
+//    @RequestMapping(value = "/getAllProjects")
+//    public List<Project> getAllProjects() {
+//        return projectService.getAllProjects();
+//    }
+//
+//
+//    @RequestMapping(value = "/Projects/{id}")
+//    public Optional<Project> getProject(@PathVariable String id) {
+//        return projectService.getProject(id);
+//    }
+//    @RequestMapping(value = "/Projects", method = RequestMethod.POST)
+//    public void addProject(@RequestBody Project Project) {
+//        projectService.addProject(Project);
+//    }
+//    @RequestMapping(value = "/Projects/{id}", method = RequestMethod.PUT)
+//    public void updateProject(@PathVariable String id, @RequestBody Project Project) {
+//        projectService.updateProject(id, Project);
+//    }
+//    @RequestMapping(value = "/Projects/{id}", method = RequestMethod.DELETE)
+//    public void deleteProject(@PathVariable String id) {
+//        projectService.deleteProject(id);
+//    }
+//}

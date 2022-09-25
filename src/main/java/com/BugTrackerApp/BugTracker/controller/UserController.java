@@ -1,5 +1,6 @@
 package com.BugTrackerApp.BugTracker.controller;
 
+import com.BugTrackerApp.BugTracker.model.Ticket;
 import com.BugTrackerApp.BugTracker.model.User;
 import com.BugTrackerApp.BugTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ public class UserController {
         List<User> users = userService.getAll();
         model.addAttribute("users", users);
         return "users"; //NAME OF HTML TO RETURN
-
     }
 
-
+    @RequestMapping("/getOne")
+    @ResponseBody
+    public Optional<User> getOne(Integer id) {
+        return userService.getOne(id);
+    }
 
     @PostMapping(value = "/addNew")
     public String addNew(User user) {
@@ -33,10 +37,10 @@ public class UserController {
         return "redirect:/users/getAll";
     }
 
-    @RequestMapping("/getOne")
-    @ResponseBody
-    public Optional<User> getOne(Integer Id) {
-        return userService.getOne(Id);
+    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(User user) {
+        userService.update(user);
+        return "redirect:/users/getAll";
     }
 
 

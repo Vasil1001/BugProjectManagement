@@ -86,14 +86,12 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>5.2.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
@@ -107,7 +105,12 @@
             <scope>provided</scope>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/org.webjars/popper.js -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>popper.js</artifactId>
+            <version>2.9.3</version>
+        </dependency>
 
 
     </dependencies>

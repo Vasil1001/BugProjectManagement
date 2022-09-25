@@ -17,17 +17,15 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @RequestMapping("/getAll") //RETURN TO HTML
-    public String getAllModel(Model model) {
+    @RequestMapping("/getAll")
+    public String getAll(Model model) {
         List<Student> students = studentService.getAll();
         model.addAttribute("students", students);
-        return "students"; //NAME OF HTML TO RETURN
-    }
 
-    @PostMapping(value = "/addNew")
-    public String addNew(Student student) {
-        studentService.addNew(student);
-        return "redirect:/students/getAll";
+        String username = "Kindson";
+        model.addAttribute("username", username);
+
+        return "students";
     }
 
     @RequestMapping("/getOne")
@@ -35,5 +33,26 @@ public class StudentController {
     public Optional<Student> getOne(Integer Id) {
         return studentService.getOne(Id);
     }
+
+    @PostMapping("/addNew")
+    public String addNew(Student student) {
+        studentService.addNew(student);
+        return "redirect:/students/getAll";
+    }
+
+
+    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Student student) {
+        studentService.update(student);
+        return "redirect:/students/getAll";
+    }
+
+
+    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer Id) {
+        studentService.delete(Id);
+        return "redirect:/students/getAll";
+    }
+
 
 }

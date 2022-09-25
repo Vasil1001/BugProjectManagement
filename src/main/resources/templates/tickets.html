@@ -2,439 +2,217 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tickets page</title>
 
-  <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>
 
-  <link href="/webjars/bootstrap/5.2.0/css/bootstrap.css" rel="stylesheet" />
-
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.2.0/css/bootstrap.min.css" />
-  <link href="/webjars/bootstrap/5.2.0/css/bootstrap.css" rel="stylesheet" />
-  <script type="text/javascript" src="/webjars/bootstrap/5.2.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>
-
-
-  <style>
-    body {
-      color: #566787;
-      background: #f5f5f5;
-      font-family: "Varela Round", sans-serif;
-      font-size: 13px;
-    }
-
-    .modal-footer {
-      font-family: "Varela Round", sans-serif;
-      font-size: 13px;
-    }
-
-    .table-responsive {
-      margin: 30px 0;
-    }
-
-    .table-wrapper {
-      min-width: 720px;
-      background: #fff;
-      padding: 20px 25px;
-      border-radius: 3px;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    }
-
-    .table-title {
-      padding-bottom: 15px;
-      background: #435d7d;
-      color: #fff;
-      padding: 16px 30px;
-      margin: -20px -25px 10px;
-      border-radius: 3px 3px 0 0;
-    }
-
-    .table-title h2 {
-      margin: 2px 0 0;
-      font-size: 24px;
-    }
-
-    .table-title .btn-group {
-      float: left;
-    }
-
-    .table-title .btn {
-      color: #fff;
-      float: right;
-      font-size: 13px;
-      border: none;
-      min-width: 50px;
-      border-radius: 2px;
-      border: none;
-      outline: none !important;
-      margin-left: 10px;
-    }
-
-    .table-title .btn i {
-      float: left;
-      font-size: 21px;
-      margin-right: 5px;
-    }
-
-    .table-title .btn span {
-      float: left;
-      margin-top: 2px;
-    }
-
-    table.table tr th,
-    table.table tr td {
-      border-color: #e9e9e9;
-      padding: 12px 15px;
-      vertical-align: middle;
-    }
-
-    table.table tr th:first-child {
-      width: 60px;
-    }
-
-    table.table tr th:last-child {
-      width: 100px;
-    }
-
-    table.table-striped tbody tr:nth-of-type(odd) {
-      background-color: #fcfcfc;
-    }
-
-    table.table-striped.table-hover tbody tr:hover {
-      background: #f5f5f5;
-    }
-
-    table.table th i {
-      font-size: 13px;
-      margin: 0 5px;
-      cursor: pointer;
-    }
-
-    table.table td:last-child i {
-      opacity: 0.9;
-      font-size: 22px;
-      margin: 0 5px;
-    }
-
-    table.table td a {
-      font-weight: bold;
-      color: #566787;
-      display: inline-block;
-      text-decoration: none;
-      outline: none !important;
-    }
-
-    table.table td a:hover {
-      color: #2196f3;
-    }
-
-    table.table td a.edit {
-      color: #ffc107;
-    }
-
-    table.table td a.delete {
-      color: #f44336;
-    }
-
-    table.table td i {
-      font-size: 19px;
-    }
-
-    table.table .avatar {
-      border-radius: 50%;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-
-    .pagination {
-      float: right;
-      margin: 0 0 5px;
-    }
-
-    .pagination li a {
-      border: none;
-      font-size: 13px;
-      min-width: 30px;
-      min-height: 30px;
-      color: #999;
-      margin: 0 2px;
-      line-height: 30px;
-      border-radius: 2px !important;
-      text-align: center;
-      padding: 0 6px;
-    }
-
-    .pagination li a:hover {
-      color: #666;
-    }
-
-    .pagination li.active a,
-    .pagination li.active a.page-link {
-      background: #03a9f4;
-    }
-
-    .pagination li.active a:hover {
-      background: #0397d6;
-    }
-
-    .pagination li.disabled i {
-      color: #ccc;
-    }
-
-    .pagination li i {
-      font-size: 16px;
-      padding-top: 6px;
-    }
-
-    .hint-text {
-      float: left;
-      margin-top: 10px;
-      font-size: 13px;
-    }
-
-
-    /* Modal styles */
-    .modal .modal-dialog {
-      max-width: 400px;
-    }
-
-    .modal .modal-header,
-    .modal .modal-body {
-      padding: 30px 30px;
-    }
-
-    .modal .modal-content {
-      border-radius: 2px;
-    }
-
-    .modal .modal-footer {
-      border-radius: 0 0 3px 3px;
-    }
-
-    .modal .modal-title {
-      display: inline-block;
-    }
-
-    .modal .form-control {
-      border-radius: 2px;
-      box-shadow: none;
-      border-color: #dddddd;
-    }
-
-    .modal textarea.form-control {
-      resize: vertical;
-    }
-
-    .modal .btn {
-      min-width: 75px;
-    }
-
-    .modal form label {
-      font-weight: normal;
-    }
-  </style>
-  <script>
-
-
-  </script>
+    <meta charset="UTF-8"/>
+    <title>Tickets2 page</title>
 </head>
 
+
 <body>
-  <div class="container">
-    <div class="table-responsive">
-      <div class="table-wrapper">
-        <div class="table-title">
-          <div class="row">
-            <div class="col-xs-6">
-              <h2>Manage <b>Tickets</b></h2>
-            </div>
-            <div class="col-xs-6">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketAddModal">
-                Add btn
-              </button>
-              <!-- Button HTML (to Trigger Modal) -->
-              <a href="#ticketAddModal" role="button" class="btn btn-success" data-bs-toggle="modal"><i
-                  class="material-icons">&#xE147;</i><span>Add New Ticket</span></a>
-
-              <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
-                  class="material-icons">&#xE15C;</i> <span>Delete</span></a>
-            </div>
-          </div>
-        </div>
-
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-
-              <th>Id</th>
-              <th>Ticket Name</th>
-              <th>Ticket Description</th>
-              <th>Options</th>
-              <th>Ticket Description</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr th:each="ticket:${tickets}">
-              <td th:text="${ticket.id}">Id</td>
-              <td th:text="${ticket.title}">Name</td>
-              <td th:text="${ticket.description}">Description</td>
-              <td><a th:href="@{/tickets/getOne/(id=${ticket.Id})}" class="btn btn-warning" id="editButton">Ed</a></td>
-              <td>
-
-
-                <a th:href="@{/tickets/getOne/(id=${ticket.id})}" class="btn" data-bs-toggle="modal"><i
-                    class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#ticketEditModal" class="delete" data-bs-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Add Modal HTML -->
-  <div id="ticketAddModal" class="modal fade" tabindex="-1">
-    <form th:action="@{/tickets/addNew}" method="post">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Add ticket</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>Fill in the details to add a new ticket.</p>
-
-            <div class="mb-3">
-              <label for="title" class="col-form-label">Ticket title:</label>
-              <input type="text" class="form-control" id="title" name="title" />
-            </div>
-
-            <div class="mb-3">
-              <label for="description" class="col-form-label">Description:</label>
-              <input type="text" class="form-control" id="description" name="description" />
-            </div>
-
-            <p class="text-secondary">
-              <small>Press add ticket to save changes.</small>
-            </p>
-            <div class="modal-footer col-xs-6">
-              <button type="button" class="btn btn-md btn-secondary" data-bs-dismiss="modal">
-                Cancel
-              </button>
-              <button type="submit" class="btn btn-md btn-primary">
-                Add
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-
-
-  <!-- Edit Modal HTML -->
-  <div id="ticketEditModal" class="modal fade" tabindex="-1">
-    <form th:action="@{/tickets/update}" method="put">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit selected ticket</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>Set new details and apply changes.</p>
-
-            <div class="mb-3">
-              <label for="edit-title" class="col-form-label">Ticket title:</label>
-              <input type="text" class="form-control" id="edit-title" name="title" />
-            </div>
-
-            <div class="mb-3">
-              <label for="edit-description" class="col-form-label">Description:</label>
-              <input type="text" class="form-control" id="edit-description" name="description" />
-            </div>
-
-            <p class="text-secondary">
-              <small>Press add ticket to save changes.</small>
-            </p>
-            <div class="modal-footer col-xs-6">
-              <button type="button" class="btn btn-md btn-secondary" data-bs-dismiss="modal">
-                Cancel
-              </button>
-              <button type="submit" class="btn btn-md btn-primary">
-                Add
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-
-
-  <!-- Delete Modal HTML -->
-  <div id="deleteEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form>
-          <div class="modal-header">
-            <h4 class="modal-title">Delete Employee</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-              &times;
+<div class="container" style='margin:16px'>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">Users
             </button>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to delete these Records?</p>
-            <p class="text-warning">
-              <small>This action cannot be undone.</small>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-            <input type="submit" class="btn btn-danger" value="Delete" />
-          </div>
-        </form>
-      </div>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">Projects
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                    role="tab" aria-controls="contact" aria-selected="false">Tickets
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
     </div>
-  </div>
+
+    <h2 style='margin-top:16px'>Tickets2 page</h2>
+
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#ticketAddModal" role="button" class="btn btn-danger" data-bs-toggle="modal"
+       style="margin-top: 16px; margin-bottom: 16px">Delete</a>
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#ticketAddModal" role="button" class="btn btn-dark" data-bs-toggle="modal"
+       style="margin-top: 16px; margin-bottom: 16px">Add new</a>
+
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+        </tr>
+        </thead>
+
+        <tr th:each="ticket:${tickets}">
+            <td th:text="${ticket.id}">Id</td>
+            <td th:text="${ticket.title}">Name</td>
+            <td th:text="${ticket.description}">Description</td>
+            <td><a class="btn btn-primary eBtn" th:href="@{/tickets/getOne/(id=${ticket.id})}">Edit</a></td>
+            <td><a th:href="@{/tickets/getOne/(Id=${'ticket.Id'})}" class="btn btn-warning" id="editButton">Edit2</a>
+            </td>
+            <a href="#ticketAddModal" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal">Add new</a>
+            <!--<a class="btn btn-primary eBtn" th:href="@{getOne/(id=${ticket.id})}">Edit</a> -->
+
+        </tr>
+    </table>
+
+
+    <div class="m-4">
+        <!-- Button HTML (to Trigger Modal) -->
+        <a href="#ticketAddModal" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal">Add new</a>
+
+        <!-- Modal HTML -->
+        <div id="ticketAddModal" class="modal fade" tabindex="-1">
+            <form th:action="@{/tickets/addNew}" method="post">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Fill in the details to add a new ticket.</p>
+
+
+                            <div class="mb-3">
+                                <label for="id" class="col-form-label">Id:</label>
+                                <input type="text" class="form-control" id="id" name="id">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="first-name" class="col-form-label">First name:</label>
+                                <input type="text" class="form-control" id="first-name" name="firstname">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="last-name" class="col-form-label">Last name:</label>
+                                <input type="text" class="form-control" id="last-name" name="lastname">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="email" name="email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="col-form-label">Phone:</label>
+                                <input type="text" class="form-control" id="phone" name="phoneNumber">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="assignedTickets" class="col-form-label">Assigned Tickets:</label>
+                                <input type="text" class="form-control" id="assignedTickets" name="assignedTickets">
+                            </div>
+
+                            <p class="text-secondary"><small>Press add ticket to save changes.</small></p>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancel
+                                </button>
+                                <button type="submit" class="btn btn-primary">Add ticket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Modal HTML -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <form th:action="@{/tickets/update}" method="put">
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit ticket</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="edittitle" class="col-form-label">Ticket title:</label>
+                            <input type="text" class="form-control" id="edittitle" name="title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editdesc" class="col-form-label">Ticket description:</label>
+                            <input type="text" class="form-control" id="editdesc" name="description">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Edit Modal HTML
+    <div id="ticketEditModal" class="modal fade" tabindex="-1">
+        <form th:action="@{/tickets/update}" method="post">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit selected ticket</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Set new details and apply changes.</p>
+
+                        <div class="mb-3">
+                            <label for="edit-id" class="col-form-label">id:</label>
+                            <input type="text" class="form-control" id="edit-id" name="id" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="edit-fn" class="col-form-label">firstname:</label>
+                            <input type="text" class="form-control" id="edit-fn" name="firstname" />
+                        </div>
+
+                        <p class="text-secondary">
+                            <small>Press add ticket to save changes.</small>
+                        </p>
+                        <div class="modal-footer col-xs-6">
+                            <button type="button" class="btn btn-md btn-secondary" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-md btn-primary">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    -->
+
+</div>
+
 
 </body>
 
 </html>
-
-<!--    $(document).ready(function () {-->
-<!--      // Activate tooltip-->
-<!--      $('[data-toggle="tooltip"]').tooltip();-->
-
-<!--      // Select/Deselect checkboxes-->
-<!--      var checkbox = $('table tbody input[type="checkbox"]');-->
-<!--      $("#selectAll").click(function () {-->
-<!--        if (this.checked) {-->
-<!--          checkbox.each(function () {-->
-<!--            this.checked = true;-->
-<!--          });-->
-<!--        } else {-->
-<!--          checkbox.each(function () {-->
-<!--            this.checked = false;-->
-<!--          });-->
-<!--        }-->
-<!--      });-->
-<!--      checkbox.click(function () {-->
-<!--        if (!this.checked) {-->
-<!--          $("#selectAll").prop("checked", false);-->
-<!--        }-->
-<!--      });-->
-<!--    });-->

@@ -20,12 +20,6 @@ public class UserService {
         return (List<User>) userRepository.findAll();
     }
 
-    public List<User> getAllUsers() {
-        List<User> users = new ArrayList<>();
-        userRepository.findAll().forEach(users::add);
-        return users;
-    }
-
     public void addNew(User user) {
         userRepository.save(user);
     }
@@ -36,6 +30,10 @@ public class UserService {
 
     public Optional<User> getOne(Integer id) {
         return userRepository.findById(id);
+    }
+
+    public void update(User user) {
+        userRepository.save(user);
     }
 
     //////////////////////////////////////////////

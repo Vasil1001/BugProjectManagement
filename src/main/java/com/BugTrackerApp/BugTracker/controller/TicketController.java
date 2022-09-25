@@ -42,6 +42,11 @@ public class TicketController {
         return "redirect:/tickets/getAll";
     }
 
+    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer Id) {
+        ticketService.delete(Id);
+        return "redirect:/students/getAll";
+    }
     //
 
 //    @RequestMapping(value = "/Tickets")
