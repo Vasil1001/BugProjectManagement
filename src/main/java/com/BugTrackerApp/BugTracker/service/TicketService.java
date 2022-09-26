@@ -19,8 +19,8 @@ public class TicketService {
         return (List<Ticket>) ticketRepository.findAll();
     }
 
-    public Optional<Ticket> getOne(Integer id) {
-        return ticketRepository.findById(id);
+    public Optional<Ticket> getOne(Integer Id) {
+        return ticketRepository.findById(Id);
     }
 
     public void addNew(Ticket ticket) {
@@ -31,8 +31,8 @@ public class TicketService {
         ticketRepository.save(ticket);
     }
 
-    public void delete(Integer id) {
-        ticketRepository.deleteById(id);
+    public void delete(Integer Id) {
+        ticketRepository.deleteById(Id);
     }
 
 

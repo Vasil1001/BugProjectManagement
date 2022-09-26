@@ -26,8 +26,8 @@ public class TicketController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<Ticket> getOne(Integer id) {
-        return ticketService.getOne(id);
+    public Optional<Ticket> getOne(Integer Id) {
+        return ticketService.getOne(Id);
     }
 
     @PostMapping(value = "/addNew")
@@ -45,7 +45,7 @@ public class TicketController {
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer Id) {
         ticketService.delete(Id);
-        return "redirect:/students/getAll";
+        return "redirect:/tickets/getAll";
     }
     //
 

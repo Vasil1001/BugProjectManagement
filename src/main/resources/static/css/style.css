@@ -1,27 +1,39 @@
 body {
-    background: #e2e2e2!important;;
+    background: white;
+
 }
+
+.navbar {
+     width: 100%;
+     height: 70px;
+
+     position: fixed;
+
+ }
 
 /* sidebar styles */
 .sidebar {
-    width: 18%;
-    background: white;
+    width: 220px;
+    background:#212928;
     height: 100%;
     position: fixed;
-    padding-top: 45px;
+    margin-top: 70px;
+    padding-top: 30px;
 }
 
 .sidebar a {
     display: block;
     width: 100%;
-    padding: 10px 25px;
-    text-decoration: none;
-    color: gray;
     
+    padding: 15px 45px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+
 }
 
 .sidebar a:hover {
-    background: #e2e2e2;
+    background: #7d4848;
     
 }
 
@@ -33,7 +45,8 @@ body {
 }
 .content {
     margin-top: 0%;
-    margin-left: 20%;
+
+
 }
 
 .sidebar .crossBtn {
@@ -42,4 +55,5 @@ body {
     right: 35px;
     font-size: 36px;
     cursor:pointer;
+    color: white;
 }

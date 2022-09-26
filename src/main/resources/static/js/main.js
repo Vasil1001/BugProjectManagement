@@ -1,8 +1,7 @@
+$('document').ready(function(){
+    console.log("1 Student document ready func()");
 
-
-$('document').ready(function(){	
-    console.log("1 document ready func()");
-
+    // # STUDENT SCRIPT START
 	$('.table #editButton').on('click',function(event){
 		event.preventDefault();
 
@@ -27,7 +26,9 @@ $('document').ready(function(){
     		$('#deleteModal #delRef').attr('href', href);
     		$('#deleteModal').modal();
 
-    	});
+    	}); // # STUDENT SCRIPT END
+
+
 
 });
 

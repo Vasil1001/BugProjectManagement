@@ -17,7 +17,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
             crossorigin="anonymous"></script>
@@ -26,7 +26,10 @@
             crossorigin="anonymous"></script>
 
     <!-- Load custom js function file -->
-    <script type="text/javascript" src="../static/js/script.js" th:src="@{js/script.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/ticketScript.js}"></script>
+
 
     <title th:text="${title}">Base HTML</title>
 </head>
@@ -34,7 +37,7 @@
 <body>
 
 <!-- Just an image -->
-<nav class="navbar navbar-dark" style="background-color: #14acaa;">
+<nav class="navbar navbar-dark position-fixed" style="background-color: #14acaa;">
     <a class="navbar-brand" href="#">
         <img src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="32" alt="">
     </a>
@@ -44,7 +47,6 @@
 <!-- sidebar -->
 <div class="sidebar">
 
-    <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
 
     <a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
     <a href="#" class="item"><i class="fa-solid fa-list-check"></i> Tickets</a>
@@ -62,7 +64,7 @@
 <!-- content area -->
 <div class="content">
 
-    <i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+
     <div th:replace="${content}"></div>
 
 </div>

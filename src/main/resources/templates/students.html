@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::body})">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.2/css/bootstrap.min.css}"/>-->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
             crossorigin="anonymous"></script>
@@ -21,94 +25,90 @@
             crossorigin="anonymous"></script>
 
     <!-- Load custom js function file -->
+    <script th:src="@{/js/main.js}"></script>
     <script type="text/javascript" src="../static/js/main.js" th:src="@{/main.js}"></script>
-    <script th:src="@{/js/script.js}"></script>
 
     <title>Student List</title>
 </head>
 
 <body>
+<style>
+        .table-curved {
+            border: solid #ccc 0.5px;
+            border-radius: 16px;
+        }
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+</style>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-        <div style="color:#FFFFFF" class="nav-item active">
-            <h5>Welcome, <span th:text="${username}">Welcome guest!</span></h5>
-        </div>
-    </div>
-</nav>
-<br>
-<br>
-<br>
+<div role="main" class="align-items-center justify-content-center" style="margin-left: 255px; margin-top: 0px;">
+    <H2 style="margin-top: 0px;">_</H2>
 
-<div role="main" class="container">
-
-    <div class="starter-template">
-        <H2>List of Students </H2>
-
+    <!--    <div class="row" style="width:96%">-->
+    <div style="background-color: #eeeeee; border: solid #eeeeee 0.5px;
+        border-radius: 16px; margin-top: 59px;  width: 340px; margin-bottom: 20px; margin-right: 20px;">
+        <h2 style="color:black; margin-top: 5px; margin-left: 15px;">Students page</h2>
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addModal"
-                style="margin-top: 16px; margin-bottom: 11px">Add New
+                style="border: solid black 1.5px; border-radius: 10px;margin-top: 0px; margin-bottom: 11px; margin-left: 15px;">
+            <i class="bi bi-node-plus"></i> Add New
         </button>
+        <span style="margin-top: 5px; margin-left: 15px;">Overview list of all students</span>
 
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Department</td>
-                <td>Updated By</td>
-                <td>Updated On</td>
-
-            </tr>
-            </thead>
-
-            <tr th:each="student:${students}">
-                <td th:text="${student.Id}">Id</td>
-                <td th:text="${student.name}">Name</td>
-                <td th:text="${student.department}">Department</td>
-                <td th:text="${student.updatedBy}">Updated By</td>
-                <td th:text="${student.updatedOn}">Updated On</td>
-
-                <td>
-                    <a th:href="@{/students/getOne/(Id=${student.Id})}" class="btn btn-warning" id="editButton">
-                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                    </a>
-                    <a th:href="@{/students/delete/(Id=${student.Id})}" class="btn btn-danger" id="deleteButton">
-                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE15C;</i>
-                    </a>
-                </td>
-
-            </tr>
-
-        </table>
     </div>
 
-</div><!-- /.container -->
+    <!--        <div class="col" style="background-color: #eeeeee; border: solid #eeeeee 0.5px;-->
+    <!--        border-radius: 16px; margin-top: 59px; margin-bottom: 20px; ">-->
+    <!--            <h2 style="color:black; margin-top: 5px; margin-left: 15px;">Registered students: 10</h2>-->
+
+    <!--            <span style="margin-top: 5px; margin-left: 15px;">Overview list of all students</span>-->
+
+    <!--        </div>-->
+
+    <!--    </div>-->
+
+    <table class="table table-curved overflow-hidden table-hover table align-middle "
+           style="width: 98%; background-color: #eeeeee; margin-right: 20px; ">
+        <caption>List of Students</caption>
+        <thead>
+        <tr>
+            <th>Students</th>
+        </tr>
+        <tr class="text-center">
+            <th>#</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Updated By</th>
+            <th>Options</th>
+
+        </tr>
+        </thead>
+
+        <tr class="text-center" th:each="student:${students}">
+            <td scope="col" th:text="${student.Id}" style="width: 1%">Id</td>
+            <td th:text="${student.name}" style="width: 15%">Name</td>
+            <td th:text="${student.department}" style="width: 15%">Department</td>
+            <td th:text="${student.updatedBy}" style="width: 10%">Updated By</td>
+
+            <td style="width: 9%;">
+                <a th:href="@{/students/getOne/(Id=${student.Id})}" class="btn btn-warning btn-sm" id="editButton">
+                    <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
+                </a>
+
+                <a th:href="@{/students/delete/(Id=${student.Id})}" class="btn btn-secondary btn-sm"
+                   id="viewButton">
+                    <i class="fas fa-eye" data-toggle="tooltip" title="View"></i>
+                </a>
+
+                <a th:href="@{/students/delete/(Id=${student.Id})}" class="btn btn-danger btn-sm" id="deleteButton">
+                    <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
+                </a>
+
+
+            </td>
+
+        </tr>
+
+    </table>
+</div>
 
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

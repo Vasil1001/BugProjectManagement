@@ -14,9 +14,7 @@ import java.util.Date;
 @Entity
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    private Integer Id;
 
     private String title;
     private String description;
@@ -33,15 +31,15 @@ public class Ticket {
     private String[] statusOptions = {"Issue", "Bug", "Feature request"};
     private String[] priorityOptions = {"Immediate", "High", "Medium", "Low"};
     private String[] typeOptions = {"New", "Unassigned", "In progress", "Resolved"};
-    
+
 
     // * Ticket will show assigned user
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user; // ? FOREIGN KEY
 
-    public Ticket(Integer id, String title, String description, int estimatedTime, String status, String priority, String type, User user) {
-        this.id = id;
+    public Ticket(Integer Id, String title, String description, int estimatedTime, String status, String priority, String type, User user) {
+        this.Id = Id;
         this.title = title;
         this.description = description;
         this.estimatedTime = estimatedTime;
