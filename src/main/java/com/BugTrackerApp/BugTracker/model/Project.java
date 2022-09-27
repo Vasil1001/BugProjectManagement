@@ -17,7 +17,7 @@ import java.util.Date;
 @Entity
 public class Project {
     @Id
-    private Integer id;
+    private Integer Id;
     private String name;
     private String description;
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -31,16 +31,16 @@ public class Project {
     // * Project will show assigned team members
     // * Project will show assigned tickets
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_Id")
     private User user; // ? FOREIGN KEY
     private ArrayList<User> members;
     private ArrayList<Ticket> projectTickets;
-    
+
     public Project() {
     }
 
-    public Project(Integer id, String name, String description, Date createdOn, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
-        this.id = id;
+    public Project(Integer Id, String name, String description, Date createdOn, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
+        this.Id = Id;
         this.name = name;
         this.description = description;
         this.createdOn = createdOn;

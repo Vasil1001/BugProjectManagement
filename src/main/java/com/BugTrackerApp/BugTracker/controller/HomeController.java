@@ -19,4 +19,15 @@ public class HomeController {
         return "about";
     }
 
+    @RequestMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("title", "Login | BugTracker");
+        return "login";
+    }
+
+    @RequestMapping("/signup")
+    public String signup(Model model) {
+        model.addAttribute("title", "Sign Up | BugTracker");
+        return "signup";
+    }
 }

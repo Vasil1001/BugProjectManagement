@@ -27,8 +27,8 @@ public class ProjectController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<Project> getOne(Integer id) {
-        return projectService.getOne(id);
+    public Optional<Project> getOne(Integer Id) {
+        return projectService.getOne(Id);
     }
 
     @PostMapping(value = "/addNew")
@@ -42,6 +42,12 @@ public class ProjectController {
         projectService.update(project);
         return "redirect:/projects/getAll";
     }
+
+    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer Id) {
+        projectService.delete(Id);
+        return "redirect:/projects/getAll";
+    }
 }
 
 //    @RequestMapping(value = "/getAllProjects")
@@ -50,20 +56,20 @@ public class ProjectController {
 //    }
 //
 //
-//    @RequestMapping(value = "/Projects/{id}")
-//    public Optional<Project> getProject(@PathVariable String id) {
-//        return projectService.getProject(id);
+//    @RequestMapping(value = "/Projects/{Id}")
+//    public Optional<Project> getProject(@PathVariable String Id) {
+//        return projectService.getProject(Id);
 //    }
 //    @RequestMapping(value = "/Projects", method = RequestMethod.POST)
-//    public void addProject(@RequestBody Project Project) {
+//    public voId addProject(@RequestBody Project Project) {
 //        projectService.addProject(Project);
 //    }
-//    @RequestMapping(value = "/Projects/{id}", method = RequestMethod.PUT)
-//    public void updateProject(@PathVariable String id, @RequestBody Project Project) {
-//        projectService.updateProject(id, Project);
+//    @RequestMapping(value = "/Projects/{Id}", method = RequestMethod.PUT)
+//    public voId updateProject(@PathVariable String Id, @RequestBody Project Project) {
+//        projectService.updateProject(Id, Project);
 //    }
-//    @RequestMapping(value = "/Projects/{id}", method = RequestMethod.DELETE)
-//    public void deleteProject(@PathVariable String id) {
-//        projectService.deleteProject(id);
+//    @RequestMapping(value = "/Projects/{Id}", method = RequestMethod.DELETE)
+//    public voId deleteProject(@PathVariable String Id) {
+//        projectService.deleteProject(Id);
 //    }
 //}

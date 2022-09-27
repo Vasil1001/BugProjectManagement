@@ -21,8 +21,8 @@ $('document').ready(function(){
         $('.table #ticketsDeleteButton').on('click',function(event) {
                 event.preventDefault();
                 var href = $(this).attr('href');
-                $('#ticketDeleteModal #ticketDelRef').attr('href', href);
-                $('#ticketDeleteModal').modal();
+                $('#ticketDeleteModal1 #ticketDelRef1').attr('href', href);
+                $('#ticketDeleteModal1').modal();
 
         }); // # TICKET SCRIPT END
 

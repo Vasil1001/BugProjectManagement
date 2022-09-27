@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    @Column(name = "id", nullable = false)
     private Integer id;
 
     @Column(name = "first_name")

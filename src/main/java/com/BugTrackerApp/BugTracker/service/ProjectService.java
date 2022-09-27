@@ -27,20 +27,20 @@ public class ProjectService {
         return projects;
     }
 
-    public Optional<Project> getProject(Integer id) {
-        return projectRepository.findById(id);
+    public Optional<Project> getProject(Integer Id) {
+        return projectRepository.findById(Id);
     }
 
     public void addProject(Project project) {
         projectRepository.save(project);
     }
 
-    public void updateProject(Integer id, Project project) {
+    public void updateProject(Integer Id, Project project) {
         projectRepository.save(project);
     }
 
-    public void deleteProject(Integer id) {
-        projectRepository.deleteById(id);
+    public void deleteProject(Integer Id) {
+        projectRepository.deleteById(Id);
     }
 
 
@@ -52,7 +52,12 @@ public class ProjectService {
         projectRepository.save(project);
     }
 
-    public Optional<Project> getOne(Integer id) {
-        return projectRepository.findById(id);
+    public Optional<Project> getOne(Integer Id) {
+        return projectRepository.findById(Id);
     }
+
+    public void delete(Integer Id) {
+        projectRepository.deleteById(Id);
+    }
+
 }
