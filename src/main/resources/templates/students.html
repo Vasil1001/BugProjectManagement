@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::body})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Bootstrap CSS, js loaded from base.html, -->
+    <div th:replace="~{base :: imports}"></div>
 
     <!-- Load custom js function file -->
     <script th:src="@{/js/main.js}"></script>
-    <!--    <script type="text/javascript" src="../static/js/main.js" th:src="@{/main.js}"></script>-->
 
     <title>Student List</title>
 </head>
 
 <body>
-<style>
-        .table-curved {
-            border: solid #ccc 0.5px;
-            border-radius: 16px;
-        }
+<!--add navigation sidebar and top bar-->
+<div th:replace="~{base :: navigation}"></div>
 
-</style>
-
-<div role="main" class="align-items-center justify-content-center" style="margin-left: 255px; margin-top: 0px; ">
-    <H2 style="margin-top: 0px;">_</H2>
+<div role="main" class="align-items-center justify-content-center" style="margin-left: 255px; margin-top: 0px">
+    <h2 style="margin-top: 0px">_</h2>
 
     <!--    <div class="row" style="width:96%">-->
-    <div style="background-color: #343a40; border: solid #eeeeee 0.1px;
-        border-radius: 16px; margin-top: 59px;  width: 340px; margin-bottom: 20px; margin-right: 20px;">
-        <h2 style="color:black; margin-top: 12px; margin-left: 15px; color: white;">Students <b>details</b></h2>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"
-                style="border: #343a40 0.5px; border-radius: 10px;margin-top: 0px; margin-bottom: 12px; margin-left: 15px;">
+    <div style="
+          background-color: #343a40;
+          border: solid #eeeeee 0.1px;
+          border-radius: 16px;
+          margin-top: 59px;
+          width: 340px;
+          margin-bottom: 20px;
+          margin-right: 20px;
+        ">
+        <h2 style="
+            color: black;
+            margin-top: 12px;
+            margin-left: 15px;
+            color: white;
+          ">
+            Students <b>details</b>
+        </h2>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" style="
+            border: #343a40 0.5px;
+            border-radius: 10px;
+            margin-top: 0px;
+            margin-bottom: 12px;
+            margin-left: 15px;
+          ">
             <i class="bi bi-node-plus"></i> Add New
         </button>
-        <span style="margin-top: 5px; margin-left: 15px; color: white;">Overview list of all students</span>
-
+        <span style="margin-top: 5px; margin-left: 15px; color: white">Overview list of all students</span>
     </div>
 
     <!--        <div class="col" style="background-color: #eeeeee; border: solid #eeeeee 0.5px;-->
@@ -45,8 +58,13 @@
 
     <!--    </div>-->
 
-    <table class="table table-curved overflow-hidden table-hover table align-middle "
-           style="width: 98%; background-color: #eeeeee; margin-right: 20px; ">
+    <table class="table table-curved overflow-hidden table-hover table align-middle" style="
+          width: 98%;
+          background-color: #eeeeee;
+          margin-right: 20px;
+          border: solid #ccc 0.5px;
+          border-radius: 16px;
+        ">
         <thead class="thead-dark">
         <tr class="text-center">
             <th class="text-left">#</th>
@@ -54,17 +72,18 @@
             <th>Department</th>
             <th>Updated By</th>
             <th>Options</th>
-
         </tr>
         </thead>
 
         <tr class="text-center" th:each="student:${students}">
-            <td class="text-left" th:text="${student.Id}" style="width: 1%">Id</td>
+            <td class="text-left" th:text="${student.Id}" style="width: 1%">
+                Id
+            </td>
             <td th:text="${student.name}" style="width: 15%">Name</td>
             <td th:text="${student.department}" style="width: 15%">Department</td>
             <td th:text="${student.updatedBy}" style="width: 10%">Updated By</td>
 
-            <td style="width: 9%;">
+            <td style="width: 9%">
                 <a th:href="@{/students/getOne/(Id=${student.Id})}" class="btn btn-warning btn-sm" id="editButton">
                     <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                 </a>
@@ -77,15 +96,10 @@
                 <a th:href="@{/students/delete/(Id=${student.Id})}" class="btn btn-danger btn-sm" id="deleteButton">
                     <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
                 </a>
-
-
             </td>
-
         </tr>
-
     </table>
 </div>
-
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -99,43 +113,41 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="form-group">
                         <label for="Id" class="col-form-label">Id:</label>
-                        <input type="text" class="form-control" id="Id" name="Id">
+                        <input type="text" class="form-control" id="Id" name="Id"/>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name"/>
                     </div>
 
                     <div class="form-group">
                         <label for="department" class="col-form-label">Department:</label>
-                        <input type="text" class="form-control" id="department" name="department">
+                        <input type="text" class="form-control" id="department" name="department"/>
                     </div>
 
                     <div class="form-group">
                         <label for="updatedBy" class="col-form-label">Updated By:</label>
-                        <input type="text" class="form-control" id="updatedBy" name="updatedBy">
+                        <input type="text" class="form-control" id="updatedBy" name="updatedBy"/>
                     </div>
 
                     <div class="form-group">
                         <label for="updatedOn" class="col-form-label">Updated On:</label>
-                        <input type="text" class="form-control" id="updatedOn" name="updatedOn">
+                        <input type="text" class="form-control" id="updatedOn" name="updatedOn"/>
                     </div>
-
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
     </form>
 </div>
-
 
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
     <form th:action="@{/students/update}" method="put">
@@ -148,43 +160,41 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="form-group">
                         <label for="IdEdit" class="col-form-label">Id:</label>
-                        <input type="text" class="form-control" id="IdEdit" name="Id">
+                        <input type="text" class="form-control" id="IdEdit" name="Id"/>
                     </div>
 
                     <div class="form-group">
                         <label for="nameEdit" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="nameEdit" name="name">
+                        <input type="text" class="form-control" id="nameEdit" name="name"/>
                     </div>
 
                     <div class="form-group">
                         <label for="departmentEdit" class="col-form-label">Department:</label>
-                        <input type="text" class="form-control" id="departmentEdit" name="department">
+                        <input type="text" class="form-control" id="departmentEdit" name="department"/>
                     </div>
 
                     <div class="form-group">
                         <label for="updatedByEdit" class="col-form-label">Updated By:</label>
-                        <input type="text" class="form-control" id="updatedByEdit" name="updatedBy">
+                        <input type="text" class="form-control" id="updatedByEdit" name="updatedBy"/>
                     </div>
 
                     <div class="form-group">
                         <label for="updatedOnEdit" class="col-form-label">Updated On:</label>
-                        <input type="text" class="form-control" id="updatedOnEdit" name="updatedOn">
+                        <input type="text" class="form-control" id="updatedOnEdit" name="updatedOn"/>
                     </div>
-
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
     </form>
 </div>
-
 
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
@@ -200,13 +210,13 @@
             </div>
             <div class="modal-footer">
                 <a href="" class="btn btn-primary" id="delRef">Yes, Delete</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
 
 </html>

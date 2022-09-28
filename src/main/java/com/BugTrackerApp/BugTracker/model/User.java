@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer Id;
 
     @Column(name = "first_name")
     private String firstname;
@@ -32,11 +32,11 @@ public class User {
     }
 
     public Integer getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getFirstname() {

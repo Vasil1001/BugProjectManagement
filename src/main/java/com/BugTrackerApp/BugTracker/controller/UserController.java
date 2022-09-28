@@ -27,8 +27,8 @@ public class UserController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<User> getOne(Integer id) {
-        return userService.getOne(id);
+    public Optional<User> getOne(Integer Id) {
+        return userService.getOne(Id);
     }
 
     @PostMapping(value = "/addNew")
@@ -43,7 +43,11 @@ public class UserController {
         return "redirect:/users/getAll";
     }
 
-
+    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer Id) {
+        userService.delete(Id);
+        return "redirect:/users/getAll";
+    }
     ///
 
 //    @RequestMapping(value = "/GetUsers")

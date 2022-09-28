@@ -1,84 +1,75 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <div th:fragment="imports">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+              integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+              integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/deleteConfirmModal.css}">
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+                crossorigin="anonymous"></script>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-            crossorigin="anonymous"></script>
+        <link rel="stylesheet" th:href="@{/css/style.css}"> <!-- sidebar & topbar -->
+        <link rel="stylesheet" th:href="@{/css/deleteConfirmModal.css}">
 
-    <!-- Load custom js function file -->
-    <script th:src="@{/js/script.js}"></script>
-    <script th:src="@{/js/main.js}"></script>
-    <script th:src="@{/js/ticketScript.js}"></script>
-    <script th:src="@{/js/projectScript.js}"></script>
-
+    </div> <!-- fragment end -->
     <title th:text="${title}">Base HTML</title>
 </head>
 
 <body>
 
-<style>
-    body {
-        font-family: "Roboto", sans-serif;
-    }
+<div th:fragment="navigation">
 
-</style>
+    <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                background: #dedede;
+            }
 
-<!-- Just an image -->
-<nav class="navbar navbar-dark position-fixed" style="background-color: #14acaa;">
-    <a class="navbar-brand" href="#">
-        <img src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="32" alt="">
-    </a>
-</nav>
-<!-- navbar end -->
+    </style>
 
-<!-- sidebar -->
-<div class="sidebar">
+    <!-- top-bar start -->
+    <nav class="navbar navbar-dark position-fixed" style="background-color: #14acaa;">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="32"
+                 alt="">
+        </a>
+    </nav>
+    <!-- top-bar end -->
 
+    <!-- sidebar start-->
+    <div class="sidebar">
 
-    <a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
-    <a href="/tickets/getAll" class="item"><i class="fa-solid fa-list-check"></i> Tickets</a>
-    <a href="#" class="item"><i class="fa-solid fa-robot"></i> Projects</a>
-    <a href="#" class="item"><i class="fa-regular fa-user"></i> Users</a>
-    <a href="#" class="item">Students</a>
-    <a href="#" class="item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
-    <div class="divider"></div>
-    <a href="#" class="item"><i class="fa-regular fa-address-card"></i> About</a>
+        <a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
+        <a th:href="@{/tickets/getAll}" class="item"><i class="fa-solid fa-list-check"></i> Tickets</a>
+        <a th:href="@{/projects/getAll}" class="item"><i class="fa-solid fa-robot"></i> Projects</a>
+        <a th:href="@{/users/getAll}" class="item"><i class="fa-regular fa-user"></i> Users</a>
+        <a th:href="@{/students/getAll}" class="item">Students</a>
+        <a th:href="@{/tickets/getAll}" class="item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log
+            Out</a>
+        <div class="divider"></div>
+        <a href="#" class="item"><i class="fa-regular fa-address-card"></i> About</a>
 
-
-</div> <!-- end sidebar -->
-
-
-<!-- content area -->
-<div class="content">
-
-
-    <div th:replace="${content}"></div>
-
-</div>
-
+    </div> <!-- end sidebar -->
+</div> <!-- fragment end -->
 
 </body>
 
