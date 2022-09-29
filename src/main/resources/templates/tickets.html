@@ -19,43 +19,48 @@
 <div role="main" class="align-items-center justify-content-center" style="margin-left: 245px; margin-top: 0px;">
     <H2 style="margin-top: 0px;">_</H2>
 
+    <!-- Short pill shaped container with title-->
     <div
             style="background-color: white; border: solid #e9e9e9 1px;
-            border-radius: 12px; margin-top: 57px;  width: 395px; margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
-        <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Tickets <b>details</b></h2>
+            border-radius: 12px; margin-top: 57px;  width: 305px; margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
+        <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Tickets <b>details</b>
+        </h2>
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ticketAddModal"
                 style="border: solid #343a40 1.5px; border-radius: 10px;margin-top: 2px; margin-bottom: 12px; margin-left: 17px;">
             <i class="bi bi-node-plus"></i> Add
             New
         </button>
         <span style="margin-top: 5px; margin-left: 18px; color: 343a40;"><b>Overview page</b></span>
-    </div>
+    </div> <!-- END Short pill shaped container with title-->
 
 
-    <div class="card mr-4" style="border: solid #e6e6e6 1px; border-radius: 12px;">
-        <div class="card-header" style=" border-top-left-radius: 12px; border-top-right-radius: 12px;">
+    <!-- START big main container-->
+    <div
+            style="background-color: white; border: solid #e9e9e9 1px;
+            border-radius: 12px; margin-top: 22px;   margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
+        <!--margin div start -->
+        <div style="margin: 23px;">
             <div class="row">
                 <div class="col-md-6 text-center">
                         <span class="float-md-left">
-                            <h3><b>Tickets</b></h3>
+                            <h4>List of tickets</h4>
                         </span>
                 </div>
                 <div class="col-md-6 text-center">
                         <span class="float-md-right">
                             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ticketAddModal"
-                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 15px; padding-bottom: 15px;">
+                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
                                 Add New Ticket
                             </button>
                         </span>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
+
+            <hr style="margin-top:6px;margin-bottom:6px;">
 
             <table class="table table-curved overflow-hidden table-hover table align-middle"
                    style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
                 <thead class="thead-dark">
-
                 <tr class="text-center">
                     <th>#</th>
                     <th>Title</th>
@@ -88,19 +93,21 @@
                 </tr>
             </table>
         </div>
+        <!--margin div end -->
+    </div> <!-- END big main container -->
 
-        <div class="modal fade" id="ticketAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <form th:action="@{/tickets/addNew}" method="post">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New Ticket</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+    <div class="modal fade" id="ticketAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <form th:action="@{/tickets/addNew}" method="post">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New Ticket</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
                             <div class="form-group">
                                 <label for="ticket-add-id" class="col-form-label">Id:</label>
@@ -114,8 +121,7 @@
 
                             <div class="form-group">
                                 <label for="ticket-add-description" class="col-form-label">Department:</label>
-                                <input type="text" class="form-control" id="ticket-add-description"
-                                       name="description">
+                                <input type="text" class="form-control" id="ticket-add-description" name="description">
                             </div>
 
                         </div>
@@ -129,18 +135,18 @@
         </div>
 
 
-        <div class="modal fade" id="ticketEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-             aria-hidden="true">
-            <form th:action="@{/tickets/update}" method="put">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit Ticket</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+    <div class="modal fade" id="ticketEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+         aria-hidden="true">
+        <form th:action="@{/tickets/update}" method="put">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Ticket</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
                             <div class="form-group">
                                 <label for="ticket-edit-id" class="col-form-label">Id:</label>
@@ -155,8 +161,7 @@
                             <div class="form-group">
                                 <label for="ticket-edit-description" class="col-form-label">Ticket
                                     description:</label>
-                                <input type="text" class="form-control" id="ticket-edit-description"
-                                       name="description">
+                                <input type="text" class="form-control" id="ticket-edit-description" name="description">
                             </div>
 
 
@@ -197,7 +202,6 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

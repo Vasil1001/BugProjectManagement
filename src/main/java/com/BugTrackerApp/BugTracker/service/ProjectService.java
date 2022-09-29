@@ -2,7 +2,9 @@ package com.BugTrackerApp.BugTracker.service;
 
 import com.BugTrackerApp.BugTracker.model.Project;
 
+import com.BugTrackerApp.BugTracker.model.Ticket;
 import com.BugTrackerApp.BugTracker.repository.ProjectRepository;
+import com.BugTrackerApp.BugTracker.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +18,15 @@ public class ProjectService {
 
     @Autowired
     private ProjectRepository projectRepository;
+    private TicketRepository ticketRepository;
 
     public List<Project> getAll() {
         return (List<Project>) projectRepository.findAll();
     }
 
-    public List<Project> getAllProjects() {
-        List<Project> projects = new ArrayList<>();
-        projectRepository.findAll().forEach(projects::add);
-        return projects;
+    public List<Ticket> getProjectTickets() {
+        return (List<Ticket>) ticketRepository.findAll();
+
     }
 
     public Optional<Project> getProject(Integer Id) {

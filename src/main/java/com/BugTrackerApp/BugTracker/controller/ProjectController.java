@@ -2,7 +2,9 @@ package com.BugTrackerApp.BugTracker.controller;
 
 import com.BugTrackerApp.BugTracker.model.Project;
 import com.BugTrackerApp.BugTracker.model.Project;
+import com.BugTrackerApp.BugTracker.model.Ticket;
 import com.BugTrackerApp.BugTracker.service.ProjectService;
+import com.BugTrackerApp.BugTracker.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +19,17 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
+    @Autowired
+    private TicketService ticketService;
 
     @RequestMapping("/getAll") //RETURN TO HTML
     public String getAllModel(Model model) {
-        List<Project> projects = projectService.getAll();
-        model.addAttribute("projects", projects);
+        List<Project> projectsList = projectService.getAll();
+        List<Ticket> ticketsList = ticketService.getAll();
+
+        model.addAttribute("projects", projectsList);
+        model.addAttribute("ticketsInList", ticketsList);
+
         return "projects"; //NAME OF HTML TO RETURN
     }
 
@@ -33,6 +41,7 @@ public class ProjectController {
 
     @PostMapping(value = "/addNew")
     public String addNew(Project project) {
+
         projectService.addNew(project);
         return "redirect:/projects/getAll";
     }
@@ -47,6 +56,7 @@ public class ProjectController {
     public String delete(Integer Id) {
         projectService.delete(Id);
         return "redirect:/projects/getAll";
+
     }
 }
 

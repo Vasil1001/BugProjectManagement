@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-@Builder
 @Getter
 @Setter
 @ToString
@@ -23,8 +22,8 @@ public class Project {
     @DateTimeFormat(pattern="yyyy-MM-dd")
 
     private Date createdOn; //Project.setCreatedOn(Instant.now());
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
     private Date finishDate;
 
     // * Project will show assigned team manager
@@ -33,22 +32,13 @@ public class Project {
     @ManyToOne
     @JoinColumn(name = "user_Id")
     private User user; // ? FOREIGN KEY
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket; // ? FOREIGN KEY
+
     private ArrayList<User> members;
     private ArrayList<Ticket> projectTickets;
 
-    public Project() {
-    }
 
-    public Project(Integer Id, String name, String description, Date createdOn, Date finishDate, User user, ArrayList<User> members, ArrayList<Ticket> projectTickets) {
-        this.Id = Id;
-        this.name = name;
-        this.description = description;
-        this.createdOn = createdOn;
-        this.finishDate = finishDate;
-        this.user = user;
-        this.members = members;
-        this.projectTickets = projectTickets;
-    }
-
-   
 }
