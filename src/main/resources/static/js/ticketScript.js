@@ -12,6 +12,7 @@ $('document').ready(function(){
             $('#ticket-edit-id').val(ticket.id);
             $('#ticket-edit-title').val(ticket.title);
             $('#ticket-edit-description').val(ticket.description);
+
             });
             $('#ticketEditModal').modal();
             console.log("3 edit .modal()");

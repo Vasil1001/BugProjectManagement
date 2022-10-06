@@ -1,4 +1,5 @@
 $('document').ready(function(){
+
     console.log("1 Project script.js loaded - ready func()");
     // # TICKET SCRIPT START
     $('.table #projectsEditButton').on('click',function(event){

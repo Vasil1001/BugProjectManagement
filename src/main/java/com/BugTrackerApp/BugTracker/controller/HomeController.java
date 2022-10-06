@@ -30,4 +30,10 @@ public class HomeController {
         model.addAttribute("title", "Sign Up | BugTracker");
         return "signup";
     }
+
+    @RequestMapping("/selectProject")
+    public String selectProject(Model model) {
+        model.addAttribute("title", "Selected Project | BugTracker");
+        return "selectProject";
+    }
 }

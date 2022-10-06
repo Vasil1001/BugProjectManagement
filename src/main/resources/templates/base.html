@@ -41,6 +41,7 @@
     <style>
             body {
                 font-family: "Roboto", sans-serif;
+                font-size: 15.5px;
                 background: #dedede;
             }
 
@@ -58,15 +59,16 @@
     <!-- sidebar start-->
     <div class="sidebar">
 
-        <a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
+        <a th:href="@{/projects/getAll}" class="item"><i class="fas fa-chalkboard"></i> Dashboard</a>
         <a th:href="@{/tickets/getAll}" class="item"><i class="fa-solid fa-list-check"></i> Tickets</a>
-        <a th:href="@{/projects/getAll}" class="item"><i class="fa-solid fa-robot"></i> Projects</a>
         <a th:href="@{/users/getAll}" class="item"><i class="fa-regular fa-user"></i> Users</a>
-        <a th:href="@{/students/getAll}" class="item">Students</a>
+
+        <div class="divider"></div>
+
         <a th:href="@{/tickets/getAll}" class="item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log
             Out</a>
-        <div class="divider"></div>
         <a href="#" class="item"><i class="fa-regular fa-address-card"></i> About</a>
+        <a th:href="@{/students/getAll}" class="item">Students</a>
 
     </div> <!-- end sidebar -->
 </div> <!-- fragment end -->

@@ -15,76 +15,97 @@
 <!-- replace navigation sidebar and top bar from template -->
 <div th:replace="~{base :: navigation}"></div>
 
-<div role="main" class="align-items-center justify-content-center" style="margin-left: 245px; margin-top: 0px;">
+<div role="main" class="align-items-center justify-content-center"
+     style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
     <H2 style="margin-top: 0px;">_</H2>
 
-    <!-- Short pill shaped container with title-->
-    <div
-            style="background-color: white; border: solid #e9e9e9 1px;
-            border-radius: 12px; margin-top: 57px;  width: 305px; margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
-        <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Projects <b>details</b>
-        </h2>
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#projectAddModal"
-                style="border: solid #343a40 1.5px; border-radius: 10px;margin-top: 2px; margin-bottom: 12px; margin-left: 17px;">
-            <i class="bi bi-node-plus"></i> Add
-            New
-        </button>
-        <span style="margin-top: 5px; margin-left: 18px; color: 343a40;"><b>Overview page</b></span>
-    </div> <!-- END Short pill shaped container with title-->
+    <!--    &lt;!&ndash; Short pill shaped container with title&ndash;&gt;-->
+    <!--    <div style="background-color: white; border: solid #e9e9e9 1px;-->
+    <!--            border-radius: 12px; margin-top: 48px;  width: 305px; margin-bottom: 15px; font-family: 'Varela Round', sans-serif; ">-->
+    <!--        <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Project <b>details</b>-->
+    <!--        </h2>-->
+    <!--        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#projectAddModal"-->
+    <!--                style="border: solid #343a40 1.5px; border-radius: 10px;margin-top: 2px; margin-bottom: 12px; margin-left: 17px;">-->
+    <!--            <i class="bi bi-node-plus"></i> Add-->
+    <!--            New-->
+    <!--        </button>-->
+    <!--        <span style="margin-top: 5px; margin-left: 18px; color: 343a40;"><b>Selected project</b></span>-->
+    <!--    </div> &lt;!&ndash; END Short pill shaped container with title&ndash;&gt;-->
 
-    <!-- START big main container -->
-    <div style="background-color: white; border: solid #e9e9e9 1px;
-            border-radius: 12px; margin-top: 22px;   margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
+    <!-- START  TITLE CARD -->
+    <div class="card"
+         style="border: solid #e6e6e6 1px; border-radius: 12px; margin-top: 48px; margin-bottom: 15px;">
         <!--margin div start -->
-        <div style="margin: 23px;">
+        <div style="margin: 23px; ">
+            <!-- Table title and add new BTN -->
             <div class="row">
                 <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h4>List of projects</h4>
-                            </span>
+                        <span class="float-md-left">
+                            <h2>Dashboard</h2>
+                        </span>
                 </div>
+            </div> <!-- END Table title and add new -->
+        </div>
+        <!--margin div end -->
+    </div> <!-- END TITLE CARD  -->
+
+
+    <!-- START big main container -->
+    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
+        <!--margin div start -->
+        <div style="margin: 23px; ">
+            <!-- Table title and add new BTN -->
+            <div class="row">
                 <div class="col-md-6 text-center">
-                            <span class="float-md-right">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#projectAddModal"
-                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                    Add New Project
-                                </button>
-                            </span>
+                        <span class="float-md-left">
+                            <h2>Projects</h2>
+                        </span>
                 </div>
-            </div>
+
+                <div class="col-md-6 text-center">
+                        <span class="float-md-right">
+                            <button type="button" class="btn btn-dark" data-toggle="modal"
+                                    data-target="#projectAddModal"
+                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
+                                Add New Project
+                            </button>
+                        </span>
+                </div>
+
+                <span class="col-md-6">
+                        <h6 class="text-monospace"><small>Tap on a project to expand</small></h6>
+                    </span>
+            </div> <!-- END Table title and add new -->
 
             <hr style="margin-top:6px;margin-bottom:6px;">
 
             <table class="table table-curved overflow-hidden table-hover table align-middle"
                    style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
                 <thead class="thead-dark">
-                <tr class="text-center">
-                    <th>#</th>
+                <tr class="text-left">
+                    <th class="text-center">#</th>
                     <th>Project Name</th>
                     <th>Project Description</th>
-                    <th>Created on</th>
-                    <th>Completed on</th>
-                    <th>Options</th>
-
+                    <!--                    <th>Created on</th>-->
+                    <!--                    <th>Completed on</th>-->
+                    <th class="text-right">Options</th>
                 </tr>
                 </thead>
 
-                <tr class="text-center" th:each="project:${projects}">
-                    <td th:text="${project.id}" style="width: 1%">id</td>
-                    <td th:text="${project.name}" style="width: 15%">Project name</td>
-                    <td th:text="${project.description}" style="width: 15%">Project Description</td>
-                    <td th:text="${project.createdOn}" style="width: 15%">Created on</td>
-                    <td th:text="${project.finishDate}" style="width: 15%">Completed on</td>
-                    <td style="width: 9%;">
+                <tr class="text-left" th:each="project:${projects}">
+                    <td class="text-center" th:text="${project.id}" style="width: 2%">id</td>
+                    <td>
+                        <a th:href="@{/projects/getView/(Id=${project.id})}" id="projectsViewButton">
+                            <p th:text="${project.name}"></p>
+                        </a>
+                    </td>
+
+                    <td th:text="${project.description}"></td>
+
+                    <td class="text-right" style="width: 10%;">
                         <a th:href="@{/projects/getOne/(Id=${project.id})}" class="btn btn-warning btn-sm"
                            id="projectsEditButton">
                             <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
-                        </a>
-
-                        <a th:href="@{/projects/delete/(Id=${project.id})}" class="btn btn-secondary btn-sm"
-                           id="projectsViewButton">
-                            <i class="fas fa-eye" data-toggle="tooltip" title="Delete"></i>
                         </a>
 
                         <a th:href="@{/projects/delete/(Id=${project.id})}" class="btn btn-danger btn-sm"
@@ -94,63 +115,104 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <!--margin div end -->
+    </div> <!-- END TICKETS TABLE  -->
 
+    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
+        <div style="margin: 31px; ">
+            <h2>Overview charts</h2>
+            <hr>
+            <div class="row row-cols-3 g-4">
 
-        </div> <!--margin div end -->
-    </div> <!-- END big main container -->
-
-    <!-- START 2nd main container -->
-    <div style="background-color: white; border: solid #e9e9e9 1px;
-            border-radius: 12px; margin-top: 22px;   margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
-
-        <div style="margin: 23px;">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h4>List of tickets</h4>
-                            </span>
+                <div class="col" style="margin-bottom: 30px;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                This is a longer card with supporting text below as a natural lead-in to
+                                additional content. This content is a little longer.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center">
-                            <span class="float-md-right">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                This is a longer card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural
+                                lead-in
+                                to
+                                additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                This is a longer card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
 
-                            </span>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                This is a longer card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                This is a longer card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr style="margin-top:6px;margin-bottom:6px;">
-            <table class="table table-curved overflow-hidden table-hover table align-middle"
-                   style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
-                <thead class="thead-dark">
-                <tr class="text-center">
-                    <th>#</th>
-                    <th>Ticket Name</th>
-                    <th>Project Description</th>
-
-                </tr>
-                </thead>
-
-                <tr class="text-center" th:each="ticket:${ticketsInList}">
-                    <td th:text="${ticket.id}" style="width: 1%">id</td>
-                    <td th:text="${ticket.title}" style="width: 15%">Title</td>
-                    <td th:text="${ticket.description}" style="width: 15%">Description</td>
-                </tr>
-            </table>
-        </div>
-    </div> <!-- END 2nd main container -->
-
-    <div class="card mr-4" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-top: 22px;">
-        <div style="margin: 31px;">
-            <ul class="list-group">
-                <h2>Assigned tickets</h2>
-                <hr>
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
-            </ul>
         </div>
     </div>
 
+
+    <!-- START  TITLE CARD -->
+    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
+        <!--margin div start -->
+        <div style="margin: 23px; ">
+            <!-- Table title and add new BTN -->
+            <div class="row">
+                <div class="col-md-6 text-center">
+                        <span class="float-md-left">
+                            <h2>Selected project page</h2>
+                        </span>
+                </div>
+            </div> <!-- END Table title and add new -->
+        </div>
+        <!--margin div end -->
+    </div> <!-- END TITLE CARD  -->
 
     <!-- ALL MODALS BELOW -->
     <div class="modal fade" id="projectAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -166,41 +228,42 @@
                     </div>
                     <div class="modal-body">
 
-                            <div class="form-group">
-                                <label for="project-add-id" class="col-form-label">Id:</label>
-                                <input type="text" class="form-control" id="project-add-id" name="Id">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-add-name" class="col-form-label">Project name:</label>
-                                <input type="text" class="form-control" id="project-add-name" name="name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-add-description" class="col-form-label">Project
-                                    Description:</label>
-                                <input type="text" class="form-control" id="project-add-description" name="description">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-add-createdOn" class="col-form-label">Created on:</label>
-                                <input type="text" class="form-control" id="project-add-createdOn" name="createdOn">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-add-finishDate" class="col-form-label">Completed on:</label>
-                                <input type="text" class="form-control" id="project-add-finishDate" name="finishDate">
-                            </div>
-
+                        <div class="form-group">
+                            <label for="project-add-id" class="col-form-label">Id:</label>
+                            <input type="text" class="form-control" id="project-add-id" name="Id">
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add project</button>
+
+                        <div class="form-group">
+                            <label for="project-add-name" class="col-form-label">Project name:</label>
+                            <input type="text" class="form-control" id="project-add-name" name="name">
                         </div>
+
+                        <div class="form-group">
+                            <label for="project-add-description" class="col-form-label">Project
+                                Description:</label>
+                            <textarea type="text" class="form-control" id="project-add-description" rows="3"
+                                      name="description"></textarea>
+                        </div>
+
+                        <!--                        <div class="form-group">-->
+                        <!--                            <label for="project-add-createdOn" class="col-form-label">Created on:</label>-->
+                        <!--                            <input type="text" class="form-control" id="project-add-createdOn" name="createdOn">-->
+                        <!--                        </div>-->
+
+                        <!--                        <div class="form-group">-->
+                        <!--                            <label for="project-add-finishDate" class="col-form-label">Completed on:</label>-->
+                        <!--                            <input type="text" class="form-control" id="project-add-finishDate" name="finishDate">-->
+                        <!--                        </div>-->
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add project</button>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
 
 
     <div class="modal fade" id="projectEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
@@ -216,39 +279,45 @@
                     </div>
                     <div class="modal-body">
 
-                            <div class="form-group">
-                                <label for="project-edit-id" class="col-form-label">Id:</label>
-                                <input type="text" class="form-control" id="project-edit-id" name="Id">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-edit-name" class="col-form-label">Project name:</label>
-                                <input type="text" class="form-control" id="project-edit-name" name="name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-edit-description" class="col-form-label">Project
-                                    description:</label>
-                                <input type="text" class="form-control" id="project-edit-description"
-                                       name="description">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-edit-createdOn" class="col-form-label">Project title:</label>
-                                <input type="text" class="form-control" id="project-edit-createdOn" name="createdOn">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="project-edit-finishDate" class="col-form-label">Project
-                                    description:</label>
-                                <input type="text" class="form-control" id="project-edit-finishDate" name="finishDate">
-                            </div>
-
+                        <div class="form-group">
+                            <label for="project-edit-id" class="col-form-label">Id:</label>
+                            <input type="text" class="form-control" id="project-edit-id" name="Id">
                         </div>
+
+                        <div class="form-group">
+                            <label for="project-edit-name" class="col-form-label">Project name:</label>
+                            <input type="text" class="form-control" id="project-edit-name" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-edit-description" class="col-form-label">Project
+                                description:</label>
+                            <textarea type="text" class="form-control" id="project-edit-description" rows="3"
+                                      name="description"></textarea>
+                        </div>
+
+                        <!--                        <div class="form-group">-->
+                        <!--                            <label for="project-edit-createdOn" class="col-form-label">Created on:</label>-->
+                        <!--                            <input type="text" class="form-control" id="project-edit-createdOn" name="createdOn">-->
+                        <!--                        </div>-->
+
+                        <!--                        <div class="form-group">-->
+                        <!--                            <label for="project-edit-finishDate" class="col-form-label">Finished on:</label>-->
+                        <!--                            <input type="text" class="form-control" id="project-edit-finishDate" name="finishDate">-->
+                        <!--                        </div>-->
+
+                        <label>Assign available members to project</label>
+                        <select class="custom-select" id="listSelect" multiple>
+                            <option disabled>Select a ticket</option>
+                            <option th:each="ticket : ${ticketsInList}" th:value="${ticket}"
+                                    th:text="${ticket.title}"></option>
+                        </select>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
+                    </div>
                     </div>
                 </div>
             </form>
