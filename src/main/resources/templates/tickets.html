@@ -8,11 +8,22 @@
     <!-- Load custom js function file -->
     <script th:src="@{/js/ticketScript.js}"></script>
 
+    <!-- Datatables-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/tableSort.css}">
+
     <title>Tickets page</title>
 </head>
 
 <body>
+<script>
+        $(document).ready(function () {
+            $('#ticketsListDataTable').DataTable();
+        });
 
+
+</script>
 <!--add navigation sidebar and top bar-->
 <div th:replace="~{base :: navigation}"></div>
 
@@ -39,27 +50,37 @@
             border-radius: 12px; margin-top: 22px;   margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
         <!--margin div start -->
         <div style="margin: 23px;">
+            <!-- Table title and add new BTN -->
             <div class="row">
                 <div class="col-md-6 text-center">
-                        <span class="float-md-left">
-                            <h4>List of tickets</h4>
-                        </span>
+                                <span class="float-md-left">
+                                    <h3>Tickets</h3>
+                                </span>
                 </div>
+
                 <div class="col-md-6 text-center">
-                        <span class="float-md-right">
-                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ticketAddModal"
-                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                Add New Ticket
-                            </button>
-                        </span>
+                                <span class="float-md-right">
+                                    <button type="button" class="btn btn-dark " data-toggle="modal"
+                                            data-target="#ticketAddModal"
+                                            style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
+                                        <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
+                                           style="font-size:20px;"></i> New Ticket
+                                    </button>
+                                </span>
                 </div>
+
+                <span class="col-md-6" style="margin-left:5px;">
+                                <h6 class="text-monospace"><small>List of all tickets from all projects</small>
+                                </h6>
+                            </span>
             </div> <!-- END Table title and add new -->
 
             <hr style="margin-top:6px;margin-bottom:6px;">
 
-            <table class="table table-curved overflow-hidden table-hover table align-middle"
-                   style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
-                <thead class="thead-dark">
+            <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
+                   id="ticketsListDataTable"
+                   style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
+                <thead>
                 <tr class="text-left">
                     <th class="text-left">#</th>
                     <th>Name</th>

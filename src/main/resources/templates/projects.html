@@ -7,11 +7,23 @@
     <!-- Load custom js, css files -->
     <script th:src="@{/js/projectScript.js}"></script>
 
+    <!-- Datatables-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/tableSort.css}">
+
     <title>Projects page</title>
 </head>
 
 <body>
+<script>
+    $(document).ready( function () {
+        $('#projectsDataTable').DataTable();
+    } );
 
+
+
+</script>
 <!-- replace navigation sidebar and top bar from template -->
 <div th:replace="~{base :: navigation}"></div>
 
@@ -51,37 +63,40 @@
 
 
     <!-- START big main container -->
-    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
+    <div class="card" style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
         <!--margin div start -->
         <div style="margin: 23px; ">
             <!-- Table title and add new BTN -->
             <div class="row">
                 <div class="col-md-6 text-center">
-                        <span class="float-md-left">
-                            <h2>Projects</h2>
-                        </span>
+                            <span class="float-md-left">
+                                <h2>Projects</h2>
+                            </span>
                 </div>
 
                 <div class="col-md-6 text-center">
-                        <span class="float-md-right">
-                            <button type="button" class="btn btn-dark" data-toggle="modal"
-                                    data-target="#projectAddModal"
-                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                Add New Project
-                            </button>
-                        </span>
+                            <span class="float-md-right">
+                                <button type="button" class="btn btn-dark" data-toggle="modal"
+                                        data-target="#projectAddModal"
+                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
+                                    Add New Project
+                                </button>
+                            </span>
                 </div>
 
-                <span class="col-md-6">
-                        <h6 class="text-monospace"><small>Tap on a project to expand</small></h6>
-                    </span>
+                <span class="col-md-6" style="margin-left:5px;">
+                             <h6 class="text-monospace"><small>List of projects available to user</small></h6>
+                        </span>
+
             </div> <!-- END Table title and add new -->
 
-            <hr style="margin-top:6px;margin-bottom:6px;">
 
+            <hr style="margin-top:6px;margin-bottom:16px;">
             <table class="table table-curved overflow-hidden table-hover table align-middle"
-                   style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
+                   id="projectsDataTable"
+                   style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
                 <thead class="thead-dark">
+                <!--                            class="thead-dark"-->
                 <tr class="text-left">
                     <th class="text-center">#</th>
                     <th>Project Name</th>

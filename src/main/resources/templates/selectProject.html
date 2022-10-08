@@ -6,63 +6,49 @@
 
     <!-- Load custom js, css files -->
     <script th:src="@{/js/projectScript.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/tableSort.css}">
 
     <!-- Datatables-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/tableSort.css}">
 
-    <title>Projects page</title>
+    <title>Selected Project</title>
 </head>
 
 <body>
-<!-- replace navigation sidebar and top bar from template -->
-<div th:replace="~{base :: navigation}"></div>
-
 <script>
-    $(document).ready( function () {
-        $('#myTable').DataTable();
-        $('#membersDataTable').DataTable();
-        $('#ticketsDataTable').DataTable();
-    } );
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $('#membersDataTable').DataTable();
+            $('#ticketsDataTable').DataTable();
+        });
 
 
 </script>
+<!-- replace navigation sidebar and top bar from template -->
+<div th:replace="~{base :: navigation}"></div>
 
 <div role="main" class="align-items-center justify-content-center"
      style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
     <H2 style="margin-top: 0px;">_</H2>
 
-    <!-- Short pill shaped container with title-->
-    <div style="background-color: white; border: solid #e9e9e9 1px;
-            border-radius: 12px; margin-top: 48px;  width: 305px; margin-bottom: 15px; font-family: 'Varela Round', sans-serif; ">
-        <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Project <b>details</b>
-        </h2>
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#projectAddModal"
-                style="border: solid #343a40 1.5px; border-radius: 10px;margin-top: 2px; margin-bottom: 12px; margin-left: 17px;">
-            <i class="bi bi-node-plus"></i> Add
-            New
-        </button>
-        <span style="margin-top: 5px; margin-left: 18px; color: 343a40;"><b>Selected project</b></span>
-    </div> <!-- END Short pill shaped container with title-->
+    <!--    &lt;!&ndash; START  TITLE CARD &ndash;&gt;-->
+    <!--    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px; margin-top:48px;">-->
+    <!--        &lt;!&ndash;margin div start &ndash;&gt;-->
+    <!--        <div style="margin: 23px; ">-->
+    <!--            &lt;!&ndash; Table title and add new BTN &ndash;&gt;-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-md-6 text-center">-->
+    <!--                    <span class="float-md-left">-->
+    <!--                        <h2>Selected project page</h2>-->
+    <!--                    </span>-->
+    <!--                </div>-->
+    <!--            </div> &lt;!&ndash; END Table title and add new &ndash;&gt;-->
+    <!--        </div> &lt;!&ndash;margin div end &ndash;&gt;-->
+    <!--    </div>  &lt;!&ndash; END TITLE CARD  &ndash;&gt;-->
 
-    <!-- START  TITLE CARD -->
-    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
-        <!--margin div start -->
-        <div style="margin: 23px; ">
-            <!-- Table title and add new BTN -->
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <span class="float-md-left">
-                        <h2>Selected project page</h2>
-                    </span>
-                </div>
-            </div> <!-- END Table title and add new -->
-        </div> <!--margin div end -->
-    </div>  <!-- END TITLE CARD  -->
-
-    <div class="row">
-        <div class="col col-lg-7">
+    <div class="row" style=" margin-top:48px;">
+        <div class="col-lg-8">
             <!-- START big main container -->
             <div class="card" style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
                 <!--margin div start -->
@@ -70,63 +56,65 @@
                     <!-- Table title and add new BTN -->
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h2>Tickets</h2>
-                            </span>
+                                <span class="float-md-left">
+                                    <h3>Tickets</h3>
+                                </span>
                         </div>
 
                         <div class="col-md-6 text-center">
-                            <span class="float-md-right">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#projectAddModal"
-                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                    Add New Ticket
-                                </button>
-                            </span>
+                                <span class="float-md-right">
+                                    <button type="button" class="btn btn-dark " data-toggle="modal"
+                                            data-target="#projectAddModal"
+                                            style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
+                                        <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
+                                           style="font-size:20px;"></i> New Ticket
+                                    </button>
+                                </span>
                         </div>
 
                         <span class="col-md-6" style="margin-left:5px;">
-                             <h6 class="text-monospace"><small>List of tickets assigned to selected project</small></h6>
-                        </span>
+                                <h6 class="text-monospace"><small>List of tickets assigned to selected project</small>
+                                </h6>
+                            </span>
                     </div> <!-- END Table title and add new -->
+
                     <hr style="margin-top:6px;margin-bottom:16px;">
+                    <table
+                            class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
+                            id="ticketsDataTable"
+                            style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
+                        <thead>
 
-                    <!--                    <hr style="margin-top:6px;margin-bottom:6px;">-->
-
-                    <table class="table table-curved overflow-hidden table-hover table align-middle"
-                           id="ticketsDataTable"
-                           style="border: solid white 0.5px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 10px;">
-                        <thead class="thead-dark">
                         <tr class="text-left">
-                            <th class="text-center"><h6><b>#</b></h6></th>
-                            <th><h6><b>Ticket Name</b></h6></th>
-                            <th><h6><b>Ticket Description</b></h6></th>
-                            <!--                    <th>Created on</th>-->
-                            <!--                    <th>Completed on</th>-->
-                            <th class="text-right"><h6><b>Options</b></h6></th>
-
+                            <th class="text-center">#</th>
+                            <th>Ticket Name</th>
+                            <th>Ticket Description</th>
+                            <th class="text-right">Options</th>
                         </tr>
                         </thead>
 
-                        <tr class="text-left" th:each="project:${projects}">
-                            <td class="text-center" th:text="${project.id}" style="width: 2%">id</td>
-                            <td th:text="${project.name}" style="width: 10%">Name</td>
-                            <td th:text="${project.description}" style="width: 35%">Project Description</td>
+                        <tr class="text-left" th:each="ticket:${ticketsInList}">
+                            <td class="text-center" th:text="${ticket.id}" style="width: 2%">id</td>
+                            <td th:text="${ticket.title}" style="width: 10%">Ticket Name</td>
+                            <td th:text="${ticket.description}" style="width: 35%">Ticket Description</td>
 
                             <td class="text-right" style="width: 10%;">
-                                <a th:href="@{/projects/getOne/(Id=${project.id})}" class="btn btn-warning btn-sm"
-                                   id="projectsEditButton">
-                                    <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
+                                <a th:href="@{/tickets/getOne/(Id=${ticket.id})}" class="btn btn-warning btn-sm"
+                                   id="selProTicketEditButton">
+                                    <i class="far fa-edit" data-toggle="tooltip" title="Edit"
+                                       style="font-size:14px;"></i>
                                 </a>
 
-                                <a th:href="@{/projects/getOne/(Id=${project.id})}" class="btn btn-secondary btn-sm"
-                                   id="projectsViewButton">
-                                    <i class="fas fa-eye" data-toggle="tooltip" title="Delete"></i>
+                                <a th:href="@{/tickets/getOne/(Id=${ticket.id})}" class="btn btn-secondary btn-sm"
+                                   id="selProTicketViewButton">
+                                    <i class="fa-solid fa-bars-staggered" data-toggle="tooltip" title="Delete"
+                                       style="font-size:14px; "></i>
                                 </a>
 
-                                <a th:href="@{/projects/delete/(Id=${project.id})}" class="btn btn-danger btn-sm"
-                                   id="projectsDeleteButton">
-                                    <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
+                                <a th:href="@{/tickets/delete/(Id=${ticket.id})}" class="btn btn-danger btn-sm"
+                                   id="selProTicketDeleteButton">
+                                    <i class="fas fa-ban" data-toggle="tooltip" title="Delete"
+                                       style="font-size:14px;"></i>
                                 </a>
                             </td>
                         </tr>
@@ -135,45 +123,65 @@
             </div>
         </div> <!-- END TICKETS TABLE  col -->
 
-        <!-- smaller second col -->
-        <div class="col-lg-5 clearfix">
-            <div class="card " style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
+        <!-- smaller MEMBERS second col -->
+        <div class="col col-lg-4 col-md-12 col-sm-12 ">
+            <div class="card"
+                 style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px; min-width: 240px;  ">
                 <div style="margin: 23px; ">
-                    <div class="row" style="margin-bottom: 20px;">
+
+                    <div class="row">
                         <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h2>Members</h2>
-                            </span>
+                                <span class="float-md-left">
+                                    <h3>Members</h3>
+                                </span>
                         </div>
+
                         <div class="col-md-6 text-center">
-                            <span class="float-md-right">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#projectAddModal"
-                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                    Add New member
-                                </button>
-                            </span>
+                                <span class="float-md-right">
+                                    <button type="button" class="btn btn-dark " data-toggle="modal"
+                                            data-target="#usersAddModal"
+                                            style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
+                                        <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
+                                           style="font-size:20px;"></i> New Member
+                                    </button>
+                                </span>
                         </div>
+                        <span style="margin-left:15px; margin-bottom:15px;">
+                                <h6 class="text-monospace"><small>Assign members to selected project</small></h6>
+                            </span>
                     </div>
 
+                    <!--                            <div class="text-left">-->
+                    <!--                                    <h3>Members</h3>-->
+                    <!--                                <button type="button" class="btn btn-dark" data-toggle="modal"-->
+                    <!--                                        data-target="#projectAddModal"-->
+                    <!--                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">-->
+                    <!--                                    <i class="fa-solid fa-square-plus" style="font-size:20px;"></i> New Member-->
+                    <!--                                </button>-->
+                    <!--                            </div>-->
 
-                    <table class="table table-curved overflow-hidden table-hover table align-middle"
-                           id="membersDataTable"
-                           style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff;  ">
+                    <!--                            <span style="margin-left:5px;">-->
+                    <!--                                <h6 class="text-monospace"><small>Assign members to selected project</small></h6>-->
+                    <!--                            </span>-->
+
+
+                    <table
+                            class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
+                            id="membersDataTable"
+                            style="border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff;  margin-bottom: 7px;">
                         <thead>
                         <tr class="text-left">
-                            <th class="text-center">#</th>
                             <th>Name</th>
                             <th>Email</th>
                         </tr>
                         </thead>
                         <tr class="text-left" th:each="user:${usersInList}">
-                            <td class="text-center" th:text="${user.id}" style="width: 2%">id</td>
-                            <td th:text="${user.firstname}">Name</td>
-                            <td th:text="${user.email}" style="width: 45%">Email</td>
+                            <td th:text="${user.firstname}" style="width: 75%">Name</td>
+                            <td th:text="${user.email}" style="width: 85%">Email</td>
                         </tr>
                     </table>
                 </div>
+
             </div>
         </div>
     </div> <!-- END row -->
@@ -185,14 +193,14 @@
         <div style="margin: 23px;">
             <div class="row">
                 <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h4>Ticket information</h4>
-                            </span>
+                        <span class="float-md-left">
+                            <h4>Selected Ticket information</h4>
+                        </span>
                 </div>
                 <div class="col-md-6 text-center">
-                            <span class="float-md-right">
+                        <span class="float-md-right">
 
-                            </span>
+                        </span>
                 </div>
             </div>
             <hr style="margin-top:6px;margin-bottom:6px;">
@@ -217,52 +225,6 @@
     </div> <!-- END 2nd main container -->
 
 
-    <!-- SORTED TABLE START -->
-    <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
-        <div style="margin: 23px; ">
-            <h2>Projects</h2>
-
-            <table class="table table-curved overflow-hidden table-hover table align-middle table table-fluid"
-                   id="myTable"
-                   style="border: solid white 0.1px; border-radius: 5px; background-color: #ffffff; margin-bottom: 10px">
-                <thead>
-                <tr class="text-left">
-                    <th class="text-center"><h6><b>#</b></h6></th>
-                    <th><h6><b>Project Name</b></h6></th>
-                    <th><h6><b>Project Description</b></h6></th>
-
-                    <th class="text-right"><h6><b>Options</b></h6></th>
-
-                </tr>
-                </thead>
-
-                <tr class="text-left" th:each="project:${projects}">
-                    <td class="text-center" th:text="${project.id}" style="width: 2%">id</td>
-                    <td th:text="${project.name}" style="width: 10%">Name</td>
-                    <td th:text="${project.description}" style="width: 35%">Project Description</td>
-
-                    <td class="text-right" style="width: 10%;">
-                        <a th:href="@{/projects/getOne/(Id=${project.id})}" class="btn btn-warning btn-sm"
-                           id="projectsEditButton">
-                            <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
-                        </a>
-
-                        <a th:href="@{/projects/getOne/(Id=${project.id})}" class="btn btn-secondary btn-sm"
-                           id="projectsViewButton">
-                            <i class="fas fa-eye" data-toggle="tooltip" title="Delete"></i>
-                        </a>
-
-                        <a th:href="@{/projects/delete/(Id=${project.id})}" class="btn btn-danger btn-sm"
-                           id="projectsDeleteButton">
-                            <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>  <!--END-->
-
-
     <div class="row row-cols-2 g-3">
         <div class="col">
             <div class="card">
@@ -272,7 +234,7 @@
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">
                         This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        additional content. This content is a little longer.
                     </p>
                 </div>
             </div>
@@ -285,7 +247,7 @@
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">
                         This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        additional content. This content is a little longer.
                     </p>
                 </div>
             </div>
