@@ -1,6 +1,8 @@
 package com.BugTrackerApp.BugTracker.controller;
 
+import com.BugTrackerApp.BugTracker.model.Project;
 import com.BugTrackerApp.BugTracker.model.Ticket;
+import com.BugTrackerApp.BugTracker.service.ProjectService;
 import com.BugTrackerApp.BugTracker.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +18,18 @@ public class TicketController {
 
     @Autowired
     private TicketService ticketService;
+    @Autowired
+    private ProjectService projectService;
 
-    @RequestMapping("/getAll") //RETURN TO HTML
+    @RequestMapping("/getAll") // RETURN TO HTML
     public String getAllModel(Model model) {
         List<Ticket> tickets = ticketService.getAll();
+        List<Project> projects = projectService.getAll();
+
         model.addAttribute("tickets", tickets);
-        return "tickets"; //NAME OF HTML TO RETURN
+        model.addAttribute("projects", projects);
+
+        return "tickets"; // NAME OF HTML TO RETURN
     }
 
     @RequestMapping("/getOne")
@@ -49,28 +57,29 @@ public class TicketController {
     }
     //
 
-//    @RequestMapping(value = "/Tickets")
-//    public List<Ticket> getAllTickets() {
-//        return ticketService.getAllTickets();
-//    }
-//
-//    @RequestMapping(value = "/Tickets/{id}")
-//    public Optional<Ticket> getTicket(@PathVariable Integer id) {
-//        return ticketService.getTicket(id);
-//    }
-//
-//    @RequestMapping(value = "/Tickets", method = RequestMethod.POST)
-//    public void addTicket(@RequestBody Ticket Ticket) {
-//        ticketService.addTicket(Ticket);
-//    }
-//
-//    @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.PUT)
-//    public void updateTicket(@PathVariable Integer id, @RequestBody Ticket Ticket) {
-//        ticketService.updateTicket(id, Ticket);
-//    }
-//
-//    @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.DELETE)
-//    public void deleteTicket(@PathVariable Integer id) {
-//        ticketService.deleteTicket(id);
-//    }
+    // @RequestMapping(value = "/Tickets")
+    // public List<Ticket> getAllTickets() {
+    // return ticketService.getAllTickets();
+    // }
+    //
+    // @RequestMapping(value = "/Tickets/{id}")
+    // public Optional<Ticket> getTicket(@PathVariable Integer id) {
+    // return ticketService.getTicket(id);
+    // }
+    //
+    // @RequestMapping(value = "/Tickets", method = RequestMethod.POST)
+    // public void addTicket(@RequestBody Ticket Ticket) {
+    // ticketService.addTicket(Ticket);
+    // }
+    //
+    // @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.PUT)
+    // public void updateTicket(@PathVariable Integer id, @RequestBody Ticket
+    // Ticket) {
+    // ticketService.updateTicket(id, Ticket);
+    // }
+    //
+    // @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.DELETE)
+    // public void deleteTicket(@PathVariable Integer id) {
+    // ticketService.deleteTicket(id);
+    // }
 }

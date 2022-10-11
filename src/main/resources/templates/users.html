@@ -8,67 +8,93 @@
     <!-- Load custom js function file -->
     <script th:src="@{/js/userScript.js}"></script>
 
+    <!-- Datatables-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/tableSort.css}">
+
     <title>Users page</title>
 </head>
 
 <body>
+<script>
+        $(document).ready(function () {
+            $('#usersListDataTable').DataTable();
+        });
 
+</script>
 <!--add navigation sidebar and top bar-->
 <div th:replace="~{base :: navigation}"></div>
 
-<div role="main" class="align-items-center justify-content-center" style="margin-left: 245px; margin-top: 0px;">
+<div role="main" class="align-items-center justify-content-center"
+     style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
     <H2 style="margin-top: 0px;">_</H2>
 
-    <div
-            style="background-color: white; border: solid #e9e9e9 1px;
-            border-radius: 12px; margin-top: 57px;  width: 395px; margin-bottom: 25px; margin-right: 20px; font-family: 'Varela Round', sans-serif; ">
-        <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Users <b>details</b></h2>
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#userAddModal"
-                style="border: solid #343a40 1.5px; border-radius: 10px;margin-top: 2px; margin-bottom: 12px; margin-left: 17px;">
-            <i class="bi bi-node-plus"></i> Add
-            New
-        </button>
-        <span style="margin-top: 5px; margin-left: 18px; color: 343a40;"><b>Overview page</b></span>
-    </div>
-
-
-    <div class="card mr-4" style="border: solid #e6e6e6 1px; border-radius: 12px;">
-        <div class="card-header" style=" border-top-left-radius: 12px; border-top-right-radius: 12px;">
+    <!-- START  TITLE CARD -->
+    <div class="card"
+         style="border: solid #e6e6e6 1px; border-radius: 12px; margin-top: 48px; margin-bottom: 15px;">
+        <!--margin div start -->
+        <div style="margin: 23px; ">
+            <!-- Table title and add new BTN -->
             <div class="row">
                 <div class="col-md-6 text-center">
                         <span class="float-md-left">
-                            <h3><b>Users</b></h3>
+                            <h2>Users tab</h2>
                         </span>
                 </div>
+            </div> <!-- END Table title and add new -->
+        </div>
+        <!--margin div end -->
+    </div> <!-- END TITLE CARD  -->
+
+    <!-- START big main container -->
+    <div class="card" style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
+        <!--margin div start -->
+        <div style="margin: 23px;">
+            <!-- Table title and add new BTN -->
+            <div class="row">
+                <div class="col-md-6 text-center">
+                        <span class="float-md-left">
+                            <h3>Users</h3>
+                        </span>
+                </div>
+
                 <div class="col-md-6 text-center">
                         <span class="float-md-right">
-                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#userAddModal"
-                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 15px; padding-bottom: 15px;">
-                                Add New Ticket
+                            <button type="button" class="btn btn-dark " data-toggle="modal"
+                                    data-target="#userAddModal"
+                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
+                                <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
+                                   style="font-size:20px;"></i> New User
                             </button>
                         </span>
                 </div>
-            </div>
-        </div>
-        <div class="card-body">
 
-            <table class="table table-curved overflow-hidden table-hover table align-middle"
-                   style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
+                <span class="col-md-6" style="margin-left:2px;">
+                        <h6 class="text-monospace"><small>List of all registered users</small></h6>
+
+                    </span>
+            </div> <!-- END Table title and add new -->
+
+            <hr style="margin-top:6px;margin-bottom:10px;">
+
+            <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive"
+                   id="usersListDataTable"
+                   style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
                 <thead class="thead-dark">
-
-                <tr class="text-center">
-                    <th>#</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                <tr class="text-left">
+                    <th class="text-left">#</th>
+                    <th style="width: 25%">First name</th>
+                    <th style="width: 25%">Last name</th>
+                    <th style="width: 25%">Email</th>
+                    <th style="width: 10%">Phone</th>
                     <th>Assigned tickets</th>
                     <th class="text-right">Options</th>
 
                 </tr>
                 </thead>
 
-                <tr class="text-center" th:each="user:${users}">
+                <tr class="text-left" th:each="user:${users}">
                     <td th:text="${user.id}" style="width: 1%">id</td>
                     <td th:text="${user.firstname}" style="width: 15%">First Name</td>
                     <td th:text="${user.lastname}" style="width: 15%">Last Name</td>
@@ -76,39 +102,40 @@
                     <td th:text="${user.phoneNumber}">Phone</td>
                     <td th:text="${user.assignedTickets}">Assigned tickets #</td>
 
-
                     <td class="text-right" style="width: 9%;">
-                        <a th:href="@{/users/getOne/(Id=${user.Id})}" class="btn btn-warning btn-sm"
-                           id="usersEditButton">
+
+                        <a th:href="@{/users/getOne/(Id=${user.Id})}" class="btn btn-secondary btn-sm"
+                           id="ticketsViewButton">
+                            <i class="fa-solid fa-bars" data-toggle="tooltip" title="Delete"></i>
+                        </a>
+
+                        <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-warning btn-sm"
+                           id="ticketsEditButton">
                             <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                         </a>
 
-                        <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-secondary btn-sm"
-                           id="usersViewButton">
-                            <i class="fas fa-eye" data-toggle="tooltip" title="Delete"></i>
-                        </a>
-
                         <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-danger btn-sm"
-                           id="usersDeleteButton">
+                           id="ticketsDeleteButton">
                             <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
                         </a>
                     </td>
                 </tr>
             </table>
-        </div>
+        </div>  <!--margin div end -->
+    </div> <!-- END big main container -->
 
-        <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <form th:action="@{/users/addNew}" method="post">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New Ticket</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+    <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <form th:action="@{/users/addNew}" method="post">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
                             <div class="mb-3">
                                 <label for="id" class="col-form-label">Id:</label>
@@ -151,18 +178,18 @@
         </div>
 
 
-        <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-             aria-hidden="true">
-            <form th:action="@{/users/update}" method="put">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit Ticket</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+         aria-hidden="true">
+        <form th:action="@{/users/update}" method="put">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Ticket</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
                             <div class="mb-3">
                                 <label for="user-edit-id" class="col-form-label">Id:</label>
@@ -189,11 +216,12 @@
                                 <input type="text" class="form-control" id="user-edit-phone" name="phoneNumber">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="user-edit-assignedTickets" class="col-form-label">Assigned Users:</label>
-                                <input type="text" class="form-control" id="user-edit-assignedTickets"
-                                       name="assignedTickets">
-                            </div>
+                        <div class="mb-3">
+                            <label for="user-edit-assignedTickets" class="col-form-label">Assigned
+                                Users:</label>
+                            <input type="text" class="form-control" id="user-edit-assignedTickets"
+                                   name="assignedTickets">
+                        </div>
 
 
                         </div>

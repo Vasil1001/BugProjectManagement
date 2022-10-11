@@ -20,6 +20,7 @@
             $('#myTable').DataTable();
         });
 
+
 </script>
 <!-- replace navigation sidebar and top bar from template -->
 <div th:replace="~{base :: navigation}"></div>
@@ -29,7 +30,8 @@
     <H2 style="margin-top: 0px;">_</H2>
 
     <!-- Short pill shaped container with title-->
-    <div style="background-color: white; border: solid #e9e9e9 1px;
+    <div
+            style="background-color: white; border: solid #e9e9e9 1px;
             border-radius: 12px; margin-top: 48px;  width: 305px; margin-bottom: 15px; font-family: 'Varela Round', sans-serif; ">
         <h2 style="color: 343a40;  margin-top: 12px; margin-left: 15px; font-size:35px;">Project <b>details</b>
         </h2>
@@ -48,13 +50,14 @@
             <!-- Table title and add new BTN -->
             <div class="row">
                 <div class="col-md-6 text-center">
-                    <span class="float-md-left">
-                        <h2>Selected project page</h2>
-                    </span>
+                        <span class="float-md-left">
+                            <h2>Selected project page</h2>
+                        </span>
                 </div>
             </div> <!-- END Table title and add new -->
-        </div> <!--margin div end -->
-    </div>  <!-- END TITLE CARD  -->
+        </div>
+        <!--margin div end -->
+    </div> <!-- END TITLE CARD  -->
 
     <div class="row">
         <div class="col col-lg-7">
@@ -65,24 +68,25 @@
                     <!-- Table title and add new BTN -->
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h2>Tickets</h2>
-                            </span>
+                                <span class="float-md-left">
+                                    <h2>Tickets</h2>
+                                </span>
                         </div>
 
                         <div class="col-md-6 text-center">
-                            <span class="float-md-right">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#projectAddModal"
-                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                    Add New Ticket
-                                </button>
-                            </span>
+                                <span class="float-md-right">
+                                    <button type="button" class="btn btn-dark" data-toggle="modal"
+                                            data-target="#projectAddModal"
+                                            style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
+                                        Add New Ticket
+                                    </button>
+                                </span>
                         </div>
 
                         <span class="col-md-6" style="margin-left:5px;">
-                             <h6 class="text-monospace"><small>List of tickets assigned to selected project</small></h6>
-                        </span>
+                                <h6 class="text-monospace"><small>List of tickets assigned to selected project</small>
+                                </h6>
+                            </span>
                     </div> <!-- END Table title and add new -->
                     <hr style="margin-top:6px;margin-bottom:6px;">
 
@@ -92,12 +96,20 @@
                            style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; ">
                         <thead>
                         <tr class="text-left">
-                            <th class="text-center"><h6><b>#</b></h6></th>
-                            <th><h6><b>Ticket Name</b></h6></th>
-                            <th><h6><b>Ticket Description</b></h6></th>
+                            <th class="text-center">
+                                <h6><b>#</b></h6>
+                            </th>
+                            <th>
+                                <h6><b>Ticket Name</b></h6>
+                            </th>
+                            <th>
+                                <h6><b>Ticket Description</b></h6>
+                            </th>
                             <!--                    <th>Created on</th>-->
                             <!--                    <th>Completed on</th>-->
-                            <th class="text-right"><h6><b>Options</b></h6></th>
+                            <th class="text-right">
+                                <h6><b>Options</b></h6>
+                            </th>
 
                         </tr>
                         </thead>
@@ -135,18 +147,18 @@
                 <div style="margin: 23px; ">
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h2>Members</h2>
-                            </span>
+                                <span class="float-md-left">
+                                    <h2>Members</h2>
+                                </span>
                         </div>
                         <div class="col-md-6 text-center">
-                            <span class="float-md-right">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#projectAddModal"
-                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                    Add New member
-                                </button>
-                            </span>
+                                <span class="float-md-right">
+                                    <button type="button" class="btn btn-dark" data-toggle="modal"
+                                            data-target="#projectAddModal"
+                                            style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
+                                        Add New member
+                                    </button>
+                                </span>
                         </div>
                     </div>
 
@@ -179,14 +191,14 @@
         <div style="margin: 23px;">
             <div class="row">
                 <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h4>Ticket information</h4>
-                            </span>
+                        <span class="float-md-left">
+                            <h4>Ticket information</h4>
+                        </span>
                 </div>
                 <div class="col-md-6 text-center">
-                            <span class="float-md-right">
+                        <span class="float-md-right">
 
-                            </span>
+                        </span>
                 </div>
             </div>
             <hr style="margin-top:6px;margin-bottom:6px;">
@@ -212,7 +224,8 @@
 
     <div class="card" style="border: solid #e6e6e6 1px; border-radius: 12px; margin-bottom: 15px;">
         <div style="margin: 23px; ">
-            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                   width="100%">
                 <thead>
                 <tr>
                     <th class="th-sm">Name
@@ -711,7 +724,8 @@
                 </tfoot>
             </table>
         </div>
-    </div>  <!--END-->
+    </div>
+    <!--END-->
 
 
     <div class="row row-cols-2 g-3">

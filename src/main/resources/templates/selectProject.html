@@ -24,6 +24,7 @@
         });
 
 
+
 </script>
 <!-- replace navigation sidebar and top bar from template -->
 <div th:replace="~{base :: navigation}"></div>
@@ -66,8 +67,7 @@
                                     <button type="button" class="btn btn-dark " data-toggle="modal"
                                             data-target="#projectAddModal"
                                             style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
-                                        <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
-                                           style="font-size:20px;"></i> New Ticket
+                                        New Ticket
                                     </button>
                                 </span>
                         </div>
@@ -93,7 +93,7 @@
                         </tr>
                         </thead>
 
-                        <tr class="text-left" th:each="ticket:${ticketsInList}">
+                        <tr class="text-left" th:each="ticket:${projectTickets}">
                             <td class="text-center" th:text="${ticket.id}" style="width: 2%">id</td>
                             <td th:text="${ticket.title}" style="width: 10%">Ticket Name</td>
                             <td th:text="${ticket.description}" style="width: 35%">Ticket Description</td>
@@ -101,20 +101,17 @@
                             <td class="text-right" style="width: 10%;">
                                 <a th:href="@{/tickets/getOne/(Id=${ticket.id})}" class="btn btn-warning btn-sm"
                                    id="selProTicketEditButton">
-                                    <i class="far fa-edit" data-toggle="tooltip" title="Edit"
-                                       style="font-size:14px;"></i>
+                                    <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                                 </a>
 
                                 <a th:href="@{/tickets/getOne/(Id=${ticket.id})}" class="btn btn-secondary btn-sm"
                                    id="selProTicketViewButton">
-                                    <i class="fa-solid fa-bars-staggered" data-toggle="tooltip" title="Delete"
-                                       style="font-size:14px; "></i>
+                                    <i class="fa-solid fa-bars-staggered" data-toggle="tooltip" title="Delete"></i>
                                 </a>
 
                                 <a th:href="@{/tickets/delete/(Id=${ticket.id})}" class="btn btn-danger btn-sm"
                                    id="selProTicketDeleteButton">
-                                    <i class="fas fa-ban" data-toggle="tooltip" title="Delete"
-                                       style="font-size:14px;"></i>
+                                    <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
                                 </a>
                             </td>
                         </tr>
@@ -141,8 +138,7 @@
                                     <button type="button" class="btn btn-dark " data-toggle="modal"
                                             data-target="#usersAddModal"
                                             style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
-                                        <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
-                                           style="font-size:20px;"></i> New Member
+                                        New Member
                                     </button>
                                 </span>
                         </div>

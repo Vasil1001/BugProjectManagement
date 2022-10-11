@@ -18,11 +18,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/getAll") //RETURN TO HTML
+    @RequestMapping("/getAll") // RETURN TO HTML
     public String getAllModel(Model model) {
         List<User> users = userService.getAll();
         model.addAttribute("users", users);
-        return "users"; //NAME OF HTML TO RETURN
+        return "users"; // NAME OF HTML TO RETURN
     }
 
     @RequestMapping("/getOne")
@@ -50,24 +50,24 @@ public class UserController {
     }
     ///
 
-//    @RequestMapping(value = "/GetUsers")
-//    public List<User> getAllUsers() {
-//        return userService.getAllUsers();
-//    }
-//    @RequestMapping(value = "/Users/{id}")
-//    public Optional<User> getUser(@PathVariable String id) {
-//        return userService.getUser(id);
-//    }
-//    @RequestMapping(value = "/Users", method = RequestMethod.POST)
-//    public void addUser(@RequestBody User User) {
-//        userService.addUser(User);
-//    }
-//    @RequestMapping(value = "/Users/{id}", method = RequestMethod.PUT)
-//    public void updateUser(@PathVariable String id, @RequestBody User User) {
-//        userService.updateUser(id, User);
-//    }
-//    @RequestMapping(value = "/Users/delete/{id}", method = RequestMethod.DELETE)
-//    public void deleteUser(@PathVariable String id) {
-//        userService.deleteUser(id);
-//    }
+    // @RequestMapping(value = "/GetUsers")
+    // public List<User> getAllUsers() {
+    // return userService.getAllUsers();
+    // }
+    // @RequestMapping(value = "/Users/{id}")
+    // public Optional<User> getUser(@PathVariable String id) {
+    // return userService.getUser(id);
+    // }
+    // @RequestMapping(value = "/Users", method = RequestMethod.POST)
+    // public void addUser(@RequestBody User User) {
+    // userService.addUser(User);
+    // }
+    // @RequestMapping(value = "/Users/{id}", method = RequestMethod.PUT)
+    // public void updateUser(@PathVariable String id, @RequestBody User User) {
+    // userService.updateUser(id, User);
+    // }
+    // @RequestMapping(value = "/Users/delete/{id}", method = RequestMethod.DELETE)
+    // public void deleteUser(@PathVariable String id) {
+    // userService.deleteUser(id);
+    // }
 }

@@ -8,7 +8,6 @@ import com.BugTrackerApp.BugTracker.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,27 +23,9 @@ public class ProjectService {
         return (List<Project>) projectRepository.findAll();
     }
 
-    public List<Ticket> getProjectTickets() {
-        return (List<Ticket>) ticketRepository.findAll();
-
+    public List<Ticket> getTicketsByProject(Integer Id) {
+        return projectRepository.getTicketsByProject(Id);
     }
-
-    public Optional<Project> getProject(Integer Id) {
-        return projectRepository.findById(Id);
-    }
-
-    public void addProject(Project project) {
-        projectRepository.save(project);
-    }
-
-    public void updateProject(Integer Id, Project project) {
-        projectRepository.save(project);
-    }
-
-    public void deleteProject(Integer Id) {
-        projectRepository.deleteById(Id);
-    }
-
 
     public void update(Project project) {
         projectRepository.save(project);
@@ -62,4 +43,8 @@ public class ProjectService {
         projectRepository.deleteById(Id);
     }
 
+
+    public List<Ticket> getProjectTickets() {
+        return (List<Ticket>) ticketRepository.findAll();
+    }
 }

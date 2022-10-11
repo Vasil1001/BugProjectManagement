@@ -40,19 +40,16 @@ public class StudentController {
         return "redirect:/students/getAll";
     }
 
-
     @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(Student student) {
         studentService.update(student);
         return "redirect:/students/getAll";
     }
 
-
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer Id) {
         studentService.delete(Id);
         return "redirect:/students/getAll";
     }
-
 
 }

@@ -14,7 +14,7 @@ import java.util.Date;
 public class Student {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     private String name;
     private String department;
@@ -81,6 +81,5 @@ public class Student {
         return "Student [Id=" + Id + ", name=" + name + ", department=" + department + ", updatedBy=" + updatedBy
                 + ", updatedOn=" + updatedOn + "]";
     }
-
 
 }

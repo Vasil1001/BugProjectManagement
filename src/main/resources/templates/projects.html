@@ -17,9 +17,10 @@
 
 <body>
 <script>
-    $(document).ready( function () {
-        $('#projectsDataTable').DataTable();
-    } );
+        $(document).ready(function () {
+            $('#projectsDataTable').DataTable();
+        });
+
 
 
 
@@ -57,59 +58,59 @@
                         </span>
                 </div>
             </div> <!-- END Table title and add new -->
-        </div>
-        <!--margin div end -->
+        </div><!--margin div end -->
     </div> <!-- END TITLE CARD  -->
-
 
     <!-- START big main container -->
     <div class="card" style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
         <!--margin div start -->
-        <div style="margin: 23px; ">
+        <div style="margin: 23px;">
             <!-- Table title and add new BTN -->
             <div class="row">
                 <div class="col-md-6 text-center">
-                            <span class="float-md-left">
-                                <h2>Projects</h2>
-                            </span>
+                        <span class="float-md-left">
+                            <h3>Projects</h3>
+                        </span>
                 </div>
 
                 <div class="col-md-6 text-center">
-                            <span class="float-md-right">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#projectAddModal"
-                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 12px; padding-bottom: 12px; ">
-                                    Add New Project
-                                </button>
-                            </span>
+                        <span class="float-md-right">
+                            <button type="button" class="btn btn-dark " data-toggle="modal"
+                                    data-target="#projectAddModal"
+                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
+                                <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
+                                   style="font-size:20px;"></i> New Project
+                            </button>
+                        </span>
                 </div>
 
-                <span class="col-md-6" style="margin-left:5px;">
-                             <h6 class="text-monospace"><small>List of projects available to user</small></h6>
-                        </span>
-
+                <span class="col-md-6" style="margin-left:2px;">
+                        <h6 class="text-monospace"><small>List of projects available to user</small></h6>
+                    </span>
             </div> <!-- END Table title and add new -->
 
 
-            <hr style="margin-top:6px;margin-bottom:16px;">
-            <table class="table table-curved overflow-hidden table-hover table align-middle"
+            <hr style="margin-top:6px;margin-bottom:10px;">
+
+            <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive"
                    id="projectsDataTable"
-                   style="border: solid #ccc 0.5px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
+                   style="border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
                 <thead class="thead-dark">
                 <!--                            class="thead-dark"-->
                 <tr class="text-left">
                     <th class="text-center">#</th>
-                    <th>Project Name</th>
-                    <th>Project Description</th>
+                    <th style="width: 40%">Project Name</th>
+                    <th style="width: 500%">Project Description</th>
                     <!--                    <th>Created on</th>-->
                     <!--                    <th>Completed on</th>-->
-                    <th class="text-right">Options</th>
+                    <th style="width: 10%" class="text-right">Options</th>
                 </tr>
                 </thead>
 
                 <tr class="text-left" th:each="project:${projects}">
                     <td class="text-center" th:text="${project.id}" style="width: 2%">id</td>
-                    <td>
+
+                    <td style="width: 15%">
                         <a th:href="@{/projects/getView/(Id=${project.id})}" id="projectsViewButton">
                             <p th:text="${project.name}"></p>
                         </a>
@@ -127,6 +128,7 @@
                            id="projectsDeleteButton">
                             <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
                         </a>
+
                     </td>
                 </tr>
             </table>

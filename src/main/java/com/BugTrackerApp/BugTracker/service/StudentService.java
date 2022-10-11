@@ -16,16 +16,13 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-
     public List<Student> getAll() {
         return (List<Student>) studentRepository.findAll();
     }
 
-
     public Optional<Student> getOne(Integer Id) {
         return studentRepository.findById(Id);
     }
-
 
     public void addNew(Student student) {
         studentRepository.save(student);

@@ -5,7 +5,6 @@ import com.BugTrackerApp.BugTracker.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -35,23 +34,20 @@ public class TicketService {
         ticketRepository.deleteById(Id);
     }
 
-
     ///
 
+    // public List<Ticket> getAllTickets() {
+    // List<Ticket> tickets = new ArrayList<>();
+    // ticketRepository.findAll().forEach(tickets::add);
+    // return tickets;
+    // }
 
-//    public List<Ticket> getAllTickets() {
-//        List<Ticket> tickets = new ArrayList<>();
-//        ticketRepository.findAll().forEach(tickets::add);
-//        return tickets;
-//    }
-
-//    public void updateTicket(Integer id, Ticket ticket) {
-//        ticketRepository.save(ticket);
-//    }
-//
-//    public void deleteTicket(Integer id) {
-//        ticketRepository.deleteById(id);
-//    }
-
+    // public void updateTicket(Integer id, Ticket ticket) {
+    // ticketRepository.save(ticket);
+    // }
+    //
+    // public void deleteTicket(Integer id) {
+    // ticketRepository.deleteById(id);
+    // }
 
 }
