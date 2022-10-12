@@ -24,7 +24,6 @@
         });
 
 
-
 </script>
 <!-- replace navigation sidebar and top bar from template -->
 <div th:replace="~{base :: navigation}"></div>
@@ -79,17 +78,16 @@
                     </div> <!-- END Table title and add new -->
 
                     <hr style="margin-top:6px;margin-bottom:16px;">
-                    <table
-                            class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
-                            id="ticketsDataTable"
-                            style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
+                    <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
+                           id="ticketsDataTable"
+                           style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
                         <thead>
 
                         <tr class="text-left">
-                            <th class="text-center">#</th>
-                            <th>Ticket Name</th>
-                            <th>Ticket Description</th>
-                            <th class="text-right">Options</th>
+                            <th style="width: 10%" class="text-center">#</th>
+                            <th style="width: 50%">Ticket Name</th>
+                            <th style="width: 40%">Ticket Description</th>
+                            <th style="width: 10%" class="text-right">Options</th>
                         </tr>
                         </thead>
 
@@ -147,28 +145,13 @@
                             </span>
                     </div>
 
-                    <!--                            <div class="text-left">-->
-                    <!--                                    <h3>Members</h3>-->
-                    <!--                                <button type="button" class="btn btn-dark" data-toggle="modal"-->
-                    <!--                                        data-target="#projectAddModal"-->
-                    <!--                                        style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">-->
-                    <!--                                    <i class="fa-solid fa-square-plus" style="font-size:20px;"></i> New Member-->
-                    <!--                                </button>-->
-                    <!--                            </div>-->
-
-                    <!--                            <span style="margin-left:5px;">-->
-                    <!--                                <h6 class="text-monospace"><small>Assign members to selected project</small></h6>-->
-                    <!--                            </span>-->
-
-
-                    <table
-                            class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
-                            id="membersDataTable"
-                            style="border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff;  margin-bottom: 7px;">
+                    <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive table table-borderless"
+                           id="membersDataTable"
+                           style="border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff;  margin-bottom: 7px;">
                         <thead>
                         <tr class="text-left">
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th style="width: 100%">Name</th>
+                            <th style="width: 100%">Email</th>
                         </tr>
                         </thead>
                         <tr class="text-left" th:each="user:${usersInList}">

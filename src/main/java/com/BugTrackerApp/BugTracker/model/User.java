@@ -1,81 +1,29 @@
 package com.BugTrackerApp.BugTracker.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@ToString
+
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
-
     @Column(name = "first_name")
     private String firstname;
-
     @Column(name = "last_name")
     private String lastname;
-
     private String email;
     private Long phoneNumber;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_Id")
+    private Project project; // ? FOREIGN KEY
 
-    private ArrayList<Ticket> assignedTickets;
-
-    public User() {
-
-    }
-
-    public Integer getId() {
-        return Id;
-    }
-
-    public void setId(Integer id) {
-        this.Id = id;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(Long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public ArrayList<Ticket> getAssignedTickets() {
-        return assignedTickets;
-    }
-
-    public void setAssignedTickets(ArrayList<Ticket> assignedTickets) {
-        this.assignedTickets = assignedTickets;
-    }
 }

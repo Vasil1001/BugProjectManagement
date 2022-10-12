@@ -1,7 +1,9 @@
 package com.BugTrackerApp.BugTracker.controller;
 
+import com.BugTrackerApp.BugTracker.model.Project;
 import com.BugTrackerApp.BugTracker.model.Ticket;
 import com.BugTrackerApp.BugTracker.model.User;
+import com.BugTrackerApp.BugTracker.service.ProjectService;
 import com.BugTrackerApp.BugTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +20,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ProjectService projectService;
+    
     @RequestMapping("/getAll") // RETURN TO HTML
     public String getAllModel(Model model) {
         List<User> users = userService.getAll();
+        List<Project> projects = projectService.getAll();
+
         model.addAttribute("users", users);
+        model.addAttribute("projects", projects);
+
         return "users"; // NAME OF HTML TO RETURN
     }
 

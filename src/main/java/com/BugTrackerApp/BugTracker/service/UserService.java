@@ -24,10 +24,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(Integer id) {
-        userRepository.deleteById(id);
-    }
-
     public Optional<User> getOne(Integer id) {
         return userRepository.findById(id);
     }
@@ -39,6 +35,7 @@ public class UserService {
     public void delete(Integer id) {
         userRepository.deleteById(id);
     }
+
 
     //////////////////////////////////////////////
     // public Optional<User> getUser(String id) {

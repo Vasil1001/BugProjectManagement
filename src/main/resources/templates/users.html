@@ -88,7 +88,6 @@
                     <th style="width: 25%">Last name</th>
                     <th style="width: 25%">Email</th>
                     <th style="width: 10%">Phone</th>
-                    <th>Assigned tickets</th>
                     <th class="text-right">Options</th>
 
                 </tr>
@@ -100,7 +99,6 @@
                     <td th:text="${user.lastname}" style="width: 15%">Last Name</td>
                     <td th:text="${user.email}">Email</td>
                     <td th:text="${user.phoneNumber}">Phone</td>
-                    <td th:text="${user.assignedTickets}">Assigned tickets #</td>
 
                     <td class="text-right" style="width: 9%;">
 
@@ -152,22 +150,27 @@
                                 <input type="text" class="form-control" id="last-name" name="lastname">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" id="email" name="email">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="phone" class="col-form-label">Phone:</label>
-                                <input type="text" class="form-control" id="phone" name="phoneNumber">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="assignedUsers" class="col-form-label">Assigned Users:</label>
-                                <input type="text" class="form-control" id="assignedUsers" name="assignedUsers">
-                            </div>
-
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="email" name="email">
                         </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="text" class="form-control" id="phone" name="phoneNumber">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select project to assign to</label>
+                            <select class="custom-select" id="ticket-add-project" name="project">
+                                <option th:each="project:${projects}" th:text="${project.id}"></option>
+
+                            </select>
+                            <!--                                <label for="ticket-add-project" class="col-form-label">Project:</label>-->
+                            <!--                                <input type="text" class="form-control" id="ticket-add-project" name="project">-->
+                        </div>
+
+                    </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Add user</button>
@@ -216,15 +219,8 @@
                                 <input type="text" class="form-control" id="user-edit-phone" name="phoneNumber">
                             </div>
 
-                        <div class="mb-3">
-                            <label for="user-edit-assignedTickets" class="col-form-label">Assigned
-                                Users:</label>
-                            <input type="text" class="form-control" id="user-edit-assignedTickets"
-                                   name="assignedTickets">
-                        </div>
 
-
-                        </div>
+                    </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>

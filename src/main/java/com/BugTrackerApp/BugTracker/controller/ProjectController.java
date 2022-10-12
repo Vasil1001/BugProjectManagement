@@ -62,21 +62,16 @@ public class ProjectController {
     public String delete(Integer Id) {
         projectService.delete(Id);
         return "redirect:/projects/getAll";
-
     }
 
     // Selected Project page
-    @RequestMapping("/getView") // SELECTED PROJECT VIEW
+    @RequestMapping("/expandProject") // SELECTED PROJECT VIEW
     public String getViewModel(Model model, Integer Id) {
 
-        List<Project> projectsList = projectService.getAll();
-        List<Ticket> ticketsList = ticketService.getAll();
-        List<User> usersList = userService.getAll();
+//        List<User> membersList = projectService.getMembersByProject(Id);
         List<Ticket> projectTickets = projectService.getTicketsByProject(Id);
 
-        model.addAttribute("projects", projectsList);
-        model.addAttribute("ticketsInList", ticketsList);
-        model.addAttribute("usersInList", usersList);
+//        model.addAttribute("usersInList", membersList);
         model.addAttribute("projectTickets", projectTickets);
 
         return "selectProject"; // NAME OF HTML TO RETURN

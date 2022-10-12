@@ -3,12 +3,12 @@ package com.BugTrackerApp.BugTracker.service;
 import com.BugTrackerApp.BugTracker.model.Project;
 
 import com.BugTrackerApp.BugTracker.model.Ticket;
+import com.BugTrackerApp.BugTracker.model.User;
 import com.BugTrackerApp.BugTracker.repository.ProjectRepository;
 import com.BugTrackerApp.BugTracker.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +27,9 @@ public class ProjectService {
         return projectRepository.getTicketsByProject(Id);
     }
 
+    //    public List<User> getMembersByProject(Integer Id) {
+//        return projectRepository.getMembersByProject(Id);
+//    }
     public void update(Project project) {
         projectRepository.save(project);
     }
