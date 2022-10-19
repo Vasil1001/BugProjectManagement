@@ -106,7 +106,7 @@
                 </thead>
 
                 <tr class="text-left" th:each="project:${projects}">
-                    <td class="text-center" th:text="${project.id}" style="width: 2%">id</td>
+                    <td class="text-center" th:text="${project.id}" style="width: 2%"></td>
 
                     <td style="width: 15%">
                         <a th:href="@{/projects/expandProject/(Id=${project.id})}" id="projectsViewButton">
@@ -117,7 +117,12 @@
                     <td th:text="${project.description}"></td>
 
                     <td class="text-right" style="width: 10%;">
-                        <a th:href="@{/projects/getOne/(Id=${project.id})}" class="btn btn-warning btn-sm"
+
+                        <a th:href="@{/projects/edit/(Id=${project.id})}"  id="projectViewButton" class="btn btn-warning btn-sm">
+                            <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
+                        </a>
+
+                        <a th:href="@{/projects/getOne/(Id=${project.Id})}" class="btn btn-warning btn-sm"
                            id="projectsEditButton">
                             <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                         </a>
@@ -232,7 +237,7 @@
     <!-- ALL MODALS BELOW -->
     <div class="modal fade" id="projectAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <form th:action="@{/projects/addNew}" method="post">
+        <form th:action="@{/projects/addNew}" method="post" th:object="${project}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -244,13 +249,8 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label for="project-add-id" class="col-form-label">Id:</label>
-                            <input type="text" class="form-control" id="project-add-id" name="Id">
-                        </div>
-
-                        <div class="form-group">
                             <label for="project-add-name" class="col-form-label">Project name:</label>
-                            <input type="text" class="form-control" id="project-add-name" name="name">
+                            <input type="text"  class="form-control" id="project-add-name" name="name">
                         </div>
 
                         <div class="form-group">
@@ -283,7 +283,7 @@
 
     <div class="modal fade" id="projectEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
          aria-hidden="true">
-        <form th:action="@{/projects/update}" method="put">
+        <form th:action="@{/projects/update}" th:object="${project}" method="put">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -294,11 +294,10 @@
                     </div>
                     <div class="modal-body">
 
-                        <div class="form-group">
-                            <label for="project-edit-id" class="col-form-label">Id:</label>
-                            <input type="text" class="form-control" id="project-edit-id" name="Id">
-                        </div>
-
+<!--                        <div class="form-group">-->
+<!--                            <label for="project-edit-id" class="col-form-label">Id:</label>-->
+<!--                            <input type="text" class="form-control" id="project-edit-id" name="Id">-->
+<!--                        </div>-->
                         <div class="form-group">
                             <label for="project-edit-name" class="col-form-label">Project name:</label>
                             <input type="text" class="form-control" id="project-edit-name" name="name">
@@ -332,11 +331,14 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
+
                     </div>
                 </div>
             </div>
         </form>
     </div>
+
+
 
     <div class="modal" tabindex="-1" role="dialog" id="projectDeleteModal">
         <div class="modal-dialog" role="document">

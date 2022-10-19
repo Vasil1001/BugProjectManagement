@@ -1,0 +1,5 @@
+com\BugTrackerApp\BugTracker\service\StudentService.class
+com\BugTrackerApp\BugTracker\repository\ProjectRepository.class
+com\BugTrackerApp\BugTracker\controller\StudentController.class
+com\BugTrackerApp\BugTracker\model\Project.class
+com\BugTrackerApp\BugTracker\model\Ticket.class

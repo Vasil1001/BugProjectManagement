@@ -2,7 +2,10 @@ package com.BugTrackerApp.BugTracker.controller;
 
 import com.BugTrackerApp.BugTracker.model.Project;
 import com.BugTrackerApp.BugTracker.model.Ticket;
+import com.BugTrackerApp.BugTracker.model.Ticket;
+import com.BugTrackerApp.BugTracker.model.User;
 import com.BugTrackerApp.BugTracker.service.ProjectService;
+import com.BugTrackerApp.BugTracker.service.TicketService;
 import com.BugTrackerApp.BugTracker.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +47,12 @@ public class TicketController {
         return "redirect:/tickets/getAll";
     }
 
+    @PostMapping(value = "/addNewInProject")
+    public String addNewInProject(Ticket ticket) {
+        ticketService.addNew(ticket);
+        return "redirect:/projects/expandProject/?Id=" + ticket.getProject().getId();
+    }
+
     @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(Ticket ticket) {
         ticketService.update(ticket);
@@ -55,31 +64,19 @@ public class TicketController {
         ticketService.delete(Id);
         return "redirect:/tickets/getAll";
     }
-    //
 
-    // @RequestMapping(value = "/Tickets")
-    // public List<Ticket> getAllTickets() {
-    // return ticketService.getAllTickets();
-    // }
-    //
-    // @RequestMapping(value = "/Tickets/{id}")
-    // public Optional<Ticket> getTicket(@PathVariable Integer id) {
-    // return ticketService.getTicket(id);
-    // }
-    //
-    // @RequestMapping(value = "/Tickets", method = RequestMethod.POST)
-    // public void addTicket(@RequestBody Ticket Ticket) {
-    // ticketService.addTicket(Ticket);
-    // }
-    //
-    // @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.PUT)
-    // public void updateTicket(@PathVariable Integer id, @RequestBody Ticket
-    // Ticket) {
-    // ticketService.updateTicket(id, Ticket);
-    // }
-    //
-    // @RequestMapping(value = "/Tickets/{id}", method = RequestMethod.DELETE)
-    // public void deleteTicket(@PathVariable Integer id) {
-    // ticketService.deleteTicket(id);
-    // }
+    @RequestMapping("/edit") // SELECTED PROJECT VIEW
+    public String editTicket(Model model, Integer Id) {
+        Optional<Ticket> ticket = ticketService.getOne(Id);
+        model.addAttribute("ticket", ticket);
+
+        List<Ticket> ticketsList = ticketService.getAll();
+        model.addAttribute("ticketsInList", ticketsList);
+
+        List<Project> projects = projectService.getAll();
+        model.addAttribute("projects", projects);
+
+        return "ticket-edit"; // NAME OF HTML TO RETURN
+    }
+
 }

@@ -87,8 +87,8 @@
                     <th style="width: 25%">First name</th>
                     <th style="width: 25%">Last name</th>
                     <th style="width: 25%">Email</th>
-                    <th style="width: 10%">Phone</th>
-                    <th class="text-right">Options</th>
+                    <th style="width: 15%">Phone</th>
+                    <th style="width: 10%" class="text-right">Options</th>
 
                 </tr>
                 </thead>
@@ -107,7 +107,7 @@
                             <i class="fa-solid fa-bars" data-toggle="tooltip" title="Delete"></i>
                         </a>
 
-                        <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-warning btn-sm"
+                        <a th:href="@{/users/getOne/(Id=${user.Id})}" class="btn btn-warning btn-sm"
                            id="ticketsEditButton">
                             <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                         </a>
@@ -164,10 +164,7 @@
                             <label>Select project to assign to</label>
                             <select class="custom-select" id="ticket-add-project" name="project">
                                 <option th:each="project:${projects}" th:text="${project.id}"></option>
-
                             </select>
-                            <!--                                <label for="ticket-add-project" class="col-form-label">Project:</label>-->
-                            <!--                                <input type="text" class="form-control" id="ticket-add-project" name="project">-->
                         </div>
 
                     </div>

@@ -14,7 +14,6 @@ $('document').ready(function(){
             $('#user-edit-last-name').val(user.lastname);
             $('#user-edit-email').val(user.email);
             $('#user-edit-phone').val(user.phoneNumber);
-            $('#user-edit-assignedTickets').val(user.assignedTickets);
 
             });
             $('#userEditModal').modal();

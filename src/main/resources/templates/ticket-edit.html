@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Bootstrap CSS, js loaded from base.html, -->
+    <div th:replace="~{base :: imports}"></div>
+
+    <!-- Load custom js function file -->
+
+
+    <title>Ticket edit page</title>
+    <!--    <h th:text="*{ticket.name}"></h>-->
+</head>
+
+<body>
+
+    <!--add navigation sidebar and top bar-->
+    <div th:replace="~{base :: navigation}"></div>
+
+    <div role="main" class="align-items-center justify-content-center"
+        style="margin-left: 241px; margin-top: 0px; margin-right: 20px; margin-bottom: 280px;">
+        <H2 style="margin-top: 0px;">_</H2>
+        <!-- START  TITLE CARD -->
+
+        <div class="container">
+            <div class="col-lg-9 col-md-8 col-sm-9 container justify-content-center card"
+                style="margin-top: 188px; border solid #e6e6e6 1px; border-radius: 12px;">
+                <h3 class="text-center" style="margin-top: 40px">Edit Ticket Info</h3>
+                <div class="card-body">
+                    <form th:action="@{/tickets/update}" th:object="${ticket}" method="put">
+
+                        <div class="form-group">
+                            <label>Ticket Name</label>
+                            <input type="text" name="name" th:field="*{title}" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ticket Description</label>
+                            <input type="text" name="name" th:field="*{description}" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select project to assign to</label>
+                            <select class="custom-select" id="ticket-add-project" name="project" th:field="*{project}">
+                                <option th:each="project:${projects}" th:value="${project.id}" th:text="${project.id}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label>Select ticket status</label>
+                                <select class="custom-select" id="ticket-add-status" name="status" th:field="*{status}">
+                                    <option th:value="New" th:text="New"></option>
+                                    <option th:value="In-Progress" th:text="In-Progress"></option>
+                                    <option th:value="Resolved" th:text="Resolved"></option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <label>Select ticket type</label>
+                                <select class="custom-select" id="ticket-add-type" name="type" th:field="*{type}">
+                                    <option th:value="Issue" th:text="Issue"></option>
+                                    <option th:value="Bug" th:text="Bug"></option>
+                                    <option th:value="Feature-Request" th:text="Feature-Request"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <label>Select ticket priority</label>
+                        <select class="custom-select" name="priority" th:field="*{priority}">
+                            <option th:value="Immediate" th:text="Immediate"></option>
+                            <option th:value="High" th:text="High"></option>
+                            <option th:value="Medium" th:text="Medium"></option>
+                            <option th:value="Low" th:text="Low"></option>
+                        </select>
+
+
+                        <div class="box-footer" style="margin-top:20px;">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                        <input type="hidden" id="ticket-edit-id" th:field="*{Id}" />
+                        <input type="hidden" id="project-edit-id" th:field="*{Id}" />
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h1>test</h1>
+
+</body>
+
+</html>

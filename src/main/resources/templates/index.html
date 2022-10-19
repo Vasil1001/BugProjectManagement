@@ -2,13 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Bootstrap CSS, js loaded from base.html, -->
     <div th:replace="~{base :: imports}"></div>
 
-    <!-- Load custom js function file -->
+    <!-- Load custom js, css files -->
+    <script th:src="@{/js/projectScript.js}"></script>
 
+    <!-- Datatables-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/tableSort.css}">
 
-    <title>Dashboard | BugTracker</title>
+    <title>Project edit page</title>
 </head>
 
 <body>

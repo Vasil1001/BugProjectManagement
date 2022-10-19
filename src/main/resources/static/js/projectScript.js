@@ -9,8 +9,6 @@ $('document').ready(function(){
             console.log("2 .table .btn onClick, func()");
 
         $.get(href, function(project, status){
-
-            $('#project-edit-id').val(project.id);
             $('#project-edit-name').val(project.name);
             $('#project-edit-description').val(project.description);
             });
