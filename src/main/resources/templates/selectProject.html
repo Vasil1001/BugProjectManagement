@@ -32,10 +32,14 @@
                 var ticket_title = $(this).find('td:eq(0)').text();
                 var ticket_description = $(this).find('td:eq(1)').text();
                 var ticket_status = $(this).find('td:eq(2)').text();
+                var ticket_type = $(this).find('td:eq(3)').text();
+                var ticket_priority = $(this).find('td:eq(4)').text();
 
                 $('#txtTitle').val(ticket_title);
                 $('#txtDescription').val(ticket_description);
                 $('#txtStatus').val(ticket_status);
+                $('#txtType').val(ticket_type);
+                $('#txtPriority').val(ticket_priority);
 
                 $('#ticketsDataTable tbody > tr').removeClass('highlight');
                 $(this).addClass('highlight');
@@ -202,7 +206,7 @@
 
                 <hr style="margin-top:6px;margin-bottom:10px;">
 
-                <form style="margin: 50px;">
+                <form style="margin: 50px;" th:object="${ticket}">
                     <div class="row">
                         <div class="col">
                             <input type="text" id=txtTitle class="form-control" placeholder="Ticket title">
@@ -223,7 +227,7 @@
                             <input type="text" id=txtType class="form-control" placeholder="Type">
                         </div>
                         <div class="col">
-                            <input type="text" id=txtPriority class="form-control" placeholder="Priority">
+                            <input type="text" name=priority id=txtPriority class="form-control" placeholder="Priority">
                         </div>
                     </div>
                 </form>

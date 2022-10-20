@@ -23,8 +23,8 @@ public class Project {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "project", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project", cascade = CascadeType.ALL)
-//    private List<User> members;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project", cascade = CascadeType.ALL)
+    private List<User> members;
 
 
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")

@@ -79,4 +79,17 @@ public class TicketController {
         return "ticket-edit"; // NAME OF HTML TO RETURN
     }
 
+    @RequestMapping("/view") // SELECTED PROJECT VIEW
+    public String viewTicket(Model model, Integer Id) {
+        Optional<Ticket> ticket = ticketService.getOne(Id);
+        model.addAttribute("ticket", ticket);
+
+        List<Ticket> ticketsList = ticketService.getAll();
+        model.addAttribute("ticketsInList", ticketsList);
+
+        List<Project> projects = projectService.getAll();
+        model.addAttribute("projects", projects);
+
+        return "ticket-view"; // NAME OF HTML TO RETURN
+    }
 }

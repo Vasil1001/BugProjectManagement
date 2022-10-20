@@ -102,18 +102,12 @@
 
                     <td class="text-right" style="width: 9%;">
 
-                        <a th:href="@{/users/getOne/(Id=${user.Id})}" class="btn btn-secondary btn-sm"
-                           id="ticketsViewButton">
-                            <i class="fa-solid fa-bars" data-toggle="tooltip" title="Delete"></i>
-                        </a>
-
-                        <a th:href="@{/users/getOne/(Id=${user.Id})}" class="btn btn-warning btn-sm"
-                           id="ticketsEditButton">
+                        <a th:href="@{/users/edit/(Id=${user.id})}"  id="userEditButton" class="btn btn-warning btn-sm">
                             <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                         </a>
 
                         <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-danger btn-sm"
-                           id="ticketsDeleteButton">
+                           id="usersDeleteButton">
                             <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
                         </a>
                     </td>

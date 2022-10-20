@@ -66,12 +66,12 @@ public class ProjectController {
     // Selected Project page
     @RequestMapping("/expandProject") // SELECTED PROJECT VIEW
     public String getViewModel(Model model, Integer Id) {
-//        List<User> membersList = projectService.getMembersByProject(Id);
+        List<User> membersList = projectService.getMembersByProject(Id);
         List<Ticket> projectTickets = projectService.getTicketsByProject(Id);
         List<Project> projectsList = projectService.getAll();
 
 
-//        model.addAttribute("usersInList", membersList);
+        model.addAttribute("usersInList", membersList);
         model.addAttribute("projectTickets", projectTickets);
         model.addAttribute("projectsList", projectsList);
 

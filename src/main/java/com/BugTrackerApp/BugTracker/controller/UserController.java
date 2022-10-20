@@ -57,6 +57,14 @@ public class UserController {
         userService.delete(Id);
         return "redirect:/users/getAll";
     }
+
+    @RequestMapping("/edit") // SELECTED PROJECT VIEW
+    public String editTicket(Model model, Integer Id) {
+        Optional<User> user = userService.getOne(Id);
+        model.addAttribute("user", user);
+
+        return "user-edit"; // NAME OF HTML TO RETURN
+    }
     ///
 
     // @RequestMapping(value = "/GetUsers")
