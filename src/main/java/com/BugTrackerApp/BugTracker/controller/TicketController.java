@@ -59,6 +59,11 @@ public class TicketController {
         return "redirect:/tickets/getAll";
     }
 
+    @RequestMapping(value = "/updateInProj", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String updateInProj(Ticket ticket) {
+        ticketService.update(ticket);
+        return "redirect:/projects/expandProject/?Id=" + ticket.getProject().getId();
+    }
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer Id) {
         ticketService.delete(Id);
@@ -77,6 +82,20 @@ public class TicketController {
         model.addAttribute("projects", projects);
 
         return "ticket-edit"; // NAME OF HTML TO RETURN
+    }
+
+    @RequestMapping("/editInProj") // SELECTED PROJECT VIEW
+    public String editTicketInProj(Model model,  Integer Id) {
+        Optional<Ticket> ticket = ticketService.getOne(Id);
+        model.addAttribute("ticket", ticket);
+
+        List<Ticket> ticketsList = ticketService.getAll();
+        model.addAttribute("ticketsInList", ticketsList);
+
+        List<Project> projects = projectService.getAll();
+        model.addAttribute("projects", projects);
+
+        return "ticket-edit-in-project";
     }
 
     @RequestMapping("/view") // SELECTED PROJECT VIEW

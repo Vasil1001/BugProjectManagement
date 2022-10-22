@@ -51,13 +51,13 @@ public class ProjectController {
         return "redirect:/projects/getAll";
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "/update", method = { RequestMethod.PUT, RequestMethod.GET })
     public String update(Project project) {
         projectService.update(project);
         return "redirect:/projects/getAll";
     }
 
-    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "/delete", method = { RequestMethod.DELETE, RequestMethod.GET })
     public String delete(Integer Id) {
         projectService.delete(Id);
         return "redirect:/projects/getAll";
@@ -70,13 +70,13 @@ public class ProjectController {
         List<Ticket> projectTickets = projectService.getTicketsByProject(Id);
         List<Project> projectsList = projectService.getAll();
 
-
         model.addAttribute("usersInList", membersList);
         model.addAttribute("projectTickets", projectTickets);
         model.addAttribute("projectsList", projectsList);
 
         return "selectProject"; // NAME OF HTML TO RETURN
     }
+
     @RequestMapping("/edit") // SELECTED PROJECT VIEW
     public String editProject(Model model, Integer Id) {
         Optional<Project> project = projectService.getOne(Id);
@@ -91,11 +91,12 @@ public class ProjectController {
         return "project-edit"; // NAME OF HTML TO RETURN
     }
 
-//    @RequestMapping("/view/{Id}") // SELECTED PROJECT VIEW
-//    public String getProject(@PathVariable Integer Id, Model model, Integer id) {
-//        Optional<Project> project = projectService.getOne(id);
-//        model.addAttribute("project", project);
-//
-//        return "project"; // NAME OF HTML TO RETURN
-//    }
+
+    // @RequestMapping("/view/{Id}") // SELECTED PROJECT VIEW
+    // public String getProject(@PathVariable Integer Id, Model model, Integer id) {
+    // Optional<Project> project = projectService.getOne(id);
+    // model.addAttribute("project", project);
+    //
+    // return "project"; // NAME OF HTML TO RETURN
+    // }
 }

@@ -16,7 +16,6 @@ public interface ProjectRepository extends CrudRepository<Project, Integer> {
     @Query("select members from Project pr where pr.Id = ?1")
     List<User> getMembersByProject(Integer Id);
 
-
 //    List<Ticket> selProjectTickets();
 //    List<Project> findByTicketId(int ticketId);
 //

@@ -13,7 +13,7 @@ $('document').ready(function () {
         console.log("2 .table .btn onClick, func()");
 
         $.get(href, function (ticket, status) {
-            $('#ticket-edit-id').val(ticket.id);
+            $('#ticket-edit-id').val(ticket.Id);
             $('#ticket-edit-title').val(ticket.title);
             $('#ticket-edit-description').val(ticket.description);
 

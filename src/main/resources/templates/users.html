@@ -17,117 +17,118 @@
 </head>
 
 <body>
-<script>
+    <script>
         $(document).ready(function () {
             $('#usersListDataTable').DataTable();
         });
 
-</script>
-<!--add navigation sidebar and top bar-->
-<div th:replace="~{base :: navigation}"></div>
+    </script>
+    <!--add navigation sidebar and top bar-->
+    <div th:replace="~{base :: navigation}"></div>
 
-<div role="main" class="align-items-center justify-content-center"
-     style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
-    <H2 style="margin-top: 0px;">_</H2>
+    <div role="main" class="align-items-center justify-content-center"
+        style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
+        <H2 style="margin-top: 0px;">_</H2>
 
-    <!-- START  TITLE CARD -->
-    <div class="card"
-         style="border: solid #e6e6e6 1px; border-radius: 12px; margin-top: 48px; margin-bottom: 15px;">
-        <!--margin div start -->
-        <div style="margin: 23px; ">
-            <!-- Table title and add new BTN -->
-            <div class="row">
-                <div class="col-md-6 text-center">
+        <!-- START  TITLE CARD -->
+        <div class="card"
+            style="border: solid #e6e6e6 1px; border-radius: 12px; margin-top: 48px; margin-bottom: 15px;">
+            <!--margin div start -->
+            <div style="margin: 23px; ">
+                <!-- Table title and add new BTN -->
+                <div class="row">
+                    <div class="col-md-6 text-center">
                         <span class="float-md-left">
                             <h2>Users tab</h2>
                         </span>
-                </div>
-            </div> <!-- END Table title and add new -->
-        </div>
-        <!--margin div end -->
-    </div> <!-- END TITLE CARD  -->
+                    </div>
+                </div> <!-- END Table title and add new -->
+            </div>
+            <!--margin div end -->
+        </div> <!-- END TITLE CARD  -->
 
-    <!-- START big main container -->
-    <div class="card" style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
-        <!--margin div start -->
-        <div style="margin: 23px;">
-            <!-- Table title and add new BTN -->
-            <div class="row">
-                <div class="col-md-6 text-center">
+        <!-- START big main container -->
+        <div class="card" style="border: solid black 0px; border-radius: 12px; margin-bottom: 15px;">
+            <!--margin div start -->
+            <div style="margin: 23px;">
+                <!-- Table title and add new BTN -->
+                <div class="row">
+                    <div class="col-md-6 text-center">
                         <span class="float-md-left">
                             <h3>Users</h3>
                         </span>
-                </div>
+                    </div>
 
-                <div class="col-md-6 text-center">
+                    <div class="col-md-6 text-center">
                         <span class="float-md-right">
-                            <button type="button" class="btn btn-dark " data-toggle="modal"
-                                    data-target="#userAddModal"
-                                    style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
+                            <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#userAddModal"
+                                style="border: solid #343a40 0.5px; border-radius: 5px; padding-top: 7px; padding-bottom: 7px; ">
                                 <i class="fa-solid fa-square-plus" data-toggle="tooltip" title="Edit"
-                                   style="font-size:20px;"></i> New User
+                                    style="font-size:20px;"></i> New User
                             </button>
                         </span>
-                </div>
+                    </div>
 
-                <span class="col-md-6" style="margin-left:2px;">
+                    <span class="col-md-6" style="margin-left:2px;">
                         <h6 class="text-monospace"><small>List of all registered users</small></h6>
 
                     </span>
-            </div> <!-- END Table title and add new -->
+                </div> <!-- END Table title and add new -->
 
-            <hr style="margin-top:6px;margin-bottom:10px;">
+                <hr style="margin-top:6px;margin-bottom:10px;">
 
-            <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive"
-                   id="usersListDataTable"
-                   style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
-                <thead class="thead-dark">
-                <tr class="text-left">
-                    <th class="text-left">#</th>
-                    <th style="width: 25%">First name</th>
-                    <th style="width: 25%">Last name</th>
-                    <th style="width: 25%">Email</th>
-                    <th style="width: 15%">Phone</th>
-                    <th style="width: 10%" class="text-right">Options</th>
+                <table class="table table-curved overflow-hidden table-hover table align-middle table-responsive"
+                    id="usersListDataTable"
+                    style=" border: solid #aaa 1px; border-radius: 5px;  background-color: #ffffff; margin-bottom: 7px;">
+                    <thead class="thead-dark">
+                        <tr class="text-left">
+                            <th class="text-left">#</th>
+                            <th style="width: 25%">First name</th>
+                            <th style="width: 25%">Last name</th>
+                            <th style="width: 25%">Email</th>
+                            <th style="width: 15%">Phone</th>
+                            <th style="width: 10%" class="text-right">Options</th>
 
-                </tr>
-                </thead>
+                        </tr>
+                    </thead>
 
-                <tr class="text-left" th:each="user:${users}">
-                    <td th:text="${user.id}" style="width: 1%">id</td>
-                    <td th:text="${user.firstname}" style="width: 15%">First Name</td>
-                    <td th:text="${user.lastname}" style="width: 15%">Last Name</td>
-                    <td th:text="${user.email}">Email</td>
-                    <td th:text="${user.phoneNumber}">Phone</td>
+                    <tr class="text-left" th:each="user:${users}">
+                        <td th:text="${user.id}" style="width: 1%">id</td>
+                        <td th:text="${user.firstname}" style="width: 15%">First Name</td>
+                        <td th:text="${user.lastname}" style="width: 15%">Last Name</td>
+                        <td th:text="${user.email}">Email</td>
+                        <td th:text="${user.phoneNumber}">Phone</td>
 
-                    <td class="text-right" style="width: 9%;">
+                        <td class="text-right" style="width: 9%;">
 
-                        <a th:href="@{/users/edit/(Id=${user.id})}"  id="userEditButton" class="btn btn-warning btn-sm">
-                            <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
-                        </a>
+                            <a th:href="@{/users/edit/(Id=${user.id})}" id="userEditButton"
+                                class="btn btn-warning btn-sm">
+                                <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
+                            </a>
 
-                        <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-danger btn-sm"
-                           id="usersDeleteButton">
-                            <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>  <!--margin div end -->
-    </div> <!-- END big main container -->
+                            <a th:href="@{/users/delete/(Id=${user.Id})}" class="btn btn-danger btn-sm"
+                                id="usersDeleteButton">
+                                <i class="fas fa-ban" data-toggle="tooltip" title="Delete"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--margin div end -->
+        </div> <!-- END big main container -->
 
-    <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <form th:action="@{/users/addNew}" method="post">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New User</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+        <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <form th:action="@{/users/addNew}" method="post">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New User</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
                             <div class="mb-3">
                                 <label for="id" class="col-form-label">Id:</label>
@@ -144,24 +145,24 @@
                                 <input type="text" class="form-control" id="last-name" name="lastname">
                             </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="col-form-label">Email:</label>
-                            <input type="text" class="form-control" id="email" name="email">
-                        </div>
+                            <div class="mb-3">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="email" name="email">
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="phone" class="col-form-label">Phone:</label>
-                            <input type="text" class="form-control" id="phone" name="phoneNumber">
-                        </div>
+                            <div class="mb-3">
+                                <label for="phone" class="col-form-label">Phone:</label>
+                                <input type="text" class="form-control" id="phone" name="phoneNumber">
+                            </div>
 
-                        <div class="form-group">
-                            <label>Select project to assign to</label>
-                            <select class="custom-select" id="ticket-add-project" name="project">
-                                <option th:each="project:${projects}" th:text="${project.id}"></option>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label>Select project to assign to</label>
+                                <select class="custom-select" id="ticket-add-project" name="project">
+                                    <option th:each="project:${projects}" th:text="${project.id}"></option>
+                                </select>
+                            </div>
 
-                    </div>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Add user</button>
@@ -172,18 +173,18 @@
         </div>
 
 
-    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-         aria-hidden="true">
-        <form th:action="@{/users/update}" method="put">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Ticket</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+        <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+            aria-hidden="true">
+            <form th:action="@{/users/update}" method="put">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit Ticket</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
                             <div class="mb-3">
                                 <label for="user-edit-id" class="col-form-label">Id:</label>
@@ -211,7 +212,7 @@
                             </div>
 
 
-                    </div>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -238,7 +239,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                style="color: white;">Cancel
+                            style="color: white;">Cancel
                         </button>
                         <a href="" class="btn btn-danger btn-d" id="userDelRef1" style="color: white;  ">Confirm
                             delete</a>
@@ -248,7 +249,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 </body>
 
 </html>

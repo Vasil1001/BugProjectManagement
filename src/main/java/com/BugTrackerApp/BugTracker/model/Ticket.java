@@ -23,8 +23,9 @@ public class Ticket {
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_Id")
-    private Project project; // ? FOREIGN KEY
+    @JoinColumn(name = "project_Id", insertable = false, updatable = false)
+    public Project project; // ? FOREIGN KEY
+    public Integer project_id; // ? FOREIGN KEY
 
 
     // * Ticket will show assigned user

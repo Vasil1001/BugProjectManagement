@@ -28,7 +28,7 @@
 
             $('#ticketsListDataTable').DataTable();
 
-            $('#ticketsListDataTable tbody').on('click', 'tr', function() {
+            $('#ticketsListDataTable tbody').on('click', 'tr', function () {
                 var ticket_title = $(this).find('td:eq(0)').text();
                 var ticket_description = $(this).find('td:eq(1)').text();
                 var ticket_status = $(this).find('td:eq(2)').text();
@@ -107,32 +107,33 @@
                     <thead class="thead-dark">
                         <tr class="text-left">
                             <th style="width: 15%">Name</th>
-                            <th style="width: 15%">Assigned to project</th>
                             <th style="width: 30%">Description</th>
-                                                        <th class="text-center" style="width: 10%">Status</th>
-                                                        <th class="text-center" style="width: 10%">Type</th>
-                                                        <th class="text-center" style="width: 10%">Priority</th>
+                            <th class="text-center" style="width: 10%">Status</th>
+                            <th class="text-center" style="width: 10%">Type</th>
+                            <th class="text-center" style="width: 10%">Priority</th>
+                            <th style="width: 15%">Assigned to project</th>
+
                             <th class="text-right" style="width: 10%">Options</th>
                         </tr>
                     </thead>
 
                     <tr class="text-left" th:each="ticket:${tickets}">
-                        <td style="width: 15%" th:text="${ticket.title}">Title</td>
-                        <td style="width: 15%" name = project th:value="${ticket.project}" th:text="${name}" >Title</td>
-                        <td style="width: 35%" th:text="${ticket.description}">Description</td>
-                        <td class="text-center" style="width: 13%" th:text="${ticket.status}">Status</td>
-                        <td class="text-center" style="width: 13%" th:text="${ticket.type}">Type</td>
-                        <td class="text-center" style="width: 13%" th:text="${ticket.priority}">Priority</td>
+                        <td style="width: 17%" th:text="${ticket.title}">Title</td>
+                        <td style="width: 35%" th:text="${ticket.description}"></td>
+                        <td class="text-center" style="width: 14%" th:text="${ticket.status}"></td>
+                        <td class="text-center" style="width: 14%" th:text="${ticket.type}"></td>
+                        <td class="text-center" style="width: 14%" th:text="${ticket.priority}"></td>
+                        <td style="width: 15%" th:value="${ticket.project}" th:text="${ticket.project_id}" ></td>
 
-                        <td class="text-right" >
+                        <td style="width: 12%" class="text-right">
 
-                            <a th:href="@{/tickets/edit/(Id=${ticket.Id})}" class="btn btn-warning btn-sm"
+                            <a th:href="@{/tickets/editInProj/(Id=${ticket.Id})}" class="btn btn-warning btn-sm"
                                 id="ticketEditButton">
                                 <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                             </a>
 
                             <a th:href="@{/tickets/view/(Id=${ticket.Id})}" class="btn btn-secondary btn-sm"
-                               id="ticketViewButton">
+                                id="ticketViewButton">
                                 <i class="fa-solid fa-bars" data-toggle="tooltip" title="View"></i>
                             </a>
                             <!--                        <a th:href="@{/tickets/getOne/(Id=${ticket.Id})}" class="btn btn-warning btn-sm"-->
@@ -228,7 +229,7 @@
                             <div class="form-group">
                                 <label>Select project to assign to</label>
                                 <select class="custom-select" id="ticket-add-project" name="project">
-                                    <option th:each="project:${projects}" th:text="${project.id}"></option>
+                                    <option th:each="project:${projects}" th:value="${project.id}" th:text="${project.name}"></option>
                                 </select>
                             </div>
 

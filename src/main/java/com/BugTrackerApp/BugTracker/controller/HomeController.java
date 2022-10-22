@@ -22,7 +22,7 @@ public class HomeController {
         List<Project> projectsList = projectService.getAll();
 
         model.addAttribute("projects", projectsList);
-        return "index";
+        return "redirect:/projects/getAll";
     }
 
     @RequestMapping("/home")
