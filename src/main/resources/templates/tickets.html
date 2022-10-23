@@ -119,7 +119,7 @@
 
                     <tr class="text-left" th:each="ticket:${tickets}">
                         <td style="width: 10%" th:text="${ticket.title}"></td>
-                        <td style="width: 12%" th:value="${ticket.project}" th:text="${ticket.project.name}" ></td>
+                        <td style="width: 12%" th:value="${ticket.project}" th:text="${ticket.project.name}"></td>
                         <td style="width: 35%" th:text="${ticket.description}"></td>
                         <td class="text-center" style="width: 9%" th:text="${ticket.status}"></td>
                         <td class="text-center" style="width: 9%" th:text="${ticket.type}"></td>
@@ -131,15 +131,6 @@
                                 id="ticketEditButton">
                                 <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
                             </a>
-
-<!--                            <a th:href="@{/tickets/view/(Id=${ticket.Id})}" class="btn btn-secondary btn-sm"-->
-<!--                                id="ticketViewButton">-->
-<!--                                <i class="fa-solid fa-bars" data-toggle="tooltip" title="View"></i>-->
-<!--                            </a>-->
-                            <!--                        <a th:href="@{/tickets/getOne/(Id=${ticket.Id})}" class="btn btn-warning btn-sm"-->
-                            <!--                           id="ticketsEditButton">-->
-                            <!--                            <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>-->
-                            <!--                        </a>-->
 
                             <a th:href="@{/tickets/delete/(Id=${ticket.Id})}" class="btn btn-danger btn-sm"
                                 id="ticketsDeleteButton">
@@ -230,7 +221,8 @@
                             <div class="form-group">
                                 <label>Select project to assign to</label>
                                 <select class="custom-select" id="ticket-add-project" name="project">
-                                    <option th:each="project:${projects}" th:value="${project.id}" th:text="${project.name}"></option>
+                                    <option th:each="project:${projects}" th:value="${project.id}"
+                                        th:text="${project.name}"></option>
                                 </select>
                             </div>
 

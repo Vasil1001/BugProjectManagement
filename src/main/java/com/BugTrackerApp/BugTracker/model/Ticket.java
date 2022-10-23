@@ -25,25 +25,4 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_Id")
     public Project project; // ? FOREIGN KEY
-
-
-
-    // * Ticket will show assigned user
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user; // ? FOREIGN KEY
-
-
-//    private int estimatedTime;
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    private Date createdDate;
-//
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    private Date closedDate;
-//
-//    private String[] statusOptions = {"Issue", "Bug", "Feature request"};
-//    private String[] priorityOptions = {"Immediate", "High", "Medium", "Low"};
-//    private String[] typeOptions = {"New", "Unassigned", "In progress", "Resolved"};
-
-
 }

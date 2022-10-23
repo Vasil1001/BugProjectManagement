@@ -15,10 +15,4 @@ public interface ProjectRepository extends CrudRepository<Project, Integer> {
 
     @Query("select members from Project pr where pr.Id = ?1")
     List<User> getMembersByProject(Integer Id);
-
-//    List<Ticket> selProjectTickets();
-//    List<Project> findByTicketId(int ticketId);
-//
-//    @Query( "select o from MyObject o where inventoryId in :ids" )
-//    List<Ticket> findByInventoryIds(@Param("ids") List<Long> inventoryIdList);
 }

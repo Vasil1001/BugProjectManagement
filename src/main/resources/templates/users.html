@@ -153,7 +153,8 @@
                             <div class="form-group">
                                 <label>Select project to assign to</label>
                                 <select class="custom-select" id="ticket-add-project" name="project">
-                                    <option th:each="project:${projects}" th:value="${project.id}" th:text="${project.name}"></option>
+                                    <option th:each="project:${projects}" th:value="${project.id}"
+                                        th:text="${project.name}"></option>
                                 </select>
                             </div>
 

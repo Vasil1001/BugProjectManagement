@@ -26,8 +26,8 @@ public class ProjectController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/getAll") // RETURN TO HTML
-    public String getAllModel(Model model ) {
+    @RequestMapping("/getAll")
+    public String getAllModel(Model model) {
         List<Project> projectsList = projectService.getAll();
         List<Ticket> ticketsList = ticketService.getAll();
         List<User> usersList = userService.getAll();
@@ -36,7 +36,7 @@ public class ProjectController {
         model.addAttribute("ticketsInList", ticketsList);
         model.addAttribute("usersInList", usersList);
 
-        return "projects"; // NAME OF HTML TO RETURN
+        return "projects";
     }
 
     @RequestMapping("/getOne")
@@ -64,7 +64,7 @@ public class ProjectController {
     }
 
     // Selected Project page
-    @RequestMapping("/expandProject") // SELECTED PROJECT VIEW
+    @RequestMapping("/expandProject")
     public String getViewModel(Model model, Integer Id) {
         List<User> membersList = projectService.getMembersByProject(Id);
         List<Ticket> projectTickets = projectService.getTicketsByProject(Id);
@@ -74,10 +74,10 @@ public class ProjectController {
         model.addAttribute("projectTickets", projectTickets);
         model.addAttribute("projectsList", projectsList);
 
-        return "selectProject"; // NAME OF HTML TO RETURN
+        return "selectProject";
     }
 
-    @RequestMapping("/edit") // SELECTED PROJECT VIEW
+    @RequestMapping("/edit")
     public String editProject(Model model, Integer Id) {
         Optional<Project> project = projectService.getOne(Id);
         model.addAttribute("project", project);
@@ -88,14 +88,6 @@ public class ProjectController {
         List<User> memberList = userService.getAll();
         model.addAttribute("memberList", memberList);
 
-        return "project-edit"; // NAME OF HTML TO RETURN
+        return "project-edit";
     }
-
-    // @RequestMapping("/view/{Id}") // SELECTED PROJECT VIEW
-    // public String getProject(@PathVariable Integer Id, Model model, Integer id) {
-    // Optional<Project> project = projectService.getOne(id);
-    // model.addAttribute("project", project);
-    //
-    // return "project"; // NAME OF HTML TO RETURN
-    // }
 }

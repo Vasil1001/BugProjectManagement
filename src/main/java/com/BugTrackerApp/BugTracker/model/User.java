@@ -29,5 +29,4 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_Id")
     private Project project; // ? FOREIGN KEY
-
 }

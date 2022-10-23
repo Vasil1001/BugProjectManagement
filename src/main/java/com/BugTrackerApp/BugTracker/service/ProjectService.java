@@ -28,7 +28,10 @@ public class ProjectService {
         return projectRepository.getTicketsByProject(Id);
     }
 
-    public List<User> getMembersByProject(Integer Id) { return projectRepository.getMembersByProject(Id); }
+    public List<User> getMembersByProject(Integer Id) {
+        return projectRepository.getMembersByProject(Id);
+    }
+
     public void update(Project project) {
         projectRepository.save(project);
     }
@@ -43,10 +46,5 @@ public class ProjectService {
 
     public void delete(Integer Id) {
         projectRepository.deleteById(Id);
-    }
-
-
-    public List<Ticket> getProjectTickets() {
-        return (List<Ticket>) ticketRepository.findAll();
     }
 }

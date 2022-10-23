@@ -33,21 +33,4 @@ public class TicketService {
     public void delete(Integer Id) {
         ticketRepository.deleteById(Id);
     }
-
-    ///
-
-    // public List<Ticket> getAllTickets() {
-    // List<Ticket> tickets = new ArrayList<>();
-    // ticketRepository.findAll().forEach(tickets::add);
-    // return tickets;
-    // }
-
-    // public void updateTicket(Integer id, Ticket ticket) {
-    // ticketRepository.save(ticket);
-    // }
-    //
-    // public void deleteTicket(Integer id) {
-    // ticketRepository.deleteById(id);
-    // }
-
 }

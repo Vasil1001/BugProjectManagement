@@ -24,7 +24,7 @@ public class TicketController {
     @Autowired
     private ProjectService projectService;
 
-    @RequestMapping("/getAll") // RETURN TO HTML
+    @RequestMapping("/getAll")
     public String getAllModel(Model model) {
         List<Ticket> tickets = ticketService.getAll();
         List<Project> projects = projectService.getAll();
@@ -32,7 +32,7 @@ public class TicketController {
         model.addAttribute("tickets", tickets);
         model.addAttribute("projects", projects);
 
-        return "tickets"; // NAME OF HTML TO RETURN
+        return "tickets";
     }
 
     @RequestMapping("/getOne")
@@ -53,32 +53,33 @@ public class TicketController {
         return "redirect:/projects/expandProject/?Id=" + ticket.getProject().getId();
     }
 
-    @RequestMapping("/project-addTicket") // SELECTED PROJECT VIEW
+    @RequestMapping("/project-addTicket")
     public String addTicketproj(Model model) {
         List<Project> projects = projectService.getAll();
         model.addAttribute("projects", projects);
 
-        return "/project-addTicket"; // NAME OF HTML TO RETURN
+        return "/project-addTicket";
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "/update", method = { RequestMethod.PUT, RequestMethod.GET })
     public String update(Ticket ticket) {
         ticketService.update(ticket);
         return "redirect:/tickets/getAll";
     }
 
-    @RequestMapping(value = "/updateInProj", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "/updateInProj", method = { RequestMethod.PUT, RequestMethod.GET })
     public String updateInProj(Ticket ticket) {
         ticketService.update(ticket);
         return "redirect:/projects/expandProject/?Id=" + ticket.getProject().getId();
     }
-    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+
+    @RequestMapping(value = "/delete", method = { RequestMethod.DELETE, RequestMethod.GET })
     public String delete(Integer Id) {
         ticketService.delete(Id);
         return "redirect:/tickets/getAll";
     }
 
-    @RequestMapping("/edit") // SELECTED PROJECT VIEW
+    @RequestMapping("/edit")
     public String editTicket(Model model, Integer Id) {
         Optional<Ticket> ticket = ticketService.getOne(Id);
         model.addAttribute("ticket", ticket);
@@ -89,11 +90,11 @@ public class TicketController {
         List<Project> projects = projectService.getAll();
         model.addAttribute("projects", projects);
 
-        return "ticket-edit"; // NAME OF HTML TO RETURN
+        return "ticket-edit";
     }
 
-    @RequestMapping("/editInProj") // SELECTED PROJECT VIEW
-    public String editTicketInProj(Model model,  Integer Id) {
+    @RequestMapping("/editInProj") // SELECTED PROJECT EDIT
+    public String editTicketInProj(Model model, Integer Id) {
         Optional<Ticket> ticket = ticketService.getOne(Id);
         model.addAttribute("ticket", ticket);
 
@@ -117,6 +118,6 @@ public class TicketController {
         List<Project> projects = projectService.getAll();
         model.addAttribute("projects", projects);
 
-        return "ticket-view"; // NAME OF HTML TO RETURN
+        return "ticket-view";
     }
 }

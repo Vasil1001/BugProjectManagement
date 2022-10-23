@@ -36,13 +36,16 @@
 
                         <div class="form-group">
                             <label>Ticket Description</label>
-                            <input type="text" name="description" th:field="*{description}" class="form-control" readonly/>
+                            <input type="text" name="description" th:field="*{description}" class="form-control"
+                                readonly />
                         </div>
 
                         <div class="form-group">
                             <label>Assigned Project</label>
-                            <select disabled class="custom-select" id="ticket-add-project" name="project" th:field="*{project}" readonly>
-                                <option disabled th:each="project:${projects}" th:value="${project.id}" th:text="${project.name}" readonly>
+                            <select disabled class="custom-select" id="ticket-add-project" name="project"
+                                th:field="*{project}" readonly>
+                                <option disabled th:each="project:${projects}" th:value="${project.id}"
+                                    th:text="${project.name}" readonly>
                                 </option>
                             </select>
 
@@ -51,7 +54,8 @@
                         <div class="row">
                             <div class="col">
                                 <label>Select ticket status</label>
-                                <select disabled class="custom-select" id="ticket-add-status" name="status" th:field="*{status}" readonly>
+                                <select disabled class="custom-select" id="ticket-add-status" name="status"
+                                    th:field="*{status}" readonly>
                                     <option th:value="New" th:text="New"></option>
                                     <option th:value="In-Progress" th:text="In-Progress"></option>
                                     <option th:value="Resolved" th:text="Resolved"></option>
@@ -60,7 +64,8 @@
 
                             <div class="col">
                                 <label>Select ticket type</label>
-                                <select disabled class="custom-select" id="ticket-add-type" name="type" th:field="*{type}">
+                                <select disabled class="custom-select" id="ticket-add-type" name="type"
+                                    th:field="*{type}">
                                     <option th:value="Issue" th:text="Issue"></option>
                                     <option th:value="Bug" th:text="Bug"></option>
                                     <option th:value="Feature-Request" th:text="Feature-Request"></option>
