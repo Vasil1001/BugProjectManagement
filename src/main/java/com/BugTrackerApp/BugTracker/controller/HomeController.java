@@ -25,12 +25,6 @@ public class HomeController {
         return "redirect:/projects/getAll";
     }
 
-    @RequestMapping("/home")
-    public String home(Model model) {
-        model.addAttribute("title", "Home | BugTracker");
-        return "home";
-    }
-
     @RequestMapping("/about")
     public String about(Model model) {
         model.addAttribute("title", "About | BugTracker");

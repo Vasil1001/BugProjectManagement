@@ -53,6 +53,14 @@ public class TicketController {
         return "redirect:/projects/expandProject/?Id=" + ticket.getProject().getId();
     }
 
+    @RequestMapping("/project-addTicket") // SELECTED PROJECT VIEW
+    public String addTicketproj(Model model) {
+        List<Project> projects = projectService.getAll();
+        model.addAttribute("projects", projects);
+
+        return "/project-addTicket"; // NAME OF HTML TO RETURN
+    }
+
     @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(Ticket ticket) {
         ticketService.update(ticket);

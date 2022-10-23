@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WelcomeController {
 
-    @RequestMapping(value="/we")
-    public static String welcome1() {
-        return ("Welcome to Spring Boot - Welcome Controller");
-    }
-
     @RequestMapping(value="/")
     public static String index() {
         return "projects/getAll";

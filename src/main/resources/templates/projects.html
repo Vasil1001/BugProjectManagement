@@ -97,9 +97,9 @@
                     <thead class="thead-dark">
                         <!--                            class="thead-dark"-->
                         <tr class="text-left">
-                            <th class="text-center">#</th>
-                            <th style="width: 40%">Project Name</th>
-                            <th style="width: 500%">Project Description</th>
+
+                            <th style="width: 50%">Project Name</th>
+                            <th style="width: 50%">Project Description</th>
                             <!--                    <th>Created on</th>-->
                             <!--                    <th>Completed on</th>-->
                             <th style="width: 10%" class="text-right">Options</th>
@@ -107,7 +107,7 @@
                     </thead>
 
                     <tr class="text-left" th:each="project:${projects}">
-                        <td class="text-center" th:text="${project.id}" style="width: 2%"></td>
+
 
                         <td style="width: 15%">
                             <a th:href="@{/projects/expandProject/(Id=${project.id})}" id="projectsViewButton">

@@ -27,7 +27,7 @@ public class ProjectController {
     private UserService userService;
 
     @RequestMapping("/getAll") // RETURN TO HTML
-    public String getAllModel(Model model) {
+    public String getAllModel(Model model ) {
         List<Project> projectsList = projectService.getAll();
         List<Ticket> ticketsList = ticketService.getAll();
         List<User> usersList = userService.getAll();
@@ -90,7 +90,6 @@ public class ProjectController {
 
         return "project-edit"; // NAME OF HTML TO RETURN
     }
-
 
     // @RequestMapping("/view/{Id}") // SELECTED PROJECT VIEW
     // public String getProject(@PathVariable Integer Id, Model model, Integer id) {
