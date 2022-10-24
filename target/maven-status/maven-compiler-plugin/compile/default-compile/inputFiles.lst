@@ -3,11 +3,9 @@ C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerA
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\controller\ProjectController.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\service\UserService.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\repository\TicketRepository.java
-C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\repository\StudentRepository.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\repository\ProjectRepository.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\service\TicketService.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\model\Ticket.java
-C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\service\StudentService.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\controller\UserController.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\controller\TicketController.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\WelcomeController.java
@@ -15,5 +13,3 @@ C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerA
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\controller\HomeController.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\BugTrackerApplication.java
 C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\service\ProjectService.java
-C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\controller\StudentController.java
-C:\Users\vasko\Desktop\Github\BugProjectManagement\src\main\java\com\BugTrackerApp\BugTracker\model\Student.java
