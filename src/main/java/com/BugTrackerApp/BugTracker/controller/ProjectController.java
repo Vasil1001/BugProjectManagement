@@ -45,8 +45,8 @@ public class ProjectController {
     }
 
     @PostMapping(value = "/addNew")
-    public String addNew(Project project) {
-        projectService.addNew(project);
+    public String addNew(Project project) throws Exception {
+            projectService.addNew(project);
         return "redirect:/projects/getAll";
     }
 
@@ -69,9 +69,13 @@ public class ProjectController {
         List<Ticket> projectTickets = projectService.getTicketsByProject(Id);
         List<Project> projectsList = projectService.getAll();
 
+        Optional<Project> project = projectService.getOne(Id);
+
         model.addAttribute("usersInList", membersList);
         model.addAttribute("projectTickets", projectTickets);
         model.addAttribute("projectsList", projectsList);
+
+        model.addAttribute("project", project);
 
         return "selectProject";
     }

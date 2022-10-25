@@ -60,9 +60,9 @@
             <div style="margin: 23px; ">
                 <!-- Table title and add new BTN -->
                 <div class="row">
-                    <div class="col-md-6 text-center">
-                        <span class="float-md-left">
-                            <h2>Selected Project</h2>
+                    <div class="col-md-6" >
+                        <span class="float-md-left" >
+                            <h3>Selected project <input type="text" readonly th:field="*{project.name}" class="form-control-plaintext" style="font-size:17pt;"/></h3>
                         </span>
                     </div>
                 </div> <!-- END Table title and add new -->
@@ -190,15 +190,18 @@
         </div> <!-- END row -->
 
         <!-- START UNDER main container -->
+        <div class="row">
+
+        <div class="col col-lg-8 col-md-12 col-sm-12">
         <div style="background-color: white; border: solid #e9e9e9 1px;
             border-radius: 12px; margin-bottom: 15px; margin-right: 0px; font-family: 'Varela Round', sans-serif; ">
 
             <div style="margin: 23px;">
                 <!-- Table title and add new BTN -->
                 <div class="row">
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-4 text-center">
                         <span class="float-md-left">
-                            <h3>Selected ticket info</h3>
+                            <h4>Selected ticket info</h4>
                         </span>
                     </div>
                 </div> <!-- END Table title and add new -->
@@ -207,13 +210,13 @@
 
                 <form style="margin: 50px;" th:object="${ticket}">
                     <div class="row">
-                        <div class="col">
-                            <label>Ticket Title</label>
-                            <input type="text" id=txtTitle class="form-control" placeholder="Ticket title">
+                        <div class="col-md-4">
+                            <label>Title</label>
+                            <input type="text" readonly id=txtTitle class="form-control" placeholder="No ticket selected">
                         </div>
-                        <div class="col">
-                            <label>Ticket Description</label>
-                            <input type="text" id=txtDescription class="form-control" placeholder="Ticket description">
+                        <div class="col-md-4">
+                            <label>Description</label>
+                            <input type="text" readonly id=txtDescription class="form-control" placeholder="">
                         </div>
 
                     </div>
@@ -221,21 +224,26 @@
                     <br>
 
                     <div class="row">
-                        <div class="col">
-                            <label>Ticket Status</label>
-                            <input type="text" id=txtStatus class="form-control" placeholder="Status">
+                        <div class="col-md-4">
+                            <label>Status</label>
+                            <input type="text" readonly id=txtStatus class="form-control" placeholder="">
                         </div>
-                        <div class="col">
-                            <label>Ticket Type</label>
-                            <input type="text" id=txtType class="form-control" placeholder="Type">
+
+                        <div class="col-md-4">
+                            <label>Priority</label>
+                            <input type="text" readonly name=priority id=txtPriority class="form-control" placeholder="">
                         </div>
-                        <div class="col">
-                            <label>Ticket Priority</label>
-                            <input type="text" name=priority id=txtPriority class="form-control" placeholder="Priority">
+
+                        <div class="col-md-4">
+                            <label>Type</label>
+                            <input type="text" readonly id=txtType class="form-control" placeholder="">
                         </div>
                     </div>
                 </form>
             </div>
+            </div>
+        </div>
+
         </div> <!-- END 2nd main container -->
 
 
@@ -253,6 +261,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top"

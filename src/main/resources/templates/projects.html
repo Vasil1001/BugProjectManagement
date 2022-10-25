@@ -25,6 +25,7 @@
     </script>
     <!-- replace navigation sidebar and top bar from template -->
     <div th:replace="~{base :: navigation}"></div>
+    <script th:replace="~{base :: formValidation}"></script>
 
     <div role="main" class="align-items-center justify-content-center"
         style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
@@ -214,7 +215,7 @@
         <!-- ALL MODALS BELOW -->
         <div class="modal fade" id="projectAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <form th:action="@{/projects/addNew}" method="post" th:object="${project}">
+            <form th:action="@{/projects/addNew}" method="post" class="needs-validation" novalidate th:object="${project}">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -227,14 +228,17 @@
 
                             <div class="form-group">
                                 <label for="project-add-name" class="col-form-label">Project name:</label>
-                                <input type="text" class="form-control" id="project-add-name" name="name">
+                                <input type="text" class="form-control" id="project-add-name" name="name" required>
+                                <div class="invalid-feedback">Please add a project title.</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="project-add-description" class="col-form-label">Project
                                     Description:</label>
                                 <textarea type="text" class="form-control" id="project-add-description" rows="3"
-                                    name="description"></textarea>
+                                    name="description" required></textarea>
+                                <div class="invalid-feedback">Please add a project description.</div>
+
                             </div>
 
                             <!--                        <div class="form-group">-->

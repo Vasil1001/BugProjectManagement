@@ -25,6 +25,7 @@
     </script>
     <!--add navigation sidebar and top bar-->
     <div th:replace="~{base :: navigation}"></div>
+    <script th:replace="~{base :: formValidation}"></script>
 
     <div role="main" class="align-items-center justify-content-center"
         style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
@@ -119,7 +120,7 @@
 
         <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <form th:action="@{/users/addNew}" method="post">
+            <form th:action="@{/users/addNew}"class="needs-validation" novalidate method="post">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -132,22 +133,26 @@
 
                             <div class="mb-3">
                                 <label for="first-name" class="col-form-label">First name:</label>
-                                <input type="text" class="form-control" id="first-name" name="firstname">
+                                <input type="text" class="form-control" id="first-name" name="firstname" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="last-name" class="col-form-label">Last name:</label>
-                                <input type="text" class="form-control" id="last-name" name="lastname">
+                                <input type="text" class="form-control" id="last-name" name="lastname" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" id="email" name="email">
+                                <input type="text" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="phone" class="col-form-label">Phone:</label>
-                                <input type="text" class="form-control" id="phone" name="phoneNumber">
+                                <input type="text" class="form-control" id="phone" name="phoneNumber" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="form-group">
@@ -171,7 +176,7 @@
 
         <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
             aria-hidden="true">
-            <form th:action="@{/users/update}" method="put">
+            <form th:action="@{/users/update}" class="needs-validation" novalidate method="put">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -189,22 +194,26 @@
 
                             <div class="mb-3">
                                 <label for="user-edit-first-name" class="col-form-label">First name:</label>
-                                <input type="text" class="form-control" id="user-edit-first-name" name="firstname">
+                                <input type="text" class="form-control" id="user-edit-first-name" name="firstname" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="user-edit-last-name" class="col-form-label">Last name:</label>
-                                <input type="text" class="form-control" id="user-edit-last-name" name="lastname">
+                                <input type="text" class="form-control" id="user-edit-last-name" name="lastname" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="user-edit-email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" id="user-edit-email" name="email">
+                                <input type="text" class="form-control" id="user-edit-email" name="email" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="user-edit-phone" class="col-form-label">Phone:</label>
-                                <input type="text" class="form-control" id="user-edit-phone" name="phoneNumber">
+                                <input type="text" class="form-control" id="user-edit-phone" name="phoneNumber" required>
+                                <div class="invalid-feedback">Please fill in field.</div>
                             </div>
 
 

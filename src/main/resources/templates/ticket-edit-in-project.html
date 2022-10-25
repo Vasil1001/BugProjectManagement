@@ -16,6 +16,7 @@
 
     <!--add navigation sidebar and top bar-->
     <div th:replace="~{base :: navigation}"></div>
+    <script th:replace="~{base :: formValidation}"></script>
 
     <div role="main" class="align-items-center justify-content-center"
         style="margin-left: 241px; margin-top: 0px; margin-right: 20px; margin-bottom: 280px;">
@@ -27,16 +28,20 @@
                 style="margin-top: 188px; border solid #e6e6e6 1px; border-radius: 12px;">
                 <h3 class="text-center" style="margin-top: 40px">Edit Ticket Info</h3>
                 <div class="card-body">
-                    <form th:action="@{/tickets/updateInProj}" th:object="${ticket}" method="put">
+                    <form th:action="@{/tickets/updateInProj}" class="needs-validation" novalidate th:object="${ticket}" method="put">
 
                         <div class="form-group">
                             <label>Ticket Name</label>
-                            <input type="text" name="name" th:field="*{title}" class="form-control" />
+                            <input type="text" name="name" th:field="*{title}" class="form-control" required />
+                            <div class="invalid-feedback">Please fill in field.</div>
+
                         </div>
 
                         <div class="form-group">
                             <label>Ticket Description</label>
-                            <input type="text" name="name" th:field="*{description}" class="form-control" />
+                            <input type="text" name="name" th:field="*{description}" class="form-control" required/>
+                            <div class="invalid-feedback">Please add a ticket description.</div>
+
                         </div>
 
                         <div class="form-group">

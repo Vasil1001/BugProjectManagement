@@ -48,6 +48,7 @@
     </script>
     <!--add navigation sidebar and top bar-->
     <div th:replace="~{base :: navigation}"></div>
+    <script th:replace="~{base :: formValidation}"></script>
 
     <div role="main" class="align-items-center justify-content-center"
         style="margin-left: 241px; margin-top: 0px; margin-right: 20px;">
@@ -196,7 +197,7 @@
         <!-- MODALS -->
         <div class="modal fade" id="ticketAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <form th:action="@{/tickets/addNew}" method="post">
+            <form th:action="@{/tickets/addNew}" class="needs-validation" novalidate method="post">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -210,12 +211,15 @@
 
                             <div class="form-group">
                                 <label for="ticket-add-title" class="col-form-label">Title:</label>
-                                <input type="text" class="form-control" id="ticket-add-title" name="title">
+                                <input type="text" class="form-control" id="ticket-add-title" name="title" required>
+                                <div class="invalid-feedback">Please add a ticket title.</div>
+
                             </div>
 
                             <div class="form-group">
                                 <label for="ticket-add-description" class="col-form-label">Description:</label>
-                                <input type="text" class="form-control" id="ticket-add-description" name="description">
+                                <input type="text" class="form-control" id="ticket-add-description" name="description" required>
+                                <div class="invalid-feedback">Please add a ticket description.</div>
                             </div>
 
                             <div class="form-group">
@@ -224,35 +228,40 @@
                                     <option th:each="project:${projects}" th:value="${project.id}"
                                         th:text="${project.name}"></option>
                                 </select>
+                                <div class="invalid-feedback">Please select an option.</div>
+
                             </div>
 
                             <div class="row">
                                 <div class="col">
                                     <label>Select ticket status</label>
-                                    <select class="custom-select" id="ticket-add-status" name="status" multiple>
+                                    <select class="custom-select" id="ticket-add-status" name="status" required>
                                         <option th:value="New" th:text="New"></option>
                                         <option th:value="In-Progress" th:text="In-Progress"></option>
                                         <option th:value="Resolved" th:text="Resolved"></option>
                                     </select>
+                                    <div class="invalid-feedback">Please select an option.</div>
                                 </div>
 
                                 <div class="col">
                                     <label>Select ticket type</label>
-                                    <select class="custom-select" id="ticket-add-type" name="type" multiple>
+                                    <select class="custom-select" id="ticket-add-type" name="type" required>
                                         <option th:value="Issue" th:text="Issue">Issue</option>
                                         <option th:value="Bug" th:text="Bug">Bug</option>
                                         <option th:value="Feature-request" th:text="Feature-request"></option>
                                     </select>
+                                    <div class="invalid-feedback">Please select an option.</div>
                                 </div>
                             </div>
                             <br>
 
                             <label>Select ticket priority</label>
-                            <select class="custom-select" id="ticket-add-priority" name="priority" multiple>
+                            <select class="custom-select" id="ticket-add-priority" name="priority" required>
                                 <option th:value="Immediate" th:text="Immediate"></option>
                                 <option th:value="High" th:text="High"></option>
                                 <option th:value="Medium" th:text="Medium"></option>
                                 <option th:value="Low" th:text="Low"></option>
+                                <div class="invalid-feedback">Please select an option.</div>
                             </select>
 
                         </div>

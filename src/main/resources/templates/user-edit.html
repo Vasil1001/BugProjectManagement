@@ -16,6 +16,7 @@
 
     <!--add navigation sidebar and top bar-->
     <div th:replace="~{base :: navigation}"></div>
+    <script th:replace="~{base :: formValidation}"></script>
 
     <div role="main" class="align-items-center justify-content-center"
         style="margin-left: 241px; margin-top: 0px; margin-right: 20px; margin-bottom: 280px;">
@@ -27,26 +28,31 @@
                 style="margin-top: 188px; border solid #e6e6e6 1px; border-radius: 12px;">
                 <h3 class="text-center" style="margin-top: 40px">Edit User Info</h3>
                 <div class="card-body">
-                    <form th:action="@{/users/update}" th:object="${user}" method="put">
+                    <form th:action="@{/users/update}" class="needs-validation" novalidate th:object="${user}" method="put">
 
                         <div class="form-group">
                             <label>First name:</label>
-                            <input type="text" class="form-control" th:field="*{firstname}" name="firstname">
+                            <input type="text" class="form-control" th:field="*{firstname}" name="firstname" required>
+                            <div class="invalid-feedback">Please fill in field.</div>
+
                         </div>
 
                         <div class="form-group">
                             <label>Last name:</label>
-                            <input type="text" class="form-control" th:field="*{lastname}" name="lastname">
+                            <input type="text" class="form-control" th:field="*{lastname}" name="lastname" required>
+                            <div class="invalid-feedback">Please fill in field.</div>
                         </div>
 
                         <div class="form-group">
                             <label>Email:</label>
-                            <input type="text" class="form-control" th:field="*{email}" name="email">
+                            <input type="text" class="form-control" th:field="*{email}" name="email" required>
+                            <div class="invalid-feedback">Please fill in field.</div>
                         </div>
 
                         <div class="form-group">
                             <label>Phone number:</label>
-                            <input type="text" class="form-control" th:field="*{phoneNumber}" name="phoneNumber">
+                            <input type="text" class="form-control" th:field="*{phoneNumber}" name="phoneNumber" required>
+                            <div class="invalid-feedback">Please fill in field.</div>
                         </div>
 
                         <div class="box-footer" style="margin-top:20px;">

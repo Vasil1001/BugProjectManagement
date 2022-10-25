@@ -16,6 +16,7 @@
 
     <!--add navigation sidebar and top bar-->
     <div th:replace="~{base :: navigation}"></div>
+    <script th:replace="~{base :: formValidation}"></script>
 
     <div role="main" class="align-items-center justify-content-center"
         style="margin-left: 241px; margin-top: 0px; margin-right: 20px; margin-bottom: 280px;">
@@ -27,16 +28,20 @@
                 style="margin-top: 188px; border solid #e6e6e6 1px; border-radius: 12px;">
                 <h3 class="text-center" style="margin-top: 40px">Edit Project Info</h3>
                 <div class="card-body">
-                    <form th:action="@{/projects/update}" th:object="${project}" method="put">
+                    <form th:action="@{/projects/update}" class="needs-validation" novalidate th:object="${project}" method="put">
 
                         <div class="form-group">
                             <label>Project Name</label>
-                            <input type="text" name="name" th:field="*{name}" class="form-control" />
+                            <input type="text" name="name" th:field="*{name}" class="form-control" required/>
+                            <div class="invalid-feedback">Please add a project title.</div>
+
                         </div>
 
                         <div class="form-group">
                             <label>Project Description</label>
-                            <input type="text" name="name" th:field="*{description}" class="form-control" />
+                            <input type="text" name="name" th:field="*{description}" class="form-control" required/>
+                            <div class="invalid-feedback">Please add a project description.</div>
+
                         </div>
                         <div class="box-footer" style="margin-top:20px;">
                             <button type="submit" class="btn btn-success">Save</button>
