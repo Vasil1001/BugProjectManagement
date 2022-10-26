@@ -8,6 +8,15 @@ A Spring Boot management web app that allows users to manage a team: create proj
   <summary>Technologies used</summary>
   <ol>
     <li>Java</li>
+    <li>Spring Boot</li>
+    <li> - Spring Data JPA: Persist data in SQL with Java Persistence API using Spring Data and Hibernate. </li>
+    <li> - Spring Web: Built REST API using Spring MVC. </li>
+    <li> - Thymeleaf</li>
+    <li>Bootstrap 4.6</li>
+    <li>JQuery</li>
+    <li>MySQL</li>
+    <li>IntelliJ IDEA</li>
+
   </ol>
 </details>
 
@@ -27,9 +36,11 @@ A Spring Boot management web app that allows users to manage a team: create proj
 
 <!-- general-info -->
 ## General Info
-- This project part of the Object Oriented Programming module at University of Westminster.
+- This project is a personal task to learn Spring Boot and REST APIs in Java.
 - The target learning outcomes are:
-    - Learn Java Basics by practicing with objects and arrays, as well as JavaFX gui.
+    - Spring Boot
+    - MySQL
+    - Rest API
  
 <!-- setup -->
 ## Setup
@@ -38,13 +49,14 @@ To run this app, you will need the following:
 
 <!-- usage -->
 ## Usage
-- Run app
-- Press g to load gui
-- Simulate teams playing games
+- Clone Project
+- Create a database connection and a schema
+- Configure application.properties to match your database
+- Run Spring Boot
 
 <!-- project-status -->
 ## Project Status
-Project is: _done_
+Project is: _in progress_
 
 <!-- contact -->
 ## Contact
@@ -54,14 +66,21 @@ Created by [Vasil] - feel free to contact me!
 <!-- app-screenshots -->
 ## App screenshots
 
-Login Page | Register Page 
+Dashboard Page | Create Project 
 :-----------------------:|:-----------------------:
-![chrome_UdUGL56b0X](https://user-images.githubusercontent.com/78150846/196760645-e189f5ee-d410-434b-9009-583f8316c327.png)|![chrome_BKqmxxvHdU](https://user-images.githubusercontent.com/78150846/196760671-82cd3e0e-781b-49b6-9378-98771c30e2f5.png)
+![chrome_SLlqesFjco](https://user-images.githubusercontent.com/78150846/198050813-51f71c20-c138-4c4c-a909-041e5912a2c7.png)|![chrome_fEZSV3SZxG](https://user-images.githubusercontent.com/78150846/198050903-f4757a96-6ddf-4a2f-875f-9a5e4a7cb69b.png)
 
-Companies Page 
+Selected Project Page 
 :-----------------------:
-![chrome_dOPiJEDced](https://user-images.githubusercontent.com/78150846/196762752-d49767d0-ef14-4d6b-9895-6295742bc272.png)
-(<a href="#readme-top">back to top</a>)</p>
+![chrome_VoHbTYRj6a](https://user-images.githubusercontent.com/78150846/198051412-d8413350-572f-48ef-9631-26b2d6b1b624.png)
+
+Edit Ticket  Page 
+:-----------------------:
+![chrome_zXpJzzj2N8](https://user-images.githubusercontent.com/78150846/198051706-72730f22-1379-4d7e-b66e-a723ed332f6d.png)
+
+Tickets Page 
+:-----------------------:
+![image](https://user-images.githubusercontent.com/78150846/198051898-080825fc-d9ec-471a-89aa-62d0ce39d0a6.png)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!--  [![Next][Next.js]][Next-url] [![React][React.js]][React-url] [![Vue][Vue.js]][Vue-url] [![Bootstrap][Bootstrap.com]][Bootstrap-url] [![JQuery][JQuery.com]][JQuery-url] -->
